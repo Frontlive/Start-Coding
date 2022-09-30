@@ -12,6 +12,4 @@ const Page = () => {
 
 export default Page;
 
-export const getStaticProps = async () => {
-
-}
+export const getStaticProps = async () => {};
