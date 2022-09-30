@@ -1,6 +1,5 @@
 {
 	"$schema": "https://turborepo.org/schema.json",
-	"globalEnv": ["PORT"],
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
@@ -14,6 +13,7 @@
 			"outputs": []
 		},
 		"dev": {
+			"env": ["PORT"],
 			"cache": false
 		}
 	}
