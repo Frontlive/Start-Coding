@@ -1,22 +1,25 @@
 {
-  "name": "generated",
-  "version": "0.0.1",
-  "description": "Shared types generated from GraphQL schema",
-  "private": true,
-  "scripts": {
-    "generate": "graphql-codegen && tsc -p tsconfig.json"
-  },
-  "types": "./index.ts",
-  "main": "./dist/index.js",
-  "keywords": [],
-  "dependencies": {
-    "@graphql-codegen/cli": "^2.6.2",
-    "@graphql-codegen/typed-document-node": "^2.2.11",
-    "@graphql-codegen/typescript": "^2.4.11",
-    "@graphql-codegen/typescript-operations": "^2.4.0",
-    "@graphql-codegen/typescript-react-apollo": "^3.2.14",
-    "@graphql-codegen/typescript-resolvers": "^2.6.4",
-    "graphql": "^16.5.0",
-    "tsconfig": "*"
-  }
+	"name": "generated",
+	"version": "0.0.1",
+	"description": "Shared types generated from GraphQL schema",
+	"private": true,
+	"scripts": {
+		"generate": "graphql-codegen && tsc -p tsconfig.json"
+	},
+	"types": "./index.ts",
+	"main": "./dist/index.js",
+	"keywords": [],
+	"dependencies": {
+		"@graphql-codegen/cli": "^2.6.2",
+		"@graphql-codegen/typed-document-node": "^2.2.11",
+		"@graphql-codegen/typescript": "^2.4.11",
+		"@graphql-codegen/typescript-operations": "^2.4.0",
+		"@graphql-codegen/typescript-react-apollo": "^3.2.14",
+		"@graphql-codegen/typescript-resolvers": "^2.6.4",
+		"graphql": "^16.5.0"
+	},
+	"devDependencies": {
+		"tsconfig": "*",
+		"typescript": "*"
+	}
 }

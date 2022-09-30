@@ -1,5 +1,5 @@
 {
-	"name": "web",
+	"name": "@start/web",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -17,7 +17,8 @@
 		"react-dom": "18.2.0",
 		"scheduler": "^0.23.0",
 		"use-context-selector": "^1.4.1",
-		"eslint-config-custom": "*"
+		"eslint-config-custom": "*",
+		"generated": "*"
 	},
 	"devDependencies": {
 		"@testing-library/jest-dom": "^5.16.5",

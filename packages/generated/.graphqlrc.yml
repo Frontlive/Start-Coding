@@ -1,2 +1,0 @@
-schema: "apps/api/src/schema.gql"
-documents: "apps/web/**/*.gql"
