@@ -3,5 +3,10 @@
 
 
 type Query {
+  authInfo: auth0
   helloWorld: String
+}
+
+type auth0 {
+  sub: String
 }

@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@apollo/client": "^3.7.0",
 		"@auth0/nextjs-auth0": "^1.9.1",
+		"clsx": "^1.2.1",
 		"eslint-config-custom": "*",
 		"generated": "*",
 		"graphql": "^16.6.0",
