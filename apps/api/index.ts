@@ -29,7 +29,7 @@ const authInfo = queryField('authInfo', {
 });
 
 const schema = makeSchema({
-	types: [helloWorld],
+	types: [helloWorld, authInfo],
 	outputs: {
 		schema: __dirname + '/schema.gql',
 	},
@@ -38,7 +38,6 @@ const schema = makeSchema({
 const instance = createYoga({
 	schema,
 	plugins: [
-		// eslint-disable-next-line react-hooks/rules-of-hooks
 		useAuth0({
 			domain: env.AUTH0_DOMAIN,
 			audience: `https://${env.BASE_URL}/graphql`,
