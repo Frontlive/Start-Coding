@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@apollo/client": "^3.7.0",
 		"@auth0/nextjs-auth0": "^1.9.1",
+		"@radix-ui/react-dropdown-menu": "^1.0.0",
 		"clsx": "^1.2.1",
 		"eslint-config-custom": "*",
 		"generated": "*",
