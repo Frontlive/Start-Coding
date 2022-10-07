@@ -5,5 +5,9 @@ type NavbarProps = {
 };
 
 export const Navbar = ({ children }: NavbarProps) => {
-	return <nav>{children}</nav>;
+	return (
+		<nav>
+			<ul className="list-none">{children}</ul>
+		</nav>
+	);
 };
