@@ -1,4 +1,5 @@
 import { handleAuth, handleLogin } from '@auth0/nextjs-auth0';
+import { isServerErrorWithStatusAndMessage } from '../../../utils/apiRoutes/isServerErrorWithStatusAndMessage';
 
 export default handleAuth({
 	async login(req, res) {
@@ -9,9 +10,10 @@ export default handleAuth({
 					scope: 'openid profile email',
 				},
 			});
-			//Add handler for unknown
-		} catch (error: any) {
-			res.status(error.status || 400).end(error.message);
+		} catch (error: unknown) {
+			if (isServerErrorWithStatusAndMessage(error)) {
+				res.status(error.status || 400).end(error.message);
+			}
 		}
 	},
 });
