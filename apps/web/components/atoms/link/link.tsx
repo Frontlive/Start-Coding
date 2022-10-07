@@ -1,7 +1,13 @@
 import { default as NextLink } from 'next/link';
 import { AnchorHTMLAttributes, ReactNode } from 'react';
+import clsx from 'clsx';
 
-type LinkVariants = 'primary' | 'secondary' | 'tertiary';
+type LinkVariants = 'primary' | 'secondary';
+
+const variants = {
+	primary: 'bg-sky-700 text-white border-white',
+	secondary: 'bg-white text-black border-sky-700',
+} as const;
 
 type LinkProps = {
 	href: string;
@@ -9,10 +15,13 @@ type LinkProps = {
 	children: ReactNode;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link = ({ href, children, ...rest }: LinkProps) => {
+export const Link = ({ href, children, variant, ...rest }: LinkProps) => {
 	return (
 		<NextLink href={href}>
-			<a className="p-8" {...rest}>
+			<a
+				className={clsx(variants[variant], 'p-2 border-2 rounded-lg')}
+				{...rest}
+			>
 				{children}
 			</a>
 		</NextLink>
