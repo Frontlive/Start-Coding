@@ -23,6 +23,7 @@
 		"use-context-selector": "^1.4.1"
 	},
 	"devDependencies": {
+		"@svgr/webpack": "^6.4.0",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@types/node": "18.7.23",
