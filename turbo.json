@@ -12,6 +12,10 @@
 		"test": {
 			"outputs": []
 		},
+		"storybook": {
+			"outputs": [],
+			"cache": false
+		},
 		"dev": {
 			"env": ["PORT"],
 			"cache": false
