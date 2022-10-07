@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Header } from '../organisms/header';
+import { Header } from 'organisms/header';
 
 type MainLayoutProps = {
 	children: ReactNode;

@@ -1,4 +1,4 @@
-import { GenericLink } from '../../atoms/genericLink/genericLink';
+import { GenericLink } from 'atoms/genericLink/genericLink';
 
 export type Link = {
 	name: string;
