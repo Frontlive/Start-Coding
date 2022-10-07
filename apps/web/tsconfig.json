@@ -20,7 +20,8 @@
 			"molecules/*": ["components/molecules/*"],
 			"organisms/*": ["components/organisms/*"],
 			"templates/*": ["components/templates/*"],
-			"layouts/*": ["components/layouts/*"]
+			"layouts/*": ["components/layouts/*"],
+			"utils/*": ["utils/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
