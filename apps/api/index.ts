@@ -1,66 +1,15 @@
-import { useAuth0 } from '@envelop/auth0';
-import { createYoga } from 'graphql-yoga';
-import { createApp } from 'h3';
-import { createServer } from 'http';
-import { makeSchema, objectType, queryField } from 'nexus';
-import { env } from './config';
-import { logger } from './logger';
-
-const helloWorld = queryField('helloWorld', {
-	type: 'String',
-	resolve() {
-		return 'Hello World';
-	},
-});
-
-const authInfoType = objectType({
-	name: 'auth0',
-	definition(t) {
-		t.string('sub');
-	},
-});
-
-const authInfo = queryField('authInfo', {
-	type: authInfoType,
-	resolve(root, args, ctx) {
-		console.log('AUTH0', ctx.auth0);
-		return ctx.auth0;
-	},
-});
-
-const schema = makeSchema({
-	types: [helloWorld, authInfo],
-	outputs: {
-		schema: __dirname + '/schema.gql',
-	},
-});
-
-const instance = createYoga({
-	schema,
-	plugins: [
-		useAuth0({
-			domain: env.AUTH0_DOMAIN,
-			audience: `https://${env.BASE_URL}/graphql`,
-			extendContextField: 'auth0',
-			preventUnauthenticatedAccess: true,
-			onError(error) {
-				console.log(error.message);
-			},
-		}),
-	],
-});
-
-const app = createApp();
-
-app.use('/graphql', instance);
-
-const server = createServer(app);
+import { env } from './src/config';
+import { logger } from './src/logger';
+import { writeFile } from 'node:fs/promises';
+import { server } from './src/server';
+import { schemaAsString } from './src/grapqhl';
 
 const main = async () => {
 	try {
-		server.listen(env.PORT, () => {
-			logger.success(`Server is running on port ${env.PORT}`);
-		});
+		await writeFile('./schema.gql', schemaAsString);
+		server.listen({ port: env.PORT });
+
+		logger.success(`🚀 Server ready at http://localhost:${env.PORT}`);
 	} catch (err) {
 		logger.error(err);
 
