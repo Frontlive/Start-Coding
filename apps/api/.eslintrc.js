@@ -1,4 +1,7 @@
 module.exports = {
-  root: true,
-  extends: ["custom"],
+	root: true,
+	extends: ['custom'],
+	rules: {
+		'@typescript-eslint/ban-ts-comment': 'off',
+	},
 };
