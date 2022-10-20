@@ -9,3 +9,55 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @default(autoincrement()) @id
+  email     String   @unique
+  name      String
+  nickname  String
+  picture   String
+  user_id   String   @unique
+
+  posted_tasks Task[]
+  comments     Comment[]
+  @@map("users")
+}
+
+model Task {
+  id        Int      @default(autoincrement()) @id
+  title     String
+  description String
+
+  user_id   Int
+  user      User     @relation(fields: [user_id], references: [id])
+
+  comments  Comment[]
+  rating   Int
+  difficulty Difficulty
+
+  @@map("tasks")
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+model Comment {
+  id        Int      @default(autoincrement()) @id
+  comment   String
+
+  user_id   Int
+  user      User     @relation(fields: [user_id], references: [id])
+
+  parent_comment_id Int? @unique
+  parent_comment    Comment? @relation("ParentChild", fields: [parent_comment_id], references: [id], onDelete: Cascade) 
+
+  child_comments Comment[] @relation("ParentChild")
+
+  task_id   Int?
+  task      Task?     @relation(fields: [task_id], references: [id])
+
+  @@map("comments")
+}

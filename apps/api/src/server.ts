@@ -1,8 +1,12 @@
 import fastify from 'fastify';
+import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { instance } from './grapqhl';
 import { webhooksPlugin } from './webhooks/webhooks.plugin';
+import { dbPlugin } from './db.plugin';
 
-export const server = fastify();
+export const server = fastify().withTypeProvider<TypeBoxTypeProvider>();
+
+server.register(dbPlugin);
 
 server.route({
 	url: '/graphql',

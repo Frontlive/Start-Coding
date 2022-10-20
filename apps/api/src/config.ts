@@ -8,4 +8,5 @@ export const env = cleanEnv(process.env, {
 	DATABASE_URL: str(),
 	AUTH0_DOMAIN: str(),
 	BASE_URL: str(),
+	WEBHOOK_SECRET: str(),
 });
