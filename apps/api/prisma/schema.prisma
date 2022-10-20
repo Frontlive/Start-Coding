@@ -5,6 +5,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator pothos {
+  provider = "prisma-pothos-types"
+  clientOutput = "@prisma/client"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -20,6 +25,10 @@ model User {
 
   posted_tasks Task[]
   comments     Comment[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
   @@map("users")
 }
 
@@ -34,6 +43,9 @@ model Task {
   comments  Comment[]
   rating   Int
   difficulty Difficulty
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("tasks")
 }
@@ -58,6 +70,9 @@ model Comment {
 
   task_id   Int?
   task      Task?     @relation(fields: [task_id], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("comments")
 }

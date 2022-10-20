@@ -1,6 +1,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import fp from 'fastify-plugin';
 import { Static, Type } from '@sinclair/typebox';
+import { D } from '@mobily/ts-belt';
 import { env } from '../config';
 
 export const WebhookPayload = Type.Object({
@@ -35,13 +36,13 @@ export const webhooksPlugin = fp(async (fastify, _opts) => {
 				const payload = request.body;
 
 				await fastify.db.user.create({
-					data: {
-						email: payload.email,
-						name: payload.name,
-						nickname: payload.nickname,
-						picture: payload.picture,
-						user_id: payload.user_id,
-					},
+					data: D.selectKeys(payload, [
+						'email',
+						'name',
+						'nickname',
+						'picture',
+						'user_id',
+					]),
 				});
 
 				return reply.status(200).send('OK');
