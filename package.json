@@ -28,7 +28,7 @@
 	"dependencies": {},
 	"packageManager": "yarn@1.22.19",
 	"lint-staged": {
-		"src/**/*.{ts, tsx}": [
+		"*.{ts, tsx}": [
 			"yarn lint",
 			"yarn format"
 		]
