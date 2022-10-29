@@ -5,21 +5,30 @@ import clsx from 'clsx';
 type LinkVariants = 'primary' | 'secondary';
 
 const variants = {
-	primary: 'bg-sky-700 text-white border-white',
-	secondary: 'bg-white text-black border-sky-700',
+	primary: 'bg-primary text-white border-white',
+	secondary: 'bg-white text-black border-primary',
 } as const;
 
 type LinkProps = {
 	href: string;
 	variant: LinkVariants;
 	children: ReactNode;
+	fullWidth?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link = ({ href, children, variant, ...rest }: LinkProps) => {
+export const Link = ({
+	href,
+	children,
+	variant,
+	fullWidth = false,
+	...rest
+}: LinkProps) => {
 	return (
 		<NextLink href={href}>
 			<a
-				className={clsx(variants[variant], 'p-2 border-2 rounded-lg')}
+				className={clsx(variants[variant], 'p-2 border-2 rounded-2xl', {
+					'w-full': fullWidth,
+				})}
 				{...rest}
 			>
 				{children}
