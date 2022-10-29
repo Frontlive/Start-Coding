@@ -4,7 +4,7 @@ import { DropdownMenuItem } from 'atoms/dropdownMenuItem/dropdownMenuItem';
 import { Divider } from 'atoms/divider/divider';
 import profileDefaultSvg from 'icons/profile-default.svg';
 import { Link } from 'atoms/link/link';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 type HeaderUserLoggedInItemProps = {
 	user: {
