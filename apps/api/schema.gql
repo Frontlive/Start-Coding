@@ -14,12 +14,21 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 scalar DateTime
 
 type Query {
+  allUsers: [User!]!
+
   """Auth0 context info"""
   authInfo: AuthInfo
+}
 
-  """Hello world"""
-  helloWorld: String!
+type Task {
+  description: String!
+  id: ID!
+  title: String!
+}
 
-  """Now"""
-  now: DateTime!
+type User {
+  email: String!
+  id: ID!
+  name: String!
+  postedTasks: [Task!]!
 }

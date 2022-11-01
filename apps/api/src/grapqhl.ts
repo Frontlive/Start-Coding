@@ -1,16 +1,17 @@
 import { useAuth0 } from '@envelop/auth0';
 import { EnvelopArmorPlugin } from '@escape.tech/graphql-armor';
-import { printSchema, lexicographicSortSchema } from 'graphql';
+import { pipe } from '@mobily/ts-belt';
+import { lexicographicSortSchema, printSchema } from 'graphql';
 import { rateLimitDirective } from 'graphql-rate-limit-directive';
 import { createYoga } from 'graphql-yoga';
+
 import { env } from './config';
-import { pipe } from '@mobily/ts-belt';
+import { schema as rawSchema } from './schema';
 import type { Context } from './types';
-import { builder } from './builder';
 
 const { rateLimitDirectiveTransformer } = rateLimitDirective();
 
-const schema = pipe(builder.toSchema(), rateLimitDirectiveTransformer);
+const schema = pipe(rawSchema, rateLimitDirectiveTransformer);
 
 export const schemaAsString = pipe(
 	schema,
@@ -29,6 +30,9 @@ export const instance = createYoga<Context>({
 			extendContextField: 'auth0',
 			preventUnauthenticatedAccess: env.isProd,
 		}),
-		EnvelopArmorPlugin(),
+		EnvelopArmorPlugin({
+			maxDepth: { n: 5 },
+			maxAliases: { n: 2 },
+		}),
 	],
 });

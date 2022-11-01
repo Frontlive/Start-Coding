@@ -7,7 +7,7 @@
 		"generate": "graphql-codegen && tsc -p tsconfig.json"
 	},
 	"types": "./index.ts",
-	"main": "./dist/index.js",
+	"main": "./index.js",
 	"keywords": [],
 	"dependencies": {
 		"@graphql-codegen/cli": "^2.6.2",

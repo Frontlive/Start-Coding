@@ -1,4 +1,4 @@
-import { default as consola, FancyReporter, WinstonReporter } from 'consola';
+import { FancyReporter, WinstonReporter, default as consola } from 'consola';
 import { env } from './config';
 
 const Reporter = env.isDev ? FancyReporter : WinstonReporter;
