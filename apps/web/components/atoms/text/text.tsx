@@ -4,14 +4,14 @@ import cx from 'clsx';
 export type TextSize = 'small' | 'medium' | 'large';
 type Variants = 'default' | 'error';
 export type TextTag = keyof Pick<JSX.IntrinsicElements, 'p' | 'span'>;
-type TagPositon = 'left' | 'center' | 'right';
+export type TagPosition = 'left' | 'center' | 'right';
 
 type TextProps = {
 	children: ReactNode;
 	size: TextSize;
 	variant: Variants;
 	tag: TextTag;
-	position?: TagPositon;
+	position?: TagPosition;
 };
 
 export const Text = ({
