@@ -11,12 +11,10 @@ export const Header = () => {
 		<header className="px-12 py-4 flex justify-between items-center w-full sticky shadow-xl">
 			<div className="flex items-center justify-between max-w-sm w-full">
 				<h1 className="font-bold text-2xl">
-					<Link href="/">
-						<a>Start-Coding</a>
-					</Link>
+					<Link href="/">Start-Coding</Link>
 				</h1>
 				<Navbar>
-					<NavLink link={{ name: 'Zadania', href: '' }} />
+					<NavLink link={{ name: 'Zadania', href: '/challenge/new' }} />
 				</Navbar>
 			</div>
 			{!isLoading && !user && <HeaderUserLoginContent />}
