@@ -11,9 +11,12 @@ export const ProtectedPage = ({ children }: ProtectedPageProps) => {
 	const { isLoading, user } = useUser();
 	const router = useRouter();
 	useEffect(() => {
-		if (!isLoading && !user) {
-			router.push('/api/auth/login');
-		}
+		const redirectToLogin = async () => {
+			if (!isLoading && !user) {
+				await router.push('/api/auth/login');
+			}
+		};
+		void redirectToLogin();
 	}, [isLoading, router, user]);
 
 	if (isLoading) return <div>Loading ...</div>;
