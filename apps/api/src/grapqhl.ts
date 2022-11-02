@@ -6,6 +6,7 @@ import { rateLimitDirective } from 'graphql-rate-limit-directive';
 import { createYoga } from 'graphql-yoga';
 
 import { env } from './config';
+import { client } from './prisma';
 import { schema as rawSchema } from './schema';
 import type { Context } from './types';
 
@@ -23,6 +24,10 @@ export const instance = createYoga<Context>({
 	schema,
 	maskedErrors: env.isProd,
 	landingPage: env.isDev,
+	context: (ctx) => ({
+		...ctx,
+		db: client,
+	}),
 	plugins: [
 		useAuth0({
 			domain: env.AUTH0_DOMAIN,
