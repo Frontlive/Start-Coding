@@ -1,9 +1,9 @@
 import { DropdownMenu } from 'organisms/dropdownMenu/dropdownMenu';
 import { GenericLink } from 'atoms/genericLink/genericLink';
-import { DropdownMenuItem } from 'atoms/dropdownMenuItem/dropdownMenuItem';
+import { DropdownMenuItem } from 'atoms/dropdownMenu/dropdownMenuItem/dropdownMenuItem';
 import { Divider } from 'atoms/divider/divider';
 import profileDefaultSvg from 'icons/profile-default.svg';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import { AddNewTaskLink } from 'molecules/addNewTaskLink/addNewTaskLink';
 import { useRouter } from 'next/router';
 
