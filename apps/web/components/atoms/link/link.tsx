@@ -24,15 +24,14 @@ export const Link = ({
 	...rest
 }: LinkProps) => {
 	return (
-		<NextLink href={href}>
-			<a
-				className={clsx(variants[variant], 'p-2 border-2 rounded-2xl', {
-					'w-full': fullWidth,
-				})}
-				{...rest}
-			>
-				{children}
-			</a>
+		<NextLink
+			href={href}
+			className={clsx(variants[variant], 'p-2 border-2 rounded-2xl', {
+				'w-full': fullWidth,
+			})}
+			{...rest}
+		>
+			{children}
 		</NextLink>
 	);
 };
