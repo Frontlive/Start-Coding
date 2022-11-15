@@ -8,8 +8,8 @@ type GenericLinkProps = {
 
 export const GenericLink = ({ href, children }: GenericLinkProps) => {
 	return (
-		<Link href={href}>
-			<a className="font-semibold text-blue-600">{children}</a>
+		<Link href={href} className="font-semibold text-blue-600">
+			{children}
 		</Link>
 	);
 };
