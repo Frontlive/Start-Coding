@@ -17,13 +17,12 @@ type LinkProps = {
 
 export const Link = ({ href, children, variant, ...rest }: LinkProps) => {
 	return (
-		<NextLink href={href}>
-			<a
-				className={clsx(variants[variant], 'p-2 border-2 rounded-lg')}
-				{...rest}
-			>
-				{children}
-			</a>
+		<NextLink
+			href={href}
+			className={clsx(variants[variant], 'p-2 border-2 rounded-lg')}
+			{...rest}
+		>
+			{children}
 		</NextLink>
 	);
 };
