@@ -8,3 +8,8 @@ export type Context = {
 	reply: FastifyReply;
 	db: PrismaClient;
 };
+
+export type GetPothosInputType<MaybePothosInput> =
+	MaybePothosInput extends PothosSchemaTypes.InputObjectRef<infer InputType>
+		? InputType
+		: never;

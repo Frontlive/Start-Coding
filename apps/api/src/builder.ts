@@ -6,7 +6,7 @@ import PluginPrisma from '@pothos/plugin-prisma';
 import { client } from './prisma';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
 
-export const builder = new SchemaBuilder<{
+type SchemaCustomTypes = {
 	Context: Context;
 	Scalars: {
 		Date: { Input: Date; Output: Date };
@@ -20,11 +20,20 @@ export const builder = new SchemaBuilder<{
 		};
 	};
 	PrismaTypes: PrismaTypes;
-}>({
+	DefaultFieldNullability: true;
+	DefaultInputFieldRequiredness: true;
+};
+
+export type TypesWithDefaults =
+	PothosSchemaTypes.ExtendDefaultTypes<SchemaCustomTypes>;
+
+export const builder = new SchemaBuilder<SchemaCustomTypes>({
 	plugins: [DirectivePlugin, PluginPrisma],
 	prisma: {
 		client,
 	},
+	defaultFieldNullability: true,
+	defaultInputFieldRequiredness: true,
 });
 
 builder.scalarType('File', {

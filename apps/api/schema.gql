@@ -1,6 +1,18 @@
+input AllTasksInput {
+  cursor: CursorInput
+  status: Status
+
+  """How many records you want?"""
+  take: Int = 10
+}
+
 """Auth0 user info"""
 type AuthInfo {
   sub: String
+}
+
+input CursorInput {
+  id: Int!
 }
 
 """
@@ -16,21 +28,29 @@ scalar DateTime
 scalar File
 
 type Query {
-  allUsers: [User!]!
+  allUsers: [User!]
 
   """Auth0 context info"""
   authInfo: AuthInfo
+  task(id: ID!): Task
+  tasks(input: AllTasksInput): [Task!]
+}
+
+enum Status {
+  ACTIVE
+  IN_REVIEW
 }
 
 type Task {
-  description: String!
-  id: ID!
-  title: String!
+  description: String
+  id: ID
+  status: Status
+  title: String
 }
 
 type User {
-  email: String!
-  id: ID!
-  name: String!
-  postedTasks: [Task!]!
+  email: String
+  id: ID
+  name: String
+  postedTasks: [Task!]
 }

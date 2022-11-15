@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity", "fullTextSearch", "extendedWhereUnique", "interactiveTransactions"]
 }
 
 generator pothos {
