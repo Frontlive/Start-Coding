@@ -17,8 +17,8 @@ export const HeaderUserLoggedInItem = ({
 	user,
 }: HeaderUserLoggedInItemProps) => {
 	return (
-		<div className="flex items-center">
-			<div className="h-10 w-10 mr-2">
+		<div className="flex flex-col lg:flex-row items-center">
+			<div className="h-10 w-10 mr-2 ">
 				{user.avatarSrc ? (
 					<Image
 						className="rounded-full border"
