@@ -11,10 +11,10 @@ import { useState } from 'react';
 export const Header = () => {
 	const { user, isLoading } = useUser();
 	const [isBurgerMenuActive, setIsBurgerMenuActive] = useState(false);
-	const showBurgerMenu = () => {
+	const openBurgerMenu = () => {
 		setIsBurgerMenuActive(true);
 	};
-	const hideBurgerMenu = () => {
+	const closeBurgerMenu = () => {
 		setIsBurgerMenuActive(false);
 	};
 	const NavBar = (
@@ -28,11 +28,11 @@ export const Header = () => {
 				Start-Coding
 			</h1>
 
-			<button onClick={showBurgerMenu} className="lg:hidden">
+			<button onClick={openBurgerMenu} className="lg:hidden">
 				<Image src={BurgerIcon} alt="Burger Icon" height={50} width={50} />
 			</button>
 			{isBurgerMenuActive && (
-				<DropDownBurgerMenu hideBurgerMenu={hideBurgerMenu}>
+				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
 					{NavBar}
 				</DropDownBurgerMenu>
 			)}
