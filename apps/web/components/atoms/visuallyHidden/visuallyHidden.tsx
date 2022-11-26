@@ -1,9 +1,11 @@
 import cx from 'clsx';
 import { ReactNode } from 'react';
 
+type ContainerType = keyof Pick<JSX.IntrinsicElements, 'div' | 'span'>;
+
 type VisualyHiddenProps = {
 	children: ReactNode;
-	as?: 'div' | 'span';
+	as?: ContainerType;
 	visibleOnFocus?: boolean;
 };
 
