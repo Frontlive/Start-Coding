@@ -11,10 +11,9 @@ type VisualyHiddenProps = {
 
 export const VisualyHidden = ({
 	children,
-	as = 'div',
+	as: HtmlTag = 'div',
 	visibleOnFocus,
 }: VisualyHiddenProps) => {
-	const HtmlTag = as;
 	return (
 		<HtmlTag
 			className={cx('sr-only', { 'focus-within:not-sr-only': visibleOnFocus })}
