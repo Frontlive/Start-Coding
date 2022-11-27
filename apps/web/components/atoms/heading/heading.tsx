@@ -13,9 +13,12 @@ type HeadingProps = {
 	size: TextSize;
 } & HTMLAttributes<HTMLHeadingElement>;
 
-export const Heading = ({ children, tag, size, ...rest }: HeadingProps) => {
-	const Tag = tag;
-
+export const Heading = ({
+	children,
+	tag: Tag,
+	size,
+	...rest
+}: HeadingProps) => {
 	return (
 		<Tag
 			className={cx({

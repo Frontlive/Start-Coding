@@ -12,8 +12,7 @@ type TextProps = {
 	tag: TextTag;
 };
 
-export const Text = ({ children, size, variant, tag }: TextProps) => {
-	const Tag = tag;
+export const Text = ({ children, size, variant, tag: Tag }: TextProps) => {
 	return (
 		<Tag
 			className={cx(
