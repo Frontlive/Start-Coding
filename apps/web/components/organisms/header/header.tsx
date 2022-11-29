@@ -6,22 +6,11 @@ import { HeaderUserLoginItem } from 'organisms/headerUserLoginItem/headerUserLog
 import { HeaderUserLoggedInItem } from 'organisms/headerUserLoggedInItem/headerUserLoggedInItem';
 import BurgerIcon from '../../icons/burger-icon.svg';
 import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/DropDownBurgerMenu';
-import { useState } from 'react';
+import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
-	const [isBurgerMenuActive, setIsBurgerMenuActive] = useState(false);
-	const openBurgerMenu = () => {
-		setIsBurgerMenuActive(true);
-	};
-	const closeBurgerMenu = () => {
-		setIsBurgerMenuActive(false);
-	};
-	const NavBar = (
-		<Navbar>
-			<NavLink link={{ name: 'Zadania', href: '' }} />
-		</Navbar>
-	);
+	const {closeBurgerMenu,isBurgerMenuActive,openBurgerMenu} = useHamburgerMenu()
 	return (
 		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl">
 			<h1 className="font-bold text-2xl whitespace-nowrap	 mr-20">
@@ -29,16 +18,21 @@ export const Header = () => {
 			</h1>
 
 			<button onClick={openBurgerMenu} className="lg:hidden">
-				<Image src={BurgerIcon} alt="Burger Icon" height={50} width={50} />
+				<Image src={BurgerIcon} alt="" height={50} width={50} />
+				<span className='sr-only'>Open Menu</span>
 			</button>
 			{isBurgerMenuActive && (
 				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
-					{NavBar}
+					<Navbar>
+			<NavLink link={{ name: 'Zadania', href: '' }} />
+		</Navbar>
 				</DropDownBurgerMenu>
 			)}
 			<div className="hidden lg:flex items-center justify-between w-full">
 				<div className="flex items-center justify-between max-w-sm w-full">
-					{NavBar}
+				<Navbar>
+			<NavLink link={{ name: 'Zadania', href: '' }} />
+		</Navbar>
 				</div>
 				{!isLoading && !user && <HeaderUserLoginItem />}
 				{!isLoading && user && (
