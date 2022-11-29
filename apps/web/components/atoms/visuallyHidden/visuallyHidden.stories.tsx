@@ -15,7 +15,7 @@ export const Default: ComponentStory<typeof VisualyHidden> = (props) => {
 };
 
 Default.args = {
-	as: 'div',
+	tag: 'div',
 };
 
 export const VisibleOnFocus: ComponentStory<typeof VisualyHidden> = (props) => {
@@ -27,6 +27,6 @@ export const VisibleOnFocus: ComponentStory<typeof VisualyHidden> = (props) => {
 };
 
 VisibleOnFocus.args = {
-	as: 'div',
+	tag: 'div',
 	visibleOnFocus: true,
 };

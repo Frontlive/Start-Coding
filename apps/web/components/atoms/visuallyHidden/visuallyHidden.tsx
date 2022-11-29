@@ -5,13 +5,13 @@ type ContainerType = keyof Pick<JSX.IntrinsicElements, 'div' | 'span'>;
 
 type VisualyHiddenProps = {
 	children: ReactNode;
-	as?: ContainerType;
+	tag?: ContainerType;
 	visibleOnFocus?: boolean;
 };
 
 export const VisualyHidden = ({
 	children,
-	as: HtmlTag = 'div',
+	tag: HtmlTag = 'div',
 	visibleOnFocus,
 }: VisualyHiddenProps) => {
 	return (
