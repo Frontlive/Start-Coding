@@ -11,7 +11,7 @@ type VisualyHiddenProps = {
 
 export const VisualyHidden = ({
 	children,
-	tag: HtmlTag = 'div',
+	tag: HtmlTag = 'span',
 	visibleOnFocus,
 }: VisualyHiddenProps) => {
 	return (
