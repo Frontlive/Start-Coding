@@ -45,3 +45,4 @@ builder.addScalarType('Date', DateResolver, {});
 builder.addScalarType('DateTime', DateTimeResolver, {});
 
 builder.queryType({});
+builder.mutationType({});

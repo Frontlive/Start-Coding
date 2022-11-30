@@ -1,7 +1,10 @@
-import { Status } from '@prisma/client';
+import { Status, Difficulty } from '@prisma/client';
 import { builder } from '../../builder';
 
 export const StatusEnum = builder.enumType(Status, { name: 'Status' });
+export const DifficultyEnum = builder.enumType(Difficulty, {
+	name: 'Difficulty',
+});
 
 export const Task = builder.prismaObject('Task', {
 	findUnique: (task) => ({ id: task.id }),
@@ -12,5 +15,6 @@ export const Task = builder.prismaObject('Task', {
 			type: StatusEnum,
 		}),
 		description: t.exposeString('description'),
+		user: t.relation('user'),
 	}),
 });

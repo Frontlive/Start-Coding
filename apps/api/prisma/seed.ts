@@ -6,14 +6,19 @@ const prisma = new PrismaClient();
 faker.setLocale('pl');
 
 const main = async () => {
+	await Promise.all([prisma.task.deleteMany(), prisma.user.deleteMany()]);
+
 	await prisma.user.createMany({
-		data: Array.from({ length: 5 }, () => ({
-			email: faker.internet.email(),
-			name: faker.name.firstName(),
-			nickname: faker.internet.userName(),
-			picture: faker.image.avatar(),
-			user_id: faker.datatype.uuid(),
-		})),
+		data: Array.from({ length: 5 }, () => {
+			const name = faker.name.firstName();
+			return {
+				email: faker.internet.email(name),
+				name,
+				nickname: faker.internet.userName(name),
+				picture: faker.image.avatar(),
+				user_id: faker.datatype.uuid(),
+			};
+		}),
 	});
 
 	const users = await prisma.user.findMany();

@@ -1,5 +1,5 @@
 import type { UserPayload } from '@envelop/auth0';
-import type { PrismaClient } from '@prisma/client';
+import type { PrismaClient, User } from '@prisma/client';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 
 export type Context = {
@@ -7,6 +7,7 @@ export type Context = {
 	req: FastifyRequest;
 	reply: FastifyReply;
 	db: PrismaClient;
+	user: User | null;
 };
 
 export type GetPothosInputType<MaybePothosInput> =

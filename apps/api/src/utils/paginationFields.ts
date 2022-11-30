@@ -1,8 +1,10 @@
 import { D } from '@mobily/ts-belt';
 import type { InputFieldBuilder } from '@pothos/core';
 import { builder, TypesWithDefaults } from '../builder';
-import type { AllTasksInputType } from '../modules/tasks/resolvers';
+import type { TasksInputType } from '../modules/tasks/resolvers';
 import { removeNull } from './removeNull';
+
+const DEFAULT_TAKE = 10;
 
 const CursorInput = builder.inputRef<{ id: number }>('CursorInput').implement({
 	fields: (t) => ({
@@ -25,11 +27,11 @@ export const inputPaginationFields = (
 });
 
 export const prismaPaginationFields = (
-	input: AllTasksInputType | null | undefined,
+	input: TasksInputType | null | undefined,
 ) => ({
 	cursor: removeNull(input?.cursor),
-	take: removeNull(input?.take),
-	skip: 1,
+	take: removeNull(input?.take) ?? DEFAULT_TAKE,
+	skip: input ? 1 : 0,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
