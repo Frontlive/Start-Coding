@@ -4,7 +4,7 @@ import { DropdownMenuItem } from 'atoms/dropdownMenu/dropdownMenuItem/dropdownMe
 import { Divider } from 'atoms/divider/divider';
 import profileDefaultSvg from 'icons/profile-default.svg';
 import Image from 'next/image';
-import { AddNewTaskLink } from 'molecules/addNewTaskLink/addNewTaskLink';
+import { AddNewTaskLink } from 'molecules/challengePage/addNewTaskLink/addNewTaskLink';
 import { useRouter } from 'next/router';
 
 type HeaderUserLoggedInItemProps = {

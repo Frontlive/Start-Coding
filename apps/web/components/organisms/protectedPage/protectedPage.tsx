@@ -19,7 +19,7 @@ export const ProtectedPage = ({ children }: ProtectedPageProps) => {
 		void redirectToLogin();
 	}, [isLoading, router, user]);
 
-	if (isLoading) return <div>Loading ...</div>;
+	if (isLoading || !user) return <div>Loading ...</div>;
 
 	return <>{children}</>;
 };

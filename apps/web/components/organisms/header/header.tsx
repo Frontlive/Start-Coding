@@ -1,4 +1,4 @@
-import { Navbar } from 'molecules/navbar/navbar';
+import { Navbar } from 'atoms/navbar/navbar';
 import { NavLink } from 'molecules/navItem/navLink';
 import { useUser } from '@auth0/nextjs-auth0';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';

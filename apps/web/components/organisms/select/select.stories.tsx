@@ -1,4 +1,4 @@
-import { Select } from 'molecules/select/select';
+import { Select } from 'organisms/select/select';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useController, useForm } from 'react-hook-form';
 

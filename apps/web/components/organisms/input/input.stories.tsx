@@ -1,4 +1,4 @@
-import { Input } from 'molecules/input/input';
+import { Input } from 'organisms/input/input';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {

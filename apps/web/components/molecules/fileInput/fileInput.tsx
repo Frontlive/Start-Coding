@@ -1,5 +1,4 @@
-import { ChangeEvent, forwardRef, ReactNode } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { forwardRef, ReactNode } from 'react';
 import { useFileInput } from 'molecules/fileInput/useFileInput';
 import { Text } from 'atoms/text/text';
 
@@ -12,19 +11,10 @@ type FileInputProps = {
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 	({ children, name, isSinglePhoto }, ref) => {
-		const { onDrop, errorMessage } = useFileInput({
-			isSinglePhoto,
-		});
-		const { getRootProps, getInputProps, open } = useDropzone({
-			accept: { 'image/*': [] },
-			onDrop: onDrop,
-			noClick: true,
-			noKeyboard: true,
-		});
-
-		const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-			console.log(e);
-		};
+		const { errorMessage, getInputProps, getRootProps, open, onChange } =
+			useFileInput({
+				isSinglePhoto,
+			});
 
 		return (
 			<div

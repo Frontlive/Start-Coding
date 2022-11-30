@@ -3,17 +3,17 @@ import { ReactNode } from 'react';
 
 type ContainerType = keyof Pick<JSX.IntrinsicElements, 'div' | 'span'>;
 
-type VisualyHiddenProps = {
+type VisuallyHiddenProps = {
 	children: ReactNode;
 	tag?: ContainerType;
 	visibleOnFocus?: boolean;
 };
 
-export const VisualyHidden = ({
+export const VisuallyHidden = ({
 	children,
 	tag: HtmlTag = 'span',
 	visibleOnFocus,
-}: VisualyHiddenProps) => {
+}: VisuallyHiddenProps) => {
 	return (
 		<HtmlTag
 			className={cx('sr-only', { 'focus-within:not-sr-only': visibleOnFocus })}
