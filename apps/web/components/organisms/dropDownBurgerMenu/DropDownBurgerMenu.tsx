@@ -3,8 +3,9 @@ import ExitIcon from '../../icons/exit-icon.svg';
 import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
 import { HeaderUserLoginItem } from 'organisms/headerUserLoginItem/headerUserLoginItem';
+import { Link } from 'atoms/link/link';
 
-import Link from 'next/link';
+import { GenericLink } from 'atoms/genericLink/genericLink';
 
 type DropDownBurgerMenuProps = {
 	hideBurgerMenu: () => void;
@@ -15,7 +16,7 @@ export const DropDownBurgerMenu = ({
 	hideBurgerMenu,
 }: DropDownBurgerMenuProps) => {
 	const { user, isLoading } = useUser();
-	
+
 	return (
 		<div className="flex flex-col justify-center  items-center top-0 left-0 absolute h-screen w-screen bg-white">
 			<button onClick={hideBurgerMenu} className="absolute top-10 right-10">
@@ -24,18 +25,16 @@ export const DropDownBurgerMenu = ({
 			</button>
 			{!isLoading && !user && <HeaderUserLoginItem />}
 			{!isLoading && user && (
-				<div className='flex flex-col justify-center items-center font-semibold text-blue-600'>
+				<div className="flex gap-4 flex-col justify-center items-center font-semibold text-blue-600">
+					{children}
 
-				<Link  href="/profile">
-				Profil
-			</Link>
-			<Link className='mt-5' href="/api/auth/logout">
-				Wyloguj się
-			</Link>
+					<Link href="/add/challenge" variant="primary">
+						Dodaj zadanie
+					</Link>
+					<GenericLink href="/profile">Profil</GenericLink>
+					<GenericLink href="/api/auth/logout">Wyloguj się</GenericLink>
 				</div>
 			)}
-			{children}
 		</div>
 	);
 };
-

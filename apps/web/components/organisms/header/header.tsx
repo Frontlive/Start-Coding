@@ -10,7 +10,8 @@ import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu'
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
-	const {closeBurgerMenu,isBurgerMenuActive,openBurgerMenu} = useHamburgerMenu()
+	const { closeBurgerMenu, isBurgerMenuActive, openBurgerMenu } =
+		useHamburgerMenu();
 	return (
 		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl">
 			<h1 className="font-bold text-2xl whitespace-nowrap	 mr-20">
@@ -19,20 +20,20 @@ export const Header = () => {
 
 			<button onClick={openBurgerMenu} className="lg:hidden">
 				<Image src={BurgerIcon} alt="" height={50} width={50} />
-				<span className='sr-only'>Open Menu</span>
+				<span className="sr-only">Open Menu</span>
 			</button>
 			{isBurgerMenuActive && (
 				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
 					<Navbar>
-			<NavLink link={{ name: 'Zadania', href: '' }} />
-		</Navbar>
+						<NavLink link={{ name: 'Zadania', href: '' }} />
+					</Navbar>
 				</DropDownBurgerMenu>
 			)}
 			<div className="hidden lg:flex items-center justify-between w-full">
 				<div className="flex items-center justify-between max-w-sm w-full">
-				<Navbar>
-			<NavLink link={{ name: 'Zadania', href: '' }} />
-		</Navbar>
+					<Navbar>
+						<NavLink link={{ name: 'Zadania', href: '' }} />
+					</Navbar>
 				</div>
 				{!isLoading && !user && <HeaderUserLoginItem />}
 				{!isLoading && user && (
