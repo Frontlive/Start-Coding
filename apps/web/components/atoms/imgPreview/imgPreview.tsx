@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import cx from 'clsx';
 
 type ImgPreviewSize = 'small' | 'big';
@@ -6,8 +6,8 @@ type ImgPreviewSize = 'small' | 'big';
 type ImgPreviewProps = {
 	src: string;
 	alt: string;
-	height: string | number;
-	width: string | number;
+	height: number;
+	width: number;
 	size: ImgPreviewSize;
 };
 
@@ -26,7 +26,7 @@ export const ImgPreview = ({
 			})}
 		>
 			<Image
-				className="w-full h-full"
+				className="w-auto h-auto"
 				src={src}
 				alt={alt}
 				height={height}
