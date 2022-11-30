@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 html,
-body {
+body,
+#__next {
 	min-height: 100vh;
 	width: 100%;
 	padding: 0;
