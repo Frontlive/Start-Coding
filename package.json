@@ -13,17 +13,19 @@
 		"format": "prettier --write --cache \"**/*.{ts,tsx,md}\"",
 		"prepare": "husky install",
 		"test": "turbo run test --parallel",
-		"storybook": "turbo run storybook"
+		"storybook": "turbo run storybook",
+		"clear": "rimraf node_modules **/node_modules **/dist **/.turbo"
 	},
 	"devDependencies": {
 		"eslint-config-custom": "*",
 		"husky": "^8.0.0",
 		"lint-staged": "^13.0.3",
 		"prettier": "^2.7.1",
-		"turbo": "latest"
+		"rimraf": "3.0.2",
+		"turbo": "^1.6.3"
 	},
 	"engines": {
-		"node": ">=14.0.0"
+		"node": ">=18.11.0"
 	},
 	"dependencies": {},
 	"packageManager": "yarn@1.22.19",

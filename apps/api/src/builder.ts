@@ -6,11 +6,12 @@ import PluginPrisma from '@pothos/plugin-prisma';
 import { client } from './prisma';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
 
-export const builder = new SchemaBuilder<{
+type SchemaCustomTypes = {
 	Context: Context;
 	Scalars: {
 		Date: { Input: Date; Output: Date };
 		DateTime: { Input: Date; Output: Date };
+		File: { Input: File; Output: never };
 	};
 	Directives: {
 		rateLimit: {
@@ -19,44 +20,29 @@ export const builder = new SchemaBuilder<{
 		};
 	};
 	PrismaTypes: PrismaTypes;
-}>({
+	DefaultFieldNullability: true;
+	DefaultInputFieldRequiredness: true;
+};
+
+export type TypesWithDefaults =
+	PothosSchemaTypes.ExtendDefaultTypes<SchemaCustomTypes>;
+
+export const builder = new SchemaBuilder<SchemaCustomTypes>({
 	plugins: [DirectivePlugin, PluginPrisma],
 	prisma: {
 		client,
 	},
+	defaultFieldNullability: true,
+	defaultInputFieldRequiredness: true,
 });
 
+builder.scalarType('File', {
+	serialize: () => {
+		throw new Error('Uploads can only be used as input types');
+	},
+});
 builder.addScalarType('Date', DateResolver, {});
 builder.addScalarType('DateTime', DateTimeResolver, {});
 
-builder.prismaObject('Task', {
-	findUnique: (task) => ({ id: task.id }),
-	fields: (t) => ({
-		id: t.exposeID('id'),
-		title: t.exposeString('title'),
-		description: t.exposeString('description'),
-	}),
-});
-
-builder.prismaObject('User', {
-	findUnique: (user) => ({ id: user.id }),
-	fields: (t) => ({
-		id: t.exposeID('id'),
-		email: t.exposeString('email'),
-		name: t.exposeString('name'),
-		postedTasks: t.relation('posted_tasks'),
-	}),
-});
-
-builder.queryField('allUsers', (t) =>
-	t.prismaField({
-		type: ['User'],
-		async resolve(query, _parent, _args, _ctx, _info) {
-			return await client.user.findMany({
-				...query,
-			});
-		},
-	}),
-);
-
 builder.queryType({});
+builder.mutationType({});

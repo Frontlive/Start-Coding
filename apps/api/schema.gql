@@ -3,6 +3,18 @@ type AuthInfo {
   sub: String
 }
 
+input CreateTasksInput {
+  description: String!
+  difficulty: Difficulty!
+  status: Status!
+  thumbnail_url: String!
+  title: String!
+}
+
+input CursorInput {
+  id: Int!
+}
+
 """
 A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
@@ -13,22 +25,71 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
+input DeleteTasksInput {
+  id: Int!
+}
+
+enum Difficulty {
+  ADVANCED
+  BEGINNER
+  INTERMEDIATE
+}
+
+scalar File
+
+type Mutation {
+  createTask(input: CreateTasksInput!): Task
+  deleteTask(input: DeleteTasksInput!): Task
+  updateTask(input: UpdateTasksInput!): Task
+}
+
 type Query {
-  allUsers: [User!]!
+  allUsers: [User!]
 
   """Auth0 context info"""
   authInfo: AuthInfo
+  task(input: TaskInput!): Task
+  tasks(input: TasksInput): [Task!]
+}
+
+enum Status {
+  ACTIVE
+  IN_REVIEW
 }
 
 type Task {
-  description: String!
-  id: ID!
-  title: String!
+  description: String
+  id: ID
+  status: Status
+  title: String
+  user: User
+}
+
+input TaskInput {
+  id: Int!
+}
+
+input TasksInput {
+  cursor: CursorInput
+  status: Status
+
+  """How many records you want?"""
+  take: Int = 10
+}
+
+input UpdateTasksInput {
+  description: String
+  difficulty: Difficulty
+  id: Int!
+  rating: Int
+  status: Status
+  thumbnail_url: String
+  title: String
 }
 
 type User {
-  email: String!
-  id: ID!
-  name: String!
-  postedTasks: [Task!]!
+  email: String
+  id: ID
+  name: String
+  postedTasks: [Task!]
 }
