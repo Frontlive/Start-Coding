@@ -21,7 +21,7 @@ export const DropDownBurgerMenu = ({
 		<div className="flex flex-col justify-center  items-center top-0 left-0 absolute h-screen w-screen bg-white">
 			<button onClick={hideBurgerMenu} className="absolute top-10 right-10">
 				<Image alt="" src={ExitIcon} width={50} height={50} />
-				<span className="sr-only">exit menu</span>
+				
 			</button>
 			{!isLoading && !user && <HeaderUserLoginItem />}
 			{!isLoading && user && (
