@@ -1,6 +1,6 @@
 import { DropdownMenuRoot } from 'molecules/dropdownMenuRoot/dropdownMenuRoot';
-import { DropdownMenuTrigger } from 'atoms/dropdownMenuTrigger/dropdownMenuTrigger';
-import { DropdownMenuContent } from 'atoms/dropdownMenuContent/dropdownMenuContent';
+import { DropdownMenuTrigger } from 'atoms/dropdownMenu/dropdownMenuTrigger/dropdownMenuTrigger';
+import { DropdownMenuContent } from 'atoms/dropdownMenu/dropdownMenuContent/dropdownMenuContent';
 import { ReactNode } from 'react';
 
 type DropdownMenuProps = {

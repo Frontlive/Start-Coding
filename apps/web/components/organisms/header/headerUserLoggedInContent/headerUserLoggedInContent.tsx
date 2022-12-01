@@ -1,10 +1,11 @@
 import { DropdownMenu } from 'organisms/dropdownMenu/dropdownMenu';
 import { GenericLink } from 'atoms/genericLink/genericLink';
-import { DropdownMenuItem } from 'atoms/dropdownMenuItem/dropdownMenuItem';
+import { DropdownMenuItem } from 'atoms/dropdownMenu/dropdownMenuItem/dropdownMenuItem';
 import { Divider } from 'atoms/divider/divider';
 import profileDefaultSvg from 'icons/profile-default.svg';
-import { Link } from 'atoms/link/link';
 import Image from 'next/image';
+import { AddNewTaskLink } from 'molecules/challengePage/addNewTaskLink/addNewTaskLink';
+import { useRouter } from 'next/router';
 
 type HeaderUserLoggedInItemProps = {
 	user: {
@@ -13,9 +14,11 @@ type HeaderUserLoggedInItemProps = {
 	};
 };
 
-export const HeaderUserLoggedInItem = ({
+export const HeaderUserLoggedInContent = ({
 	user,
 }: HeaderUserLoggedInItemProps) => {
+	const router = useRouter();
+	const isOnChallengeNewPage = router.pathname.includes('/challenge/new');
 	return (
 		<div className="flex flex-col lg:flex-row items-center">
 			<div className="h-10 w-10 mr-2 ">
@@ -47,9 +50,7 @@ export const HeaderUserLoggedInItem = ({
 					<DropdownMenuItem>Wyloguj się</DropdownMenuItem>
 				</GenericLink>
 			</DropdownMenu>
-			<Link href="/add/challenge" variant="primary">
-				Dodaj zadanie
-			</Link>
+			{!isOnChallengeNewPage && <AddNewTaskLink />}
 		</div>
 	);
 };

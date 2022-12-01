@@ -1,16 +1,16 @@
-import { VisualyHidden } from './visuallyHidden';
+import { VisuallyHidden } from './visuallyHidden';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
 	title: 'Main Library/atoms/VisualyHidden',
-	component: VisualyHidden,
-} as ComponentMeta<typeof VisualyHidden>;
+	component: VisuallyHidden,
+} as ComponentMeta<typeof VisuallyHidden>;
 
-export const Default: ComponentStory<typeof VisualyHidden> = (props) => {
+export const Default: ComponentStory<typeof VisuallyHidden> = (props) => {
 	return (
-		<VisualyHidden {...props}>
+		<VisuallyHidden {...props}>
 			<button>visually hidden content</button>
-		</VisualyHidden>
+		</VisuallyHidden>
 	);
 };
 
@@ -18,11 +18,13 @@ Default.args = {
 	tag: 'span',
 };
 
-export const VisibleOnFocus: ComponentStory<typeof VisualyHidden> = (props) => {
+export const VisibleOnFocus: ComponentStory<typeof VisuallyHidden> = (
+	props,
+) => {
 	return (
-		<VisualyHidden {...props}>
+		<VisuallyHidden {...props}>
 			<button>visually hidden content</button>
-		</VisualyHidden>
+		</VisuallyHidden>
 	);
 };
 

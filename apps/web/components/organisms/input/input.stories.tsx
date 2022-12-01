@@ -1,6 +1,5 @@
-import { Input } from 'molecules/input/input';
+import { Input } from 'organisms/input/input';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { useState } from 'react';
 
 export default {
 	title: 'Main Library/molecules/Input',
@@ -8,14 +7,9 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 export const Primary: ComponentStory<typeof Input> = (props) => {
-	const [value, setValue] = useState('');
 	return (
 		<div className="max-w-sm">
-			<Input
-				{...props}
-				value={value}
-				onChange={(e) => setValue(e.target.value)}
-			/>
+			<Input {...props} />
 		</div>
 	);
 };
@@ -26,14 +20,9 @@ Primary.args = {
 };
 
 export const WithError: ComponentStory<typeof Input> = (props) => {
-	const [value, setValue] = useState('');
 	return (
 		<div className="max-w-sm">
-			<Input
-				{...props}
-				value={value}
-				onChange={(e) => setValue(e.target.value)}
-			/>
+			<Input {...props} />
 		</div>
 	);
 };
@@ -46,14 +35,9 @@ WithError.args = {
 };
 
 export const WithDisabled: ComponentStory<typeof Input> = (props) => {
-	const [value, setValue] = useState('');
 	return (
 		<div className="max-w-sm">
-			<Input
-				{...props}
-				value={value}
-				onChange={(e) => setValue(e.target.value)}
-			/>
+			<Input {...props} />
 		</div>
 	);
 };
