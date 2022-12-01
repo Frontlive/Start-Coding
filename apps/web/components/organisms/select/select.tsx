@@ -41,7 +41,7 @@ export const Select = ({
 			disabled={disabled}
 		>
 			{({ open }) => (
-				<div className="relative z-50">
+				<div className="relative z-0">
 					<span className="inline-block w-full rounded-md shadow-sm">
 						<SelectButton
 							disabled={disabled}

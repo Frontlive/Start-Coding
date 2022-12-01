@@ -14,7 +14,7 @@ export const Header = () => {
 	const { closeBurgerMenu, isBurgerMenuActive, openBurgerMenu } =
 		useHamburgerMenu();
 	return (
-		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl">
+		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
 			<h1 className="font-bold text-2xl whitespace-nowrap	 mr-20">
 				Start-Coding
 			</h1>

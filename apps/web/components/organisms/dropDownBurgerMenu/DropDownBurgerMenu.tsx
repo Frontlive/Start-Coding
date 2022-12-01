@@ -19,7 +19,7 @@ export const DropDownBurgerMenu = ({
 	const { user, isLoading } = useUser();
 
 	return (
-		<div className="flex flex-col justify-center  items-center top-0 left-0 absolute h-screen w-screen bg-white">
+		<div className="flex flex-col justify-center  items-center top-0 left-0 absolute h-screen w-screen bg-white z-50">
 			<button onClick={hideBurgerMenu} className="absolute top-10 right-10">
 				<Image alt="" src={ExitIcon} width={50} height={50} />
 				<VisuallyHidden>exit</VisuallyHidden>
@@ -29,7 +29,7 @@ export const DropDownBurgerMenu = ({
 				<div className="flex gap-4 flex-col justify-center items-center font-semibold text-blue-600">
 					{children}
 
-					<Link href="/add/challenge" variant="primary">
+					<Link href="/challenge/new" variant="primary">
 						Dodaj zadanie
 					</Link>
 					<GenericLink href="/profile">Profil</GenericLink>

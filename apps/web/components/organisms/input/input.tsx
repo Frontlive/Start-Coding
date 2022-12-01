@@ -28,7 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 	) => {
 		const id = useId();
 		const className = cx(
-			'border  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer',
+			'border z-0 block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer',
 			{
 				'border-sky-600': !disabled,
 				'border-red-600': isError,
