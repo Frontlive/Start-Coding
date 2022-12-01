@@ -7,6 +7,7 @@ import { HeaderUserLoggedInItem } from 'organisms/headerUserLoggedInItem/headerU
 import BurgerIcon from '../../icons/burger-icon.svg';
 import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/DropDownBurgerMenu';
 import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
+import { VisualyHidden } from 'atoms/visuallyHidden/visuallyHidden';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
@@ -20,7 +21,11 @@ export const Header = () => {
 
 			<button onClick={openBurgerMenu} className="lg:hidden">
 				<Image src={BurgerIcon} alt="" height={50} width={50} />
-				<span className="sr-only">Open Menu</span>
+				<VisualyHidden >
+				burger
+
+				</VisualyHidden>
+
 			</button>
 			{isBurgerMenuActive && (
 				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
