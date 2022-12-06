@@ -9,8 +9,10 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
-		"lint": "turbo run lint && :",
-		"format": "prettier --write --cache \"**/*.{ts,tsx,md}\"",
+		"lint": "turbo run lint --parallel",
+		"lint:fix": "turbo run lint:fix --parallel",
+		"format": "prettier --write .",
+		"check-format": "prettier --check .",
 		"prepare": "husky install",
 		"test": "turbo run test --parallel",
 		"storybook": "turbo run storybook"
@@ -26,11 +28,5 @@
 		"node": ">=14.0.0"
 	},
 	"dependencies": {},
-	"packageManager": "yarn@1.22.19",
-	"lint-staged": {
-		"*.{ts, tsx}": [
-			"yarn lint",
-			"yarn format"
-		]
-	}
+	"packageManager": "yarn@1.22.19"
 }
