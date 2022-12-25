@@ -1,15 +1,8 @@
 import { Card } from 'atoms/card/card';
-
-type ChallengeItem = {
-	title: string;
-	description: string;
-	designs: string;
-	difficulty: string;
-	image: string;
-};
+import { Challenge } from '../../../types/types';
 
 type ChallengeItemProps = {
-	challenge: ChallengeItem;
+	challenge: Challenge;
 };
 export const ChallengeItem = ({ challenge }: ChallengeItemProps) => {
 	return (

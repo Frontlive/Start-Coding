@@ -1,14 +1,7 @@
 import { ChallengeItem } from 'molecules/challengeItem/challengeItem';
+import { Challenge } from '../../../../types/types';
 
-type challenge = {
-	title: string;
-	description: string;
-	designs: string;
-	difficulty: string;
-	image: string;
-};
-
-const challenges: challenge[] = [
+const challenges: Challenge[] = [
 	{
 		title: 'First Challenge',
 		description:
@@ -32,13 +25,11 @@ const challenges: challenge[] = [
 
 export const AllChallenges = () => {
 	return (
-		<>
-			<div className="mx-auto w-11/12">
-				<h1>Strona z zadaniami</h1>
-				{challenges.map((challenge) => (
-					<ChallengeItem challenge={challenge} />
-				))}
-			</div>
-		</>
+		<div className="mx-auto w-11/12">
+			<h1>Strona z zadaniami</h1>
+			{challenges.map((challenge) => (
+				<ChallengeItem challenge={challenge} />
+			))}
+		</div>
 	);
 };
