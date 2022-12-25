@@ -7,6 +7,8 @@ import dynamic from 'next/dynamic';
 import { Input } from 'organisms/input/input';
 import { Select } from 'organisms/select/select';
 
+import { Challenge as ChallengeFormValues } from '../../../types/types';
+
 const Editor = dynamic(
 	() => import('molecules/editor/editor').then((component) => component.Editor),
 	{
@@ -34,14 +36,6 @@ const difficulties: Difficulties = [
 		value: 'advanced',
 	},
 ];
-
-type ChallengeFormValues = {
-	title: string;
-	description: string;
-	designs: string;
-	difficulty: string;
-	image: string;
-};
 
 export const NewChallengeForm = () => {
 	const {
