@@ -12,9 +12,9 @@ export const ChallengeItem = ({ challenge }: ChallengeItemProps) => {
 				className="block mb-3 hover:scale-105 transition-transform"
 			>
 				<Card tag="div">
-					<div className="flex flex-row">
-						<img src={challenge.image} alt="" width="250px" />
-						<div className="ml-4">
+					<div className="flex flex-col lg:flex-row">
+						<img src={challenge.image} alt="" className="w-full lg:w-64" />
+						<div className="lg:ml-4">
 							<h2 className="font-bold">{challenge.title}</h2>
 							<p>{challenge.description}</p>
 							<div className="py-2">
