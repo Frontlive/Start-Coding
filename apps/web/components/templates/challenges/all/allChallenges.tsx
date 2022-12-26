@@ -1,5 +1,6 @@
 import { ChallengeItem } from 'molecules/challengeItem/challengeItem';
 import { Challenge } from '../../../../types/types';
+import { Heading } from 'atoms/heading/heading';
 
 const challenges: Challenge[] = [
 	{
@@ -11,6 +12,7 @@ const challenges: Challenge[] = [
 		difficulty: 'medium',
 		image:
 			'https://images.unsplash.com/photo-1498008122250-bcb854c8462d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+		rating: 5,
 	},
 	{
 		id: 2,
@@ -22,16 +24,19 @@ const challenges: Challenge[] = [
 		difficulty: 'advanced',
 		image:
 			'https://cdn.pixabay.com/photo/2020/11/28/06/15/cold-5783718_1280.jpg',
+		rating: 3,
 	},
 ];
 
 export const AllChallenges = () => {
 	return (
 		<section className="mx-auto w-11/12" aria-labelledby="pageHeading">
-			<h1 id="pageHeading">Strona z zadaniami</h1>
+			<Heading tag="h1" size="large" id="pageHeading">
+				Strona z zadaniami
+			</Heading>
 			<ul>
 				{challenges.map((challenge) => (
-					<ChallengeItem key={challenge.id} challenge={challenge} />
+					<ChallengeItem key={challenge.id} {...challenge} />
 				))}
 			</ul>
 		</section>

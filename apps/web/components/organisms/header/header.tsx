@@ -8,18 +8,24 @@ import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu'
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
 import { VisuallyHidden } from 'atoms/visuallyHidden/visuallyHidden';
+import { Heading } from 'atoms/heading/heading';
+import { Link } from 'atoms/link/link';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
 	const { closeBurgerMenu, isBurgerMenuActive, openBurgerMenu } =
 		useHamburgerMenu();
 	return (
-		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
-			<a href="/" className="no-underline">
-				<h1 className="font-bold text-2xl whitespace-nowrap	 mr-20">
+		<header className="flex px-12 py-4 justify-between items-center w-full sticky shadow-xl z-10">
+			<Link href="/" variant="secondary" className="border-0">
+				<Heading
+					tag="h1"
+					size="large"
+					className="font-bold text-2xl whitespace-nowrap	mr-20"
+				>
 					Start-Coding
-				</h1>
-			</a>
+				</Heading>
+			</Link>
 
 			<button onClick={openBurgerMenu} className="lg:hidden">
 				<Image src={BurgerIcon} alt="" height={50} width={50} />
