@@ -1,9 +1,11 @@
 import { Card } from 'atoms/card/card';
-import { Challenge } from '../../../types/types';
+import type { Challenge } from '../../../types/types';
 import { Link } from 'atoms/link/link';
 import Image from 'next/image';
 import { Heading } from 'atoms/heading/heading';
 import { Text } from 'atoms/text/text';
+
+type ChallengeItemProps = Challenge;
 
 export const ChallengeItem = ({
 	image,
@@ -11,7 +13,7 @@ export const ChallengeItem = ({
 	description,
 	difficulty,
 	rating,
-}: Challenge) => {
+}: ChallengeItemProps) => {
 	return (
 		<li>
 			<Link
