@@ -5,4 +5,5 @@ export type Challenge = {
 	designs: string;
 	difficulty: string;
 	image: string;
+	rating: number;
 };
