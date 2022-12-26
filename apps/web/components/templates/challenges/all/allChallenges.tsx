@@ -1,5 +1,5 @@
 import { ChallengeItem } from 'molecules/challengeItem/challengeItem';
-import { Challenge } from '../../../../types/types';
+import type { Challenge } from '../../../../types/types';
 import { Heading } from 'atoms/heading/heading';
 
 const challenges: Challenge[] = [
