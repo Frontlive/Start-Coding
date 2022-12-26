@@ -22,7 +22,7 @@
     "generated": "*",
     "graphql": "^16.6.0",
     "lexical": "^0.6.0",
-    "next": "13.0.1",
+    "next": "13.1",
     "react": "18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
@@ -30,6 +30,7 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.37.0",
     "scheduler": "^0.23.0",
+    "ui": "*",
     "use-context-selector": "^1.4.1"
   },
   "devDependencies": {
