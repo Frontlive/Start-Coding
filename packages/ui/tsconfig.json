@@ -3,7 +3,18 @@
 		"jsx": "react-jsx",
 		"lib": ["ESNext"],
 		"module": "ESNext",
-		"target": "es6"
+		"target": "es6",
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": {
+			"atoms/*": ["components/atoms/*"],
+			"molecules/*": ["components/molecules/*"],
+			"organisms/*": ["components/organisms/*"],
+			"templates/*": ["components/templates/*"],
+			"layouts/*": ["components/layouts/*"],
+			"utils/*": ["utils/*"],
+			"icons/*": ["components/icons/*"]
+		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
