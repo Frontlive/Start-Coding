@@ -4,9 +4,7 @@ const nextConfig = {
 		domains: ['avatars.githubusercontent.com'],
 	},
 	reactStrictMode: true,
-	experimental: {
-    transpilePackages: ["ui"],
-  },
+	transpilePackages: ["ui"],
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/i,

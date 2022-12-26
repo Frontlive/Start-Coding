@@ -1,3 +1,1 @@
-export const add = () => 2 * 2;
-
-export const remove = () => 2 * 3;
+export * from './components/atoms/button/button';

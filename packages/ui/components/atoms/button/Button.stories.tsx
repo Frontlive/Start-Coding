@@ -1,4 +1,4 @@
-import { Button } from 'atoms/button/button';
+import { Button } from './button';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
@@ -9,5 +9,3 @@ export default {
 export const Default: ComponentStory<typeof Button> = (props) => {
 	return <Button {...props}>Example error message</Button>;
 };
-
-Default.args = {};
