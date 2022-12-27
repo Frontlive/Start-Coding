@@ -13,6 +13,7 @@ const challenges: Challenge[] = [
 		image:
 			'https://images.unsplash.com/photo-1498008122250-bcb854c8462d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
 		rating: 5,
+		tags: ['TypeScript'],
 	},
 	{
 		id: 2,
@@ -25,6 +26,7 @@ const challenges: Challenge[] = [
 		image:
 			'https://cdn.pixabay.com/photo/2020/11/28/06/15/cold-5783718_1280.jpg',
 		rating: 3,
+		tags: ['JavaScript', 'React'],
 	},
 ];
 

@@ -1,9 +1,12 @@
 import { Card } from 'atoms/card/card';
-import type { Challenge } from '../../../types/types';
+import type { Challenge, Technologies } from '../../../types/types';
 import { Link } from 'atoms/link/link';
 import Image from 'next/image';
 import { Heading } from 'atoms/heading/heading';
 import { Text } from 'atoms/text/text';
+import { ReactComponent as Star } from 'icons/star.svg';
+import { ReactComponent as EmptyStar } from 'icons/empty-star.svg';
+import { Tag } from 'molecules/tag/tag';
 
 type ChallengeItemProps = Challenge;
 
@@ -13,6 +16,7 @@ export const ChallengeItem = ({
 	description,
 	difficulty,
 	rating,
+	tags,
 }: ChallengeItemProps) => {
 	return (
 		<li>
@@ -42,10 +46,22 @@ export const ChallengeItem = ({
 									<span>📶 </span>
 									{difficulty}
 								</Text>
-								<Text size="medium" variant="default" tag="p" position="left">
-									<span>⭐️⭐️⭐️⭐️⭐️ </span>
-									{rating}/5
-								</Text>
+								<div className="flex">
+									<EmptyStar />
+									<EmptyStar />
+									<EmptyStar />
+									<EmptyStar />
+									<EmptyStar />
+									<Text size="medium" variant="default" tag="p" position="left">
+										{rating}/5
+									</Text>
+								</div>
+								<div className="flex">
+									{tags.map((tag: Technologies) => {
+										return <Tag tag={tag} />;
+									})}
+								</div>
+								{/*{tags.join(', ')}*/}
 							</div>
 						</div>
 					</div>
