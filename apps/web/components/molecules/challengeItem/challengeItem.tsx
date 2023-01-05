@@ -1,5 +1,5 @@
 import { Card } from 'atoms/card/card';
-import type { Challenge, Technologies } from '../../../types/types';
+import type { Challenge } from '../../../types/types';
 import { Link } from 'atoms/link/link';
 import Image from 'next/image';
 import { Heading } from 'atoms/heading/heading';
@@ -11,6 +11,7 @@ import { Tag } from 'molecules/tag/tag';
 type ChallengeItemProps = Challenge;
 
 export const ChallengeItem = ({
+	id,
 	image,
 	title,
 	description,
@@ -21,7 +22,7 @@ export const ChallengeItem = ({
 	return (
 		<li>
 			<Link
-				href="/challenge/id"
+				href={`/challenge/${id}`}
 				variant="secondary"
 				className="block mb-3 hover:scale-105 transition-transform"
 			>
@@ -57,11 +58,10 @@ export const ChallengeItem = ({
 									</Text>
 								</div>
 								<div className="flex">
-									{tags.map((tag: Technologies) => {
-										return <Tag tag={tag} />;
+									{tags.map((tag) => {
+										return <Tag key={tag} tag={tag} />;
 									})}
 								</div>
-								{/*{tags.join(', ')}*/}
 							</div>
 						</div>
 					</div>
