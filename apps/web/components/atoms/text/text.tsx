@@ -4,16 +4,23 @@ import cx from 'clsx';
 export type TextSize = 'small' | 'medium' | 'large';
 type Variants = 'default' | 'error';
 export type TextTag = keyof Pick<JSX.IntrinsicElements, 'p' | 'span'>;
+export type TagPosition = 'left' | 'center' | 'right';
 
 type TextProps = {
 	children: ReactNode;
 	size: TextSize;
 	variant: Variants;
 	tag: TextTag;
+	position?: TagPosition;
 };
 
-export const Text = ({ children, size, variant, tag }: TextProps) => {
-	const Tag = tag;
+export const Text = ({
+	children,
+	size,
+	variant,
+	tag: Tag,
+	position = 'center',
+}: TextProps) => {
 	return (
 		<Tag
 			className={cx(
@@ -23,6 +30,9 @@ export const Text = ({ children, size, variant, tag }: TextProps) => {
 					'text-lg': size === 'large',
 					'text-red-600': variant === 'error',
 					'text-black': variant === 'default',
+					'text-left': position === 'left',
+					'text-center': position === 'center',
+					'text-right': position === 'right',
 				},
 				'p-0',
 			)}
