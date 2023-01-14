@@ -28,7 +28,7 @@ const difficulties: Difficulties = [
 		value: 'beginner',
 	},
 	{
-		label: 'srednio-zaawansowany',
+		label: 'średnio-zaawansowany',
 		value: 'semi-advanced',
 	},
 	{

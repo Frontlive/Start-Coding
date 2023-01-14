@@ -1,6 +1,7 @@
 import { ChallengeItem } from 'molecules/challengeItem/challengeItem';
 import type { Challenge } from '../../../../types/types';
 import { Heading } from 'atoms/heading/heading';
+import { FilterCategory } from 'organisms/filterCategory/filterCategory';
 
 const challenges: Challenge[] = [
 	{
@@ -30,12 +31,27 @@ const challenges: Challenge[] = [
 	},
 ];
 
+const categories = [
+	{ name: 'Difficulty', options: ['easy', 'medium', 'advanced'] },
+	{ name: 'Tags', options: ['JavaScript', 'TypeScript', 'React'] },
+	{ name: 'Rating', options: ['1', '2', '3', '4', '5'] },
+];
+
 export const AllChallenges = () => {
 	return (
 		<section className="mx-auto w-11/12" aria-labelledby="pageHeading">
 			<Heading tag="h1" size="large" id="pageHeading">
 				Strona z zadaniami
 			</Heading>
+			{categories.map((category) => {
+				return (
+					<FilterCategory
+						key={category.name}
+						categoryName={category.name}
+						categoryOptions={category.options}
+					/>
+				);
+			})}
 			<ul>
 				{challenges.map((challenge) => (
 					<ChallengeItem key={challenge.id} {...challenge} />
