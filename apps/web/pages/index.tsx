@@ -1,13 +1,13 @@
-import type { NextPage } from 'next';
-import { MainLayout } from '../components/layouts/mainLayout';
-import { Homepage } from '../components/templates/homepage/homepage';
+import { MainLayout } from 'layouts/mainLayout';
+import { Homepage } from 'templates/homepage/homepage';
+import { NextPageWithLayout } from './_app';
 
-const Home: NextPage = () => {
-	return (
-		<MainLayout>
-			<Homepage />
-		</MainLayout>
-	);
+const Home: NextPageWithLayout = () => {
+	return <Homepage />;
+};
+
+Home.getLayout = function getLayout(page) {
+	return <MainLayout>{page}</MainLayout>;
 };
 
 export default Home;
