@@ -1,0 +1,30 @@
+name: Deploy Storybook previews
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+    paths:
+      - 'packages/ui/**/*.tsx'
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  storybook-preview:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn workspace ui build-storybook
+
+      - name: Deploy storybook preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: packages/ui/storybook-static
