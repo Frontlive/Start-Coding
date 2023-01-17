@@ -33,6 +33,8 @@ To run this project, you will need to add the following environment variables to
 `PORT`
 
 
+Projekt jest rozwijany dzięki tym wspaniałym ludziom:
+
 <a href="https://github.com/frontlive/start-coding/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=frontlive/start-coding" />
 </a>
