@@ -33,7 +33,7 @@ export const Header = () => {
 			<div className="hidden lg:flex items-center justify-between w-full">
 				<div className="flex items-center justify-between max-w-sm w-full">
 					<Navbar>
-						<NavLink link={{ name: 'Zadania', href: '' }} />
+						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>
 				</div>
 				{!isLoading && !user && <HeaderUserLoginContent />}
