@@ -37,8 +37,8 @@ export const Button = ({
 					'w-full': fullWidth,
 				},
 				className,
-				{ ...rest },
 			)}
+			{...rest}
 			onClick={onClick}
 			type={type}
 		>
