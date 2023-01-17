@@ -32,6 +32,7 @@ To run this project, you will need to add the following environment variables to
 
 `PORT`
 
+## Contributors
 
 Projekt jest rozwijany dzięki tym wspaniałym ludziom:
 
