@@ -8,8 +8,8 @@ import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu'
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
 import { VisuallyHidden } from 'atoms/visuallyHidden/visuallyHidden';
-import {Heading} from "atoms/heading/heading";
-import Link from "next/link";
+import { Heading } from 'atoms/heading/heading';
+import Link from 'next/link';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
@@ -17,8 +17,12 @@ export const Header = () => {
 		useHamburgerMenu();
 	return (
 		<header className="flex px-12 py-4 justify-between items-center w-full sticky shadow-xl z-10">
-			<Link href='/'>
-				<Heading tag='h1' size='large' className='font-bold text-2xl whitespace-nowrap mr-20'>
+			<Link href="/">
+				<Heading
+					tag="h1"
+					size="large"
+					className="font-bold text-2xl whitespace-nowrap mr-20"
+				>
 					Start-Coding
 				</Heading>
 			</Link>
