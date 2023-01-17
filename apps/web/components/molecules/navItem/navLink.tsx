@@ -11,7 +11,7 @@ type NavItemProps = {
 
 export const NavLink = ({ link }: NavItemProps) => {
 	return (
-		<li className="mt-5 lg:mt-0">
+		<li>
 			<GenericLink href={link.href}>{link.name}</GenericLink>
 		</li>
 	);

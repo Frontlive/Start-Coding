@@ -1,11 +1,14 @@
 import { ButtonHTMLAttributes, ReactNode, MouseEvent } from 'react';
 import clsx from 'clsx';
 
-type ButtonVariants = 'primary' | 'secondary';
+type ButtonVariants = 'default' | 'primary' | 'secondary';
+
+const defaultStyles = 'p-2 border-2 rounded-2xl';
 
 const variants = {
-	primary: 'bg-primary text-white border-white',
-	secondary: 'bg-white text-black border-primary',
+	default: '',
+	primary: clsx(defaultStyles, 'bg-primary text-white border-white'),
+	secondary: clsx(defaultStyles, 'bg-white text-black border-primary'),
 } as const;
 
 type ButtonProps = {
@@ -14,6 +17,7 @@ type ButtonProps = {
 	onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 	variant: ButtonVariants;
 	fullWidth?: boolean;
+	className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
@@ -22,16 +26,21 @@ export const Button = ({
 	type = 'button',
 	variant,
 	fullWidth = false,
+	className,
 	...rest
 }: ButtonProps) => {
 	return (
 		<button
-			className={clsx(variants[variant], 'p-2 border-2 rounded-2xl', {
-				'w-full': fullWidth,
-			})}
+			className={clsx(
+				variants[variant],
+				{
+					'w-full': fullWidth,
+				},
+				className,
+				{ ...rest },
+			)}
 			onClick={onClick}
 			type={type}
-			{...rest}
 		>
 			{children}
 		</button>

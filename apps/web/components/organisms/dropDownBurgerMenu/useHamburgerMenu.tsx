@@ -8,9 +8,13 @@ export const useHamburgerMenu = () => {
 	const closeBurgerMenu = () => {
 		setIsBurgerMenuActive(false);
 	};
+	const toggleBurgerMenu = () => {
+		setIsBurgerMenuActive((prev) => !prev);
+	};
 	return {
 		isBurgerMenuActive,
 		openBurgerMenu,
 		closeBurgerMenu,
+		toggleBurgerMenu,
 	};
 };
