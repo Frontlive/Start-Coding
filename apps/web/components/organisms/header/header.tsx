@@ -16,7 +16,7 @@ export const Header = () => {
 	const { closeBurgerMenu, isBurgerMenuActive, openBurgerMenu } =
 		useHamburgerMenu();
 	return (
-		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
+		<header className="flex px-12 py-4 justify-between items-center w-full sticky shadow-xl z-10">
 			<Link href='/'>
 				<Heading tag='h1' size='large' className='font-bold text-2xl whitespace-nowrap mr-20'>
 					Start-Coding
@@ -30,7 +30,7 @@ export const Header = () => {
 			{isBurgerMenuActive && (
 				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
 					<Navbar>
-						<NavLink link={{ name: 'Zadania', href: '' }} />
+						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>
 				</DropDownBurgerMenu>
 			)}
