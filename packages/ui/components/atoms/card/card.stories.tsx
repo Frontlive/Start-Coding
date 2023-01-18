@@ -1,6 +1,6 @@
-import { Card } from 'atoms/card/card';
+import { Card } from './card';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text } from 'atoms/text/text';
+import { Text } from '../text/text';
 
 export default {
 	title: 'Main Library/atoms/Card',

@@ -1,4 +1,4 @@
-import { Label } from 'atoms/label/label';
+import { Label } from 'ui';
 import { ErrorMessage } from 'molecules/errorMessage/errorMessage';
 import { ChangeEvent, forwardRef, TextareaHTMLAttributes, useId } from 'react';
 import cx from 'clsx';

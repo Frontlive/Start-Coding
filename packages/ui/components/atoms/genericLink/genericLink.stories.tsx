@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { GenericLink } from 'atoms/genericLink/genericLink';
+import { GenericLink } from './genericLink';
 
 export default {
 	title: 'Main Library/atoms/GenericLink',

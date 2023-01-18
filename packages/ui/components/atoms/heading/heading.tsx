@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import cx from 'clsx';
-import type { TextSize } from 'atoms/text/text';
+import type { TextSize } from '../text/text';
 
 export type HeadingTag = keyof Pick<
 	JSX.IntrinsicElements,

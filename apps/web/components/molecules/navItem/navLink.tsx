@@ -1,4 +1,4 @@
-import { GenericLink } from 'atoms/genericLink/genericLink';
+import { GenericLink } from 'ui';
 
 export type Link = {
 	name: string;

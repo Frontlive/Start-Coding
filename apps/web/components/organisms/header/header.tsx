@@ -7,7 +7,7 @@ import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/DropDownBurgerM
 import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
-import { VisuallyHidden } from 'atoms/visuallyHidden/visuallyHidden';
+import { VisuallyHidden } from 'ui';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();

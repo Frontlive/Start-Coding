@@ -1,4 +1,4 @@
-import { Divider } from 'atoms/divider/divider';
+import { Divider } from './divider';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {

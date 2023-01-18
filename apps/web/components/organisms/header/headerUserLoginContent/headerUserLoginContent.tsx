@@ -1,4 +1,4 @@
-import { GenericLink } from 'atoms/genericLink/genericLink';
+import { GenericLink } from 'ui';
 import { ReactComponent as UserIcon } from 'icons/user-icon.svg';
 
 export const HeaderUserLoginContent = () => {

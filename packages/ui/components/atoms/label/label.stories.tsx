@@ -1,4 +1,4 @@
-import { Label } from 'atoms/label/label';
+import { Label } from './label';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
@@ -32,7 +32,7 @@ export const Disabled: ComponentStory<typeof Label> = (props) => {
 };
 
 Disabled.args = {
-	label: 'Podaj imie',
+	label: 'Podaj imię',
 	disabled: true,
 	id: 'id',
 };

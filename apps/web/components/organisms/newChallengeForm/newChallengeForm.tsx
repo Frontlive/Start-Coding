@@ -1,4 +1,4 @@
-import { Card } from 'atoms/card/card';
+import { Card } from 'ui';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import { Button } from 'atoms/button/button';
 import { FileInput } from 'molecules/fileInput/fileInput';

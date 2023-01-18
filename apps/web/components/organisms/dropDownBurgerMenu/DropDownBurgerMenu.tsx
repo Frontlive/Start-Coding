@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import ExitIcon from '../../icons/exit-icon.svg';
 import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
-import { Link } from 'atoms/link/link';
+import { Link } from 'ui';
 
-import { GenericLink } from 'atoms/genericLink/genericLink';
-import { VisuallyHidden } from 'atoms/visuallyHidden/visuallyHidden';
+import { GenericLink } from 'ui';
+import { VisuallyHidden } from 'ui';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 
 type DropDownBurgerMenuProps = {

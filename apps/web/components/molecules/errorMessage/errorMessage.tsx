@@ -1,4 +1,4 @@
-import { TagPosition, Text, TextSize, TextTag } from 'atoms/text/text';
+import { TagPosition, Text, TextSize, TextTag } from 'ui';
 
 type ErrorMessageProps = {
 	children: string;

@@ -1,6 +1,6 @@
 import cx from 'clsx';
 import type { ChangeEvent, InputHTMLAttributes } from 'react';
-import { Label } from 'atoms/label/label';
+import { Label } from 'ui';
 import { ErrorMessage } from 'molecules/errorMessage/errorMessage';
 import { forwardRef, useId } from 'react';
 
