@@ -3,6 +3,7 @@ import { Heading } from 'atoms/heading/heading';
 import { Text } from 'atoms/text/text';
 import Image from 'next/image';
 import type { Challenge } from '../../../types/types';
+import { CategoryTag } from 'atoms/categoryTag/categoryTag';
 
 type TaskItemProps = Challenge;
 
@@ -11,6 +12,7 @@ export const ChallengeItem = ({
 	title,
 	image,
 	description,
+	tags,
 }: TaskItemProps) => {
 	return (
 		<li className="mb-5">
@@ -27,6 +29,11 @@ export const ChallengeItem = ({
 							</Text>
 						</div>
 					</div>
+					<ul className="flex flex-wrap pt-1">
+						{tags.map((tag) => {
+							return <CategoryTag key={tag} label={tag} />;
+						})}
+					</ul>
 				</Card>
 			</a>
 		</li>
