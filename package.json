@@ -1,37 +1,37 @@
 {
-	"name": "start-coding",
-	"version": "0.0.0",
-	"private": true,
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	],
-	"scripts": {
-		"build": "turbo run build",
-		"dev": "turbo run dev --parallel",
-		"lint": "turbo run lint && :",
-		"format": "prettier --write --cache \"**/*.{ts,tsx,md}\"",
-		"check-format": "prettier --check \"**/*.{ts,tsx,md}\"",
-		"prepare": "husky install",
-		"test": "turbo run test --parallel",
-		"storybook": "turbo run storybook"
-	},
-	"devDependencies": {
-		"eslint-config-custom": "*",
-		"husky": "^8.0.0",
-		"lint-staged": "^13.0.3",
-		"prettier": "^2.7.1",
-		"turbo": "latest"
-	},
-	"engines": {
-		"node": ">=14.0.0"
-	},
-	"dependencies": {},
-	"packageManager": "yarn@1.22.19",
-	"lint-staged": {
-		"*.{ts, tsx}": [
-			"yarn lint",
-			"yarn format"
-		]
-	}
+  "name": "start-coding",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint && :",
+    "format": "prettier --write --cache \"**/*.{ts,tsx,md}\"",
+    "check-format": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "test": "turbo run test --parallel",
+    "storybook": "turbo run storybook"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.19",
+  "lint-staged": {
+    "*.{ts, tsx}": [
+      "yarn lint",
+      "yarn format"
+    ]
+  }
 }
