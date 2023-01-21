@@ -4,12 +4,13 @@ import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu'
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
 import { ToggleMenuButton } from 'molecules/toggleMenuButton/toggleMenuButton';
-import { HeaderNav } from './headerNav/hedaerNav';
+import { HeaderNav } from './headerNav/HeaderNav';
 import { Container } from 'atoms/Container/container';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
 	const { isBurgerMenuActive, toggleBurgerMenu } = useHamburgerMenu();
+
 	return (
 		<header className="sticky shadow-xl z-10">
 			<Container className="flex flex-row py-4 justify-between items-center w-full ">

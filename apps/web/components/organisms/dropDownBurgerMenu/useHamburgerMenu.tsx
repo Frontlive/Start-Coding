@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { lockScroll, unlockScroll } from '../../../utils/pageScroll';
 
 export const useHamburgerMenu = () => {
 	const [isBurgerMenuActive, setIsBurgerMenuActive] = useState(false);
@@ -9,7 +10,13 @@ export const useHamburgerMenu = () => {
 		setIsBurgerMenuActive(false);
 	};
 	const toggleBurgerMenu = () => {
-		setIsBurgerMenuActive((prev) => !prev);
+		if (isBurgerMenuActive) {
+			closeBurgerMenu();
+			unlockScroll({ mobileOnly: true });
+		} else {
+			openBurgerMenu();
+			lockScroll({ mobileOnly: true });
+		}
 	};
 	return {
 		isBurgerMenuActive,
