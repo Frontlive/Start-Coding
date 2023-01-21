@@ -12,14 +12,21 @@ export const ChallengeItem = ({
 	title,
 	image,
 	description,
+	difficulty,
 	tags,
 }: TaskItemProps) => {
 	return (
 		<li className="mb-5">
 			<a href={`/challenge/${id}`}>
 				<Card tag="div">
-					<div className="flex flex-col lg:flex-row">
-						<Image src={image} alt="" width="100" height="100" />
+					<div className="flex flex-col lg:flex-row pb-2">
+						<Image
+							src={image}
+							alt=""
+							width="120"
+							height="120"
+							className="w-full h-full"
+						/>
 						<div className="lg:px-5">
 							<Heading tag="h2" size="large">
 								{title}
@@ -29,7 +36,10 @@ export const ChallengeItem = ({
 							</Text>
 						</div>
 					</div>
-					<ul className="flex flex-wrap pt-1">
+					<Text size={'medium'} variant="default" tag="p" position="left">
+						📶 {difficulty}
+					</Text>
+					<ul className="flex flex-wrap">
 						{tags.map((tag) => {
 							return <CategoryTag key={tag} label={tag} />;
 						})}

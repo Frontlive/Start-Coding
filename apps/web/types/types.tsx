@@ -8,3 +8,22 @@ export type Challenge = {
 	rating: number;
 	tags: string[];
 };
+
+export type FilterOptions = {
+	value: string;
+	label: string;
+	checked: boolean;
+};
+
+export type Filter = {
+	id: string;
+	name: string;
+	options: FilterOptions[];
+};
+
+export type SortOption = {
+	name: string;
+	value: string;
+	href: string;
+	current: boolean;
+};
