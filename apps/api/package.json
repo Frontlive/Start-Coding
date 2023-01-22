@@ -9,9 +9,8 @@
 	"scripts": {
 		"lint": "eslint \"**/*.{ts,tsx}\"",
 		"dev:server": "wait-on tcp:5432 -i 1000 -t 20000 && node --watch -r ts-node/register ./index.ts",
-		"dev:db": "docker-compose up -d",
+		"dev:db": "docker compose up",
 		"dev": "concurrently \"yarn dev:db\" \"yarn dev:server\""
-		
 	},
 	"dependencies": {
 		"@envelop/auth0": "^3.6.0",
