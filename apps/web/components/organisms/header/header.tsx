@@ -3,11 +3,11 @@ import { NavLink } from 'molecules/navItem/navLink';
 import { useUser } from '@auth0/nextjs-auth0';
 import Image from 'next/image';
 import BurgerIcon from '../../icons/burger-icon.svg';
-import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/DropDownBurgerMenu';
+import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/dropDownBurgerMenu';
 import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
-import { VisuallyHidden } from 'atoms/visuallyHidden/visuallyHidden';
+import { VisuallyHidden } from 'ui/components/atoms/visuallyHidden/visuallyHidden';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();

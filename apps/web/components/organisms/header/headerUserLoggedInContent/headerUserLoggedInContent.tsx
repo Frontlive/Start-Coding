@@ -1,7 +1,7 @@
-import { DropdownMenu } from 'organisms/dropdownMenu/dropdownMenu';
-import { GenericLink } from 'atoms/genericLink/genericLink';
-import { DropdownMenuItem } from 'atoms/dropdownMenu/dropdownMenuItem/dropdownMenuItem';
-import { Divider } from 'atoms/divider/divider';
+import { DropdownMenu } from 'ui/components/organisms/dropdownMenu/dropdownMenu';
+import { GenericLink } from 'ui/components/atoms/genericLink/genericLink';
+import { DropdownMenuItem } from 'ui/components/atoms/dropdownMenu/dropdownMenuItem/dropdownMenuItem';
+import { Divider } from 'ui/components/atoms/divider/divider';
 import profileDefaultSvg from 'icons/profile-default.svg';
 import Image from 'next/image';
 import { AddNewTaskLink } from 'molecules/challengePage/addNewTaskLink/addNewTaskLink';
