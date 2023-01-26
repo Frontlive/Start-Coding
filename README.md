@@ -14,6 +14,7 @@ Więcej informacji o projekcie dostępnych jest w Wiki [tutaj](https://github.co
 
 - Docker
 - Yarn v1
+- ngrok
 
 ## Instalacja i uruchomienie
 
@@ -25,15 +26,34 @@ Wykorzystując yarn
   yarn dev
 ```
 
+## Auth0
+
+Bardzo dobry opis konfiguracji Auth0 jest [tutaj](https://github.com/auth0/nextjs-auth0#auth0-configuration).
+Oprócz tego będziesz potrzebował skonfigurowanego flow logowania, żeby informacje o logowaniu/rejestracji były przekazywane do twojej aplikacji.
+
+Auth0 -> Actions -> Flows -> Login -> [+] -> Build custom
+
+Skopiuj tam zawartość pliku apps/api/login_action.ts
+W dependencies dodaj wymagane dla snippetu zależności.
+W secrets dodaj `WEBHOOK_SECRET`, który ma być taki sam jak ten użyty w apps/api/auth0-example.env
+
+Tak utworzoną akcję przeciągnij pomiędzy do flow logowania pomiędzy `Start` a `Complete`.
+
+Zauważ, że w kodzie tej akcji znajduje się zmienna `domain` w której znajduje się adres webhooka. Aby testować lokalnie należy tam wrzucić adres np. z ngroka uzyskany przy pomocy komendy:
+
+`ngrok http PORT`
+
+U nas ten PORT to port backendu np. 4000
+
 ## Zmienne środowiskowe
 
-Żeby odpalić projekt, będziesz potrzebował następujących zmiennych. Bardzo dobry opis konfiguracji Auth0 jest [tutaj](https://github.com/auth0/nextjs-auth0#auth0-configuration)
+Żeby odpalić projekt, będziesz potrzebował następujących zmiennych.
 
 ### web
 
 W pliku apps/web/.env
 
-`NEXT_PUBLIC_GRAPH_API_URI=` <- URL backendu z suffixem /graphql
+`NEXT_PUBLIC_GRAPH_API_URI=` <- URL backendu z suffixem /graphql np. http://localhost:4000/graphql
 `AUTH0_SECRET=` <- twój wygenerowany secret
 `AUTH0_BASE_URL=` <- base url twojej apki np. http://localhost:3000
 `AUTH0_ISSUER_BASE_URL=` <- base URL z dashboardu Auth0

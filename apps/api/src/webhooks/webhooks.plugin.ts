@@ -1,8 +1,8 @@
 import { timingSafeEqual, createHmac } from 'node:crypto';
-import fp from 'fastify-plugin';
 import { Static, Type } from '@sinclair/typebox';
 import { D } from '@mobily/ts-belt';
 import { env } from '../config';
+import type { FastifyPluginAsync } from 'fastify';
 
 export const WebhookPayload = Type.Object({
 	email: Type.String(),
@@ -12,7 +12,7 @@ export const WebhookPayload = Type.Object({
 	user_id: Type.String(),
 });
 
-export const webhooksPlugin = fp(async (fastify, _opts) => {
+export const webhooksPlugin: FastifyPluginAsync = async (fastify, _opts) => {
 	fastify.addHook('preHandler', (request, reply, next) => {
 		const hmacFromServer = request.headers['x-start-coding-auth'];
 
@@ -89,4 +89,4 @@ export const webhooksPlugin = fp(async (fastify, _opts) => {
 			}
 		},
 	});
-});
+};
