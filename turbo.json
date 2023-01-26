@@ -12,6 +12,9 @@
 		"test": {
 			"outputs": []
 		},
+		"typecheck": {
+			"outputs": []
+		},
 		"storybook": {
 			"outputs": [],
 			"cache": false

@@ -1,4 +1,4 @@
-import { Link } from 'atoms/link/link';
+import { Link } from 'ui/components/atoms/link/link';
 
 export const AddNewTaskLink = () => {
 	return (
