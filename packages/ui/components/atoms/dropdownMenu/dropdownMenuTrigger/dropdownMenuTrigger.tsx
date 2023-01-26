@@ -1,5 +1,5 @@
 import { Trigger } from '@radix-ui/react-dropdown-menu';
-import { MenuListDropdown } from '../../../icons/menu-list-dropdown';
+import { MenuListDropdown } from '../../../icons/menuListDropdown';
 
 export const DropdownMenuTrigger = () => {
 	return (
