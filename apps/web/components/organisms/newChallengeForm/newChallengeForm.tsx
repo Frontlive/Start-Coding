@@ -1,11 +1,11 @@
-import { Card } from 'atoms/card/card';
+import { Card } from 'ui/components/atoms/card/card';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
-import { Button } from 'atoms/button/button';
+import { Button } from 'ui/components/atoms/button/button';
 import { FileInput } from 'molecules/fileInput/fileInput';
 
 import dynamic from 'next/dynamic';
-import { Input } from 'organisms/input/input';
-import { Select } from 'organisms/select/select';
+import { Input } from 'ui/components/organisms/input/input';
+import { Select } from 'ui/components/organisms/select/select';
 
 const Editor = dynamic(
 	() => import('molecules/editor/editor').then((component) => component.Editor),

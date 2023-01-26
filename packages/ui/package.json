@@ -8,6 +8,9 @@
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
+	"peerDependencies": {
+		"@headlessui/react": "^1.7.3"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.20.7",
 		"@storybook/addon-actions": "^6.5.15",
@@ -19,6 +22,7 @@
 		"@storybook/manager-webpack5": "^6.5.15",
 		"@storybook/react": "^6.5.15",
 		"@storybook/testing-library": "^0.0.13",
+		"@svgr/webpack": "^6.5.1",
 		"@types/react": "18.0.21",
 		"@types/react-dom": "18.0.6",
 		"autoprefixer": "^10.4.13",
@@ -31,6 +35,9 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tailwindcss": "^3.2.4",
-		"typescript": "^4.5.2"
+		"tsconfig-paths": "^4.1.2",
+		"tsconfig-paths-webpack-plugin": "^4.0.0",
+		"typescript": "^4.9.4",
+		"url-loader": "^4.1.1"
 	}
 }
