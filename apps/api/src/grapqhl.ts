@@ -26,7 +26,7 @@ export const instance = createYoga<Context>({
 	plugins: [
 		useAuth0({
 			domain: env.AUTH0_DOMAIN,
-			audience: `https://${env.BASE_URL}/graphql`,
+			audience: `${env.BASE_URL}/graphql`,
 			extendContextField: 'auth0',
 			preventUnauthenticatedAccess: env.isProd,
 		}),
