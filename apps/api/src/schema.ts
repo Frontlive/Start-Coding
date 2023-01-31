@@ -1,5 +1,5 @@
 import { builder } from './builder';
 
-import './modules/auth/resolvers';
+import './modules/auth/queries';
 
 export const schema = builder.toSchema();
