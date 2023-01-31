@@ -60,3 +60,5 @@ builder.queryField('allUsers', (t) =>
 );
 
 builder.queryType({});
+// builder.mutationType({});
+// builder.subscriptionType({});
