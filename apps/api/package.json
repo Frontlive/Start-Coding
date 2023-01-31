@@ -15,6 +15,7 @@
 	"dependencies": {
 		"@envelop/auth0": "^3.6.0",
 		"@escape.tech/graphql-armor": "^1.4.0",
+		"@faker-js/faker": "^7.6.0",
 		"@fastify/type-provider-typebox": "^2.3.0",
 		"@graphql-yoga/node": "^2.13.13",
 		"@mobily/ts-belt": "^3.13.1",

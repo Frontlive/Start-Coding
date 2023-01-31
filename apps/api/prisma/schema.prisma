@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "extendedWhereUnique"]
 }
 
 generator pothos {
@@ -32,6 +33,11 @@ model User {
   @@map("users")
 }
 
+enum Status {
+  IN_REVIEW
+  ACTIVE
+}
+
 model Task {
   id        Int      @default(autoincrement()) @id
   title     String
@@ -43,6 +49,9 @@ model Task {
   comments  Comment[]
   rating   Int
   difficulty Difficulty
+
+  status Status
+  thumbnail_url String
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
