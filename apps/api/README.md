@@ -1,86 +1,83 @@
 Sczegółowa konfiguracja BackEndu Frontlive-Start-Coding
 
-1. Utworzenie aplikacji auth0
+1.  Utworzenie aplikacji auth0
 
-   https://manage.auth0.com/dashboard/
+    https://manage.auth0.com/dashboard/
 
-   Applications -> Applications -> Create Application -> Single Page Web Applications (Nazwa dowolna)
+    Applications -> Applications -> Create Application -> Single Page Web Applications (Nazwa dowolna)
 
-   Settings -> Applications URls
+    Settings -> Applications URls
 
-   -> Allowed Callback URLs (np.: http://localhost:3000/api/auth/callback)
+    -> Allowed Callback URLs (np.: http://localhost:3000/api/auth/callback)
 
-   -> Allowed Logout URLs (np.: http://localhost:3000/)
-   Save Changes
+    -> Allowed Logout URLs (np.: http://localhost:3000/)
+    Save Changes
 
-   Applications -> APIs -> Create API (Nazwa dowolna)
+    Applications -> APIs -> Create API (Nazwa dowolna)
 
-   -> Identifier (np.: https://localhost:4000/graphql)
+    -> Identifier (np.: https://localhost:4000/graphql)
 
+2.  Konfiguracja GH (utworzenie aplikacji w GH)
 
-2. Konfiguracja GH (utworzenie aplikacji w GH)
+    https://github.com/settings/developers
 
-   https://github.com/settings/developers
+    OAuth Apps -> New OAuth App
 
-   OAuth Apps -> New OAuth App
+    (nazwa dowolna)
 
-   (nazwa dowolna)
+    Hompage URL: Domain z auth0 (https://yourdomain.auth0.com)
 
-   Hompage URL: Domain z auth0 (https://yourdomain.auth0.com)
+    Authorization callback URL: Domain z auth0 (https://yourdomain.auth0.com/login/callback)
 
-   Authorization callback URL: Domain z auth0 (https://yourdomain.auth0.com/login/callback)
+    Register application
 
-   Register application
+    Generate a new client secret
 
-   Generate a new client secret
+3.  Włączenie logowania za pomocą GH
 
+    https://manage.auth0.com/dashboard/
 
-3. Włączenie logowania za pomocą GH
+    Applications -> Applications -> Single Page Web Applications -> Settings -> Connections -> Social
 
-   https://manage.auth0.com/dashboard/
+    Włącz GitHub
 
-   Applications -> Applications -> Single Page Web Applications -> Settings -> Connections -> Social
+    (Jeżeli nie ma GitHuba w Social to trzeba dodać)
+    Authentication -> Social -> Create Connection -> GitHub
 
-   Włącz GitHub
+    (uzupełnić danymi z https://github.com/settings/applications/)
 
-   (Jeżeli nie ma GitHuba w Social to trzeba dodać)
-   Authentication -> Social -> Create Connection -> GitHub
+    Client ID: Client ID z GH
 
-   (uzupełnić danymi z https://github.com/settings/applications/)
+    Client Secret: Client Secret z GH
 
-   Client ID: Client ID z GH
+    Save Changes
 
-   Client Secret: Client Secret z GH
+4.  Konfiguracja .env
 
-   Save Changes
+    api/.env
 
+         PORT= (np.: „4000”)
 
-4. Konfiguracja .env
+         DATABASE_URL=posgress URL (np.: postgres://postgres:postgres@127.0.0.1:5432/api)
 
-   api/.env
+         AUTH0_DOMAIN=domena z auth0 (yourdomain.auth0.com)
 
-        PORT= (np.: „4000”)
+         BASE_URL=url BE (np.: http://localhost:4000)
 
-        DATABASE_URL=posgress URL (np.: postgres://postgres:postgres@127.0.0.1:5432/api)
+         NODE_ENV="development"
 
-        AUTH0_DOMAIN=domena z auth0 (yourdomain.auth0.com)
+         WEBHOOK_SECRET=dowolny string
 
-        BASE_URL=url BE (np.: http://localhost:4000)
+    web/.env
 
-        NODE_ENV="development"
+         NEXT_PUBLIC_GRAPH_API_URI= url do grqphql (np.: http://localhost:4000/graphql)
 
-        WEBHOOK_SECRET=dowolny string
+         AUTH0_SECRET=randomowy string
 
-   web/.env
+         AUTH0_BASE_URL=url aplikacji (np.: http://localhost:3000)
 
-        NEXT_PUBLIC_GRAPH_API_URI= url do grqphql (np.: http://localhost:4000/graphql)
+         AUTH0_ISSUER_BASE_URL=domena z auth0 (https://yourdomain.auth0.com)
 
-        AUTH0_SECRET=randomowy string
+         AUTH0_CLIENT_ID=Client ID z auth0 (aplikacja -> settings -> basic information)
 
-        AUTH0_BASE_URL=url aplikacji (np.: http://localhost:3000)
-
-        AUTH0_ISSUER_BASE_URL=domena z auth0 (https://yourdomain.auth0.com)
-
-        AUTH0_CLIENT_ID=Client ID z auth0 (aplikacja -> settings -> basic information)
-
-        AUTH0_CLIENT_SECRET=Client Secret z auth0 (aplikacja -> settings -> basic information)
+         AUTH0_CLIENT_SECRET=Client Secret z auth0 (aplikacja -> settings -> basic information)
