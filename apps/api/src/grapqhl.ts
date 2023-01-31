@@ -1,6 +1,7 @@
 import { useAuth0 } from '@envelop/auth0';
 import { EnvelopArmorPlugin } from '@escape.tech/graphql-armor';
 import { pipe } from '@mobily/ts-belt';
+import type { PrismaClient } from '@prisma/client';
 import { lexicographicSortSchema, printSchema } from 'graphql';
 import { rateLimitDirective } from 'graphql-rate-limit-directive';
 import { createYoga, useExtendContext } from 'graphql-yoga';
@@ -34,19 +35,19 @@ export const instance = createYoga<Context>({
 		db: client,
 	}),
 	plugins: [
-		useExtendContext(async (ctx: Context) => {
-			const user_id = ctx.auth0?.sub;
-			const user = user_id
-				? await client.user.findUnique({ where: { user_id } })
-				: null;
-
-			return { ...ctx, user };
-		}),
 		useAuth0({
 			domain: env.AUTH0_DOMAIN,
 			audience: `${env.BASE_URL}/graphql`,
 			extendContextField: 'auth0',
 			preventUnauthenticatedAccess: env.isProd,
+		}),
+		useExtendContext(async (ctx: Context & { db: PrismaClient }) => {
+			const user_id = ctx.auth0?.sub;
+			const user = user_id
+				? await ctx.db.user.findUnique({ where: { user_id } })
+				: null;
+
+			return { ...ctx, user };
 		}),
 		EnvelopArmorPlugin({
 			maxDepth: { n: 5 },
