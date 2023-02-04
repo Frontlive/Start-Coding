@@ -14,7 +14,7 @@ import {
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { $generateHtmlFromNodes } from '@lexical/html';
 import { EditorToolbarPlugin } from 'molecules/editor/plugins/editorToolbar';
-import { Text } from 'ui/components/atoms/text/text';
+import { Text } from 'ui';
 
 type EditorProps = {
 	initialEditorState?: string;

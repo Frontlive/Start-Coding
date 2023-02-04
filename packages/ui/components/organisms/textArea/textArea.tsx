@@ -1,5 +1,5 @@
-import { Label } from 'atoms/../../../../../packages/ui/components/label/label';
-import { ErrorMessage } from 'molecules/../../../../../packages/ui/components/molecules/errorMessage/errorMessage';
+import { Label } from '../../atoms/label/label';
+import { ErrorMessage } from '../../molecules/errorMessage/errorMessage';
 import { ChangeEvent, forwardRef, TextareaHTMLAttributes, useId } from 'react';
 import cx from 'clsx';
 
