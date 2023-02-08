@@ -7,8 +7,7 @@ import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/dropDownBurgerM
 import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
-import { VisuallyHidden } from 'ui/components/atoms/visuallyHidden/visuallyHidden';
-import { Heading } from 'ui/components/atoms/heading/heading';
+import { VisuallyHidden, Heading } from 'ui';
 import Link from 'next/link';
 
 export const Header = () => {

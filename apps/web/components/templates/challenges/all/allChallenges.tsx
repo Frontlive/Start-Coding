@@ -1,9 +1,8 @@
-import { Heading } from 'ui/components/atoms/heading/heading';
+import { Heading, VisuallyHidden } from 'ui';
 import { ChallengesList } from 'organisms/challengesList/challengesList';
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import type { Challenge, Filter, SortOption } from '../../../../types/types';
-import { VisuallyHidden } from 'ui/components/atoms/visuallyHidden/visuallyHidden';
 import { useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { FunnelIcon } from '@heroicons/react/20/solid';
