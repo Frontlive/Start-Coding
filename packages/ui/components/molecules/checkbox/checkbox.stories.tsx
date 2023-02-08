@@ -1,4 +1,4 @@
-import { Checkbox } from 'components/molecules/checkbox/checkbox';
+import { Checkbox } from './checkbox';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
