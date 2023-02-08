@@ -9,3 +9,4 @@ export * from './components/atoms/dropdownMenu/dropdownMenuItem/dropdownMenuItem
 export * from './components/organisms/input/input';
 export * from './components/organisms/select/select';
 export * from './components/organisms/dropdownMenu/dropdownMenu';
+export * from './components/molecules/checkbox/checkbox';
