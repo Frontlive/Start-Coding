@@ -1,8 +1,8 @@
 import { Disclosure } from '@headlessui/react';
-import { Text } from 'atoms/text/text';
+import { Text } from 'ui/components/atoms/text/text';
 import { MinusIcon, PlusIcon } from '@heroicons/react/20/solid';
-import { Checkbox } from 'molecules/checkbox/checkbox';
-import { Heading } from 'atoms/heading/heading';
+import { Checkbox } from 'ui/components/molecules/checkbox/checkbox';
+import { Heading } from 'ui/components/atoms/heading/heading';
 import type { Filter } from '../../../types/types';
 
 type FiltersProps = {

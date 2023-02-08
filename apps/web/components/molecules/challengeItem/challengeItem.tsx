@@ -1,6 +1,6 @@
-import { Card } from 'atoms/card/card';
-import { Heading } from 'atoms/heading/heading';
-import { Text } from 'atoms/text/text';
+import { Card } from 'ui/components/atoms/card/card';
+import { Heading } from 'ui/components/atoms/heading/heading';
+import { Text } from 'ui/components/atoms/text/text';
 import Image from 'next/image';
 import type { Challenge } from '../../../types/types';
 import { CategoryTag } from 'atoms/categoryTag/categoryTag';
