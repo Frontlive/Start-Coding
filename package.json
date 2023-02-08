@@ -28,6 +28,7 @@
 		"node": ">=18.11.0"
 	},
 	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.50.0",
 		"eslint-plugin-turbo": "^0.0.7"
 	},
 	"packageManager": "yarn@1.22.19",
