@@ -22,7 +22,7 @@ export const ChallengeItem = ({
 							alt=""
 							width="120"
 							height="120"
-							className="w-full h-full"
+							className="w-full h-full rounded-lg"
 						/>
 						<div className="lg:px-5">
 							<Heading tag="h2" size="large">
