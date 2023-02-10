@@ -41,7 +41,10 @@ export const ChallengeItem = ({
 						<Text size="medium" variant="default" tag="p" position="left">
 							{difficulty}
 						</Text>
-						<StarFill className="h-5 w-5 ml-1" />
+						<StarFill className="h-5 w-5 ml-3" />
+						<StarFill className="h-5 w-5" />
+						<StarFill className="h-5 w-5" />
+						<Star className="h-5 w-5" />
 						<Star className="h-5 w-5" />
 						<Text size="medium" variant="default" tag="p">
 							{rating}/5
