@@ -50,7 +50,7 @@ const challenges: Challenge[] = [
 		difficulty: 'advanced',
 		image:
 			'https://cdn.pixabay.com/photo/2020/11/28/06/15/cold-5783718_1280.jpg',
-		rating: 3,
+		rating: 3.26,
 		tags: ['JavaScript', 'React'],
 	},
 ];
