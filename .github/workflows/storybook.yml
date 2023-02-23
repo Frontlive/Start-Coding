@@ -9,6 +9,8 @@ on:
       - closed
     paths:
       - 'packages/ui/**/*.tsx'
+permissions:
+  contents: write
 
 concurrency: preview-${{ github.ref }}
 
