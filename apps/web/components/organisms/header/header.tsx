@@ -7,7 +7,8 @@ import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/dropDownBurgerM
 import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
-import { VisuallyHidden } from 'ui';
+import { VisuallyHidden, Heading } from 'ui';
+import Link from 'next/link';
 
 export const Header = () => {
 	const { user, isLoading } = useUser();
@@ -15,9 +16,15 @@ export const Header = () => {
 		useHamburgerMenu();
 	return (
 		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
-			<h1 className="font-bold text-2xl whitespace-nowrap	 mr-20">
-				Start-Coding
-			</h1>
+			<Link href="/">
+				<Heading
+					tag="h1"
+					size="large"
+					className="font-bold text-2xl whitespace-nowrap mr-20"
+				>
+					Start-Coding
+				</Heading>
+			</Link>
 
 			<button onClick={openBurgerMenu} className="lg:hidden">
 				<Image src={BurgerIcon} alt="" height={50} width={50} />
@@ -26,14 +33,14 @@ export const Header = () => {
 			{isBurgerMenuActive && (
 				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
 					<Navbar>
-						<NavLink link={{ name: 'Zadania', href: '' }} />
+						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>
 				</DropDownBurgerMenu>
 			)}
 			<div className="hidden lg:flex items-center justify-between w-full">
 				<div className="flex items-center justify-between max-w-sm w-full">
 					<Navbar>
-						<NavLink link={{ name: 'Zadania', href: '' }} />
+						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>
 				</div>
 				{!isLoading && !user && <HeaderUserLoginContent />}
