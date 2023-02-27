@@ -3,7 +3,7 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { EditorState, EditorThemeClasses, LexicalEditor } from 'lexical';
+import type { EditorState, EditorThemeClasses, LexicalEditor } from 'lexical';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { useEffect } from 'react';
 import {

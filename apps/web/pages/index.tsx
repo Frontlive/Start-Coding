@@ -1,6 +1,6 @@
 import { MainLayout } from 'layouts/mainLayout';
 import { Homepage } from 'templates/homepage/homepage';
-import { NextPageWithLayout } from './_app';
+import type { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
 	return <Homepage />;
