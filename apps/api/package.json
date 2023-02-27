@@ -18,6 +18,7 @@
 		"@faker-js/faker": "^7.6.0",
 		"@fastify/type-provider-typebox": "^2.3.0",
 		"@graphql-yoga/node": "^2.13.13",
+		"@heroicons/react": "^2.0.16",
 		"@mobily/ts-belt": "^3.13.1",
 		"@pothos/core": "^3.22.5",
 		"@pothos/plugin-directives": "^3.8.1",
