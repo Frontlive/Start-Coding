@@ -27,7 +27,7 @@ const filters: Filter[] = [
 	{ id: 'category', name: 'Category', options: [] },
 ];
 
-const challenges: Challenge[] = [
+export const challenges: Challenge[] = [
 	{
 		id: 1,
 		title: 'First Challenge',
