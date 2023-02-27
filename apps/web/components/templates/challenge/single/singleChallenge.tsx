@@ -30,8 +30,8 @@ export const SingleChallengePage = ({
 						className="w-full h-full md:w-1/3 rounded-lg"
 					/>
 					<div>
-						{challenge?.tags.map((tag) => (
-							<CategoryTag label={tag} />
+						{challenge?.tags.map((tag, id) => (
+							<CategoryTag label={tag} key={id} />
 						))}
 						<Text size="medium" variant="default" tag="p">
 							{challenge?.description}

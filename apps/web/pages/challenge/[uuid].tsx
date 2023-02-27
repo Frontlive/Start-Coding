@@ -2,18 +2,11 @@ import { NextPageWithLayout } from '../_app';
 import { SingleChallengePage } from 'templates/challenge/single/singleChallenge';
 import { MainLayout } from 'layouts/mainLayout';
 import type { InferGetStaticPropsType } from 'next';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { challenges } from 'templates/challenges/all/allChallenges';
 
 export const getStaticPaths = async () => {
 	return {
-		// paths: [
-		// 	{
-		// 		params: {
-		// 			uuid: '1',
-		// 		},
-		// 	},
-		// ],
 		paths: challenges.map((challenge) => ({
 			params: { uuid: challenge.id.toString() },
 		})),
@@ -21,9 +14,11 @@ export const getStaticPaths = async () => {
 	};
 };
 
-// const getStaticProps = async () => {
-// 	const { uuid } = useRouter().query;
-// 	const res = challenges.find((challenge) => challenge.id === parseInt(uuid));
+// export const getStaticProps = async ({ params }) => {
+// 	console.log(params);
+// 	const { uuid } = await params;
+// 	console.log(uuid);
+// 	const challenge = challenges.find((challenge) => challenge.id === '1');
 //
 // 	return {
 // 		props: {
@@ -34,7 +29,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async () => {
 	const challenge = {
-		id: 1,
+		id: '1',
 		title: 'First Challenge',
 		description:
 			'This is example of challenge. In hac habitasse platea dictumst. Praesent eu auctor velit. Cras mattis gravida odio euismod placerat. Morbi vestibulum dapibus diam, a lacinia felis porttitor vel. Ut sodales tincidunt orci, vel condimentum nibh. Fusce in elit euismod, laoreet felis vel, rutrum lacus.',
