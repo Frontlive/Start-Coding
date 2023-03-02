@@ -1,5 +1,5 @@
 declare module '*.svg' {
-	import { ComponentType } from 'react';
+	import type { ComponentType } from 'react';
 	export const ReactComponent: ComponentType;
 	const content: {
 		ReactComponent: ReactComponent;

@@ -1,4 +1,4 @@
-import { NextPageWithLayout } from '../_app';
+import type { NextPageWithLayout } from '../_app';
 import { SingleChallengePage } from 'templates/challenge/single/singleChallenge';
 import { MainLayout } from 'layouts/mainLayout';
 import type { InferGetStaticPropsType } from 'next';

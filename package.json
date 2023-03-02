@@ -9,10 +9,10 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
-		"lint": "turbo run lint",
-		"lint:fix": "turbo run lint:fix",
-		"format": "prettier --write --cache \"**/*.{ts,tsx,md}\"",
-		"check-format": "prettier --check \"**/*.{ts,tsx,md}\"",
+		"lint": "turbo run lint --parallel",
+		"lint:fix": "turbo run lint:fix --parallel",
+		"format": "prettier --write .",
+		"check-format": "prettier --check .",
 		"prepare": "husky install",
 		"test": "turbo run test --parallel",
 		"storybook-ui": "turbo run storybook --filter=ui",
@@ -32,11 +32,5 @@
 		"@typescript-eslint/eslint-plugin": "^5.50.0",
 		"eslint-plugin-turbo": "^0.0.7"
 	},
-	"packageManager": "yarn@1.22.19",
-	"lint-staged": {
-		"*.{ts, tsx}": [
-			"yarn lint:fix",
-			"yarn format"
-		]
-	}
+	"packageManager": "yarn@1.22.19"
 }

@@ -1,5 +1,5 @@
 import { Card, Heading } from 'ui';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 type ModalProps = {

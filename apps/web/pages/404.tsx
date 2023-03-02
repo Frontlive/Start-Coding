@@ -1,6 +1,6 @@
 import { MainLayout } from 'layouts/mainLayout';
 import { Error404 } from 'templates/errors/404';
-import { NextPageWithLayout } from './_app';
+import type { NextPageWithLayout } from './_app';
 
 const NotFoundPage: NextPageWithLayout = () => {
 	return <Error404 />;
