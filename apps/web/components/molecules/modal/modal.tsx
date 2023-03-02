@@ -14,22 +14,25 @@ export const Modal = ({ title, children, closeHandler }: ModalProps) => {
 	};
 
 	return (
-		<div className="w-full h-full absolute top-0 left-0 flex justify-center items-center bg-white/80 z-20">
+		<div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-white/80 z-20">
 			<div
 				onClick={onClickHandler}
 				className="w-full h-full absolute top-0 left-0 z-10"
 			></div>
-			<div className="bg-white z-40">
+			<div className="bg-white z-40 w-11/12 mx-auto max-w-7xl">
 				<Card tag="div">
-					<div className="flex items-center justify-between border-b border-gray-200 pt-3 pb-6">
+					<div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-200 pt-3 pb-6">
 						<Heading
 							tag="h1"
 							size="large"
-							className="text-4xl font-bold tracking-tight text-gray-900 pr-32"
+							className="text-4xl font-bold text-center tracking-tight text-gray-900 md:pr-20 order-2 md:order-1 md:text-left"
 						>
 							{title}
 						</Heading>
-						<button className="w-[35px] h-[35px]" onClick={onClickHandler}>
+						<button
+							className="w-[35px] h-[35px] order-1 md:order-2 self-end md:self-start"
+							onClick={onClickHandler}
+						>
 							<XMarkIcon />
 						</button>
 					</div>
