@@ -27,9 +27,9 @@ const filters: Filter[] = [
 	{ id: 'category', name: 'Category', options: [] },
 ];
 
-const challenges: Challenge[] = [
+export const challenges: Challenge[] = [
 	{
-		id: 1,
+		id: '1',
 		title: 'First Challenge',
 		description:
 			'This is example of challenge. In hac habitasse platea dictumst. Praesent eu auctor velit. Cras mattis gravida odio euismod placerat. Morbi vestibulum dapibus diam, a lacinia felis porttitor vel. Ut sodales tincidunt orci, vel condimentum nibh. Fusce in elit euismod, laoreet felis vel, rutrum lacus.',
@@ -41,7 +41,7 @@ const challenges: Challenge[] = [
 		tags: ['TypeScript'],
 	},
 	{
-		id: 2,
+		id: '2',
 		title: 'Second Challenge',
 		description:
 			'This is example of challenge. In hac habitasse platea dictumst. Praesent eu auctor velit. Cras mattis gravida odio euismod placerat. Morbi vestibulum dapibus diam, a lacinia felis porttitor vel. Ut sodales tincidunt orci, vel condimentum nibh. Fusce in elit euismod, laoreet felis vel, rutrum lacus.',

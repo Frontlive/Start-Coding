@@ -1,5 +1,6 @@
 import { Card, Input, Select, Button } from 'ui';
-import { SubmitHandler, useForm, Controller } from 'react-hook-form';
+import type { SubmitHandler } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { FileInput } from 'molecules/fileInput/fileInput';
 
 import dynamic from 'next/dynamic';

@@ -1,4 +1,5 @@
-import { forwardRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { forwardRef } from 'react';
 import { useFileInput } from 'molecules/fileInput/useFileInput';
 import { Text } from 'ui';
 
