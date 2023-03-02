@@ -14,19 +14,6 @@ export const getStaticPaths = async () => {
 	};
 };
 
-// export const getStaticProps = async ({ params }) => {
-// 	console.log(params);
-// 	const { uuid } = await params;
-// 	console.log(uuid);
-// 	const challenge = challenges.find((challenge) => challenge.id === '1');
-//
-// 	return {
-// 		props: {
-// 			challenge,
-// 		},
-// 	};
-// };
-
 export const getStaticProps = async () => {
 	const challenge = {
 		id: '1',
