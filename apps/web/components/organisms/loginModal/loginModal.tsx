@@ -2,9 +2,10 @@ import { Modal } from 'molecules/modal/modal';
 import { Button, Link } from 'ui';
 
 type LoginModalProps = {
+	isOpen: boolean;
 	onClose: () => void;
 };
-export const LoginModal = ({ onClose }: LoginModalProps) => {
+export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 	const onClickHandler = () => {
 		onClose();
 	};
@@ -12,6 +13,7 @@ export const LoginModal = ({ onClose }: LoginModalProps) => {
 	return (
 		<Modal
 			title="Ta opcja dostępna jest tylko dla zalogowanych użytkowników"
+			isOpen={isOpen}
 			closeHandler={onClickHandler}
 		>
 			<div className="pt-5 flex justify-center items-center">

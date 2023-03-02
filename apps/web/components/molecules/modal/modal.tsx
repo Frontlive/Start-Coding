@@ -5,13 +5,23 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 type ModalProps = {
 	title: string;
 	children: ReactNode;
+	isOpen: boolean;
 	closeHandler: () => void;
 };
 
-export const Modal = ({ title, children, closeHandler }: ModalProps) => {
+export const Modal = ({
+	title,
+	children,
+	isOpen,
+	closeHandler,
+}: ModalProps) => {
 	const onClickHandler = () => {
 		closeHandler();
 	};
+
+	if (!isOpen) {
+		return null;
+	}
 
 	return (
 		<div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-white/80 z-20">
@@ -23,7 +33,7 @@ export const Modal = ({ title, children, closeHandler }: ModalProps) => {
 				<Card tag="div">
 					<div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-200 pt-3 pb-6">
 						<Heading
-							tag="h1"
+							tag="h2"
 							size="large"
 							className="text-4xl font-bold text-center tracking-tight text-gray-900 md:pr-20 order-2 md:order-1 md:text-left"
 						>

@@ -4,7 +4,7 @@ import type { Challenge } from '../../../../types/types';
 import { useState } from 'react';
 import { Modal } from 'molecules/modal/modal';
 import { useForm } from 'react-hook-form';
-import { LoginModal } from 'molecules/modal/loginModal';
+import { LoginModal } from 'organisms/loginModal/loginModal';
 import { useUser } from '@auth0/nextjs-auth0';
 
 type SingleChallengePageProps = {
@@ -41,48 +41,51 @@ export const SingleChallengePage = ({
 
 	return (
 		<main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			{!user && !isLoading && showModal && (
-				<LoginModal onClose={onClickHandler} />
-			)}
-			{user && !isLoading && showModal && (
-				<Modal title="Prześlij swoje rozwiązanie" closeHandler={onClickHandler}>
-					<form>
-						<div className="pt-5">
-							<Input
-								{...register('deployment')}
-								type="text"
-								isError={Boolean(errors.deployment)}
-								label="Link do wydeploy'owanego zadania"
-								errorMessage={errors.deployment?.message || ''}
-							/>
-						</div>
-						<div className="pt-5">
-							<Input
-								{...register('sourceCode')}
-								type="text"
-								isError={Boolean(errors.sourceCode)}
-								label="Link do kodu"
-								errorMessage={errors.sourceCode?.message || ''}
-							/>
-						</div>
-						<div className="pt-5">
-							<Input
-								{...register('comments')}
-								type="text"
-								isError={Boolean(errors.comments)}
-								label="Uwagi"
-								errorMessage={errors.comments?.message || ''}
-							/>
-						</div>
-						<Button variant="primary" type="submit">
-							Wyślij
-						</Button>
-					</form>
-				</Modal>
-			)}
+			<LoginModal
+				isOpen={!user && !isLoading && showModal}
+				onClose={onClickHandler}
+			/>
+			<Modal
+				title="Prześlij swoje rozwiązanie"
+				isOpen={Boolean(user) && !isLoading && showModal}
+				closeHandler={onClickHandler}
+			>
+				<form>
+					<div className="pt-5">
+						<Input
+							{...register('deployment')}
+							type="text"
+							isError={Boolean(errors.deployment)}
+							label="Link do wydeploy'owanego zadania"
+							errorMessage={errors.deployment?.message || ''}
+						/>
+					</div>
+					<div className="pt-5">
+						<Input
+							{...register('sourceCode')}
+							type="text"
+							isError={Boolean(errors.sourceCode)}
+							label="Link do kodu"
+							errorMessage={errors.sourceCode?.message || ''}
+						/>
+					</div>
+					<div className="pt-5">
+						<Input
+							{...register('comments')}
+							type="text"
+							isError={Boolean(errors.comments)}
+							label="Uwagi"
+							errorMessage={errors.comments?.message || ''}
+						/>
+					</div>
+					<Button variant="primary" type="submit">
+						Wyślij
+					</Button>
+				</form>
+			</Modal>
 			<div className="flex items-baseline justify-between border-b border-gray-200 pt-10 pb-6">
 				<Heading
-					tag="h1"
+					tag="h2"
 					size="large"
 					className="text-4xl font-bold tracking-tight text-gray-900"
 				>
