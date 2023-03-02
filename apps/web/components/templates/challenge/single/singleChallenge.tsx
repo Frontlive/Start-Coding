@@ -1,20 +1,13 @@
-import { Button, CategoryTag, Heading, Input, Text } from 'ui';
+import { Button, CategoryTag, Heading, Text } from 'ui';
 import Image from 'next/image';
 import type { Challenge } from '../../../../types/types';
 import { useState } from 'react';
-import { Modal } from 'molecules/modal/modal';
-import { useForm } from 'react-hook-form';
 import { LoginModal } from 'organisms/loginModal/loginModal';
 import { useUser } from '@auth0/nextjs-auth0';
+import { SendSolutionModal } from 'organisms/sendSolutionModal/sendSolutionModal';
 
 type SingleChallengePageProps = {
 	challenge: Challenge;
-};
-
-type SolutionFormValues = {
-	deployment: string;
-	sourceCode: string;
-	comments: string;
 };
 
 export const SingleChallengePage = ({
@@ -26,17 +19,6 @@ export const SingleChallengePage = ({
 		setShowModal((prevState) => !prevState);
 	};
 
-	const {
-		register,
-		formState: { errors },
-	} = useForm<SolutionFormValues>({
-		defaultValues: {
-			deployment: '',
-			sourceCode: '',
-			comments: '',
-		},
-	});
-
 	const { isLoading, user } = useUser();
 
 	return (
@@ -45,44 +27,10 @@ export const SingleChallengePage = ({
 				isOpen={!user && !isLoading && showModal}
 				onClose={onClickHandler}
 			/>
-			<Modal
-				title="Prześlij swoje rozwiązanie"
+			<SendSolutionModal
 				isOpen={Boolean(user) && !isLoading && showModal}
-				closeHandler={onClickHandler}
-			>
-				<form>
-					<div className="pt-5">
-						<Input
-							{...register('deployment')}
-							type="text"
-							isError={Boolean(errors.deployment)}
-							label="Link do wydeploy'owanego zadania"
-							errorMessage={errors.deployment?.message || ''}
-						/>
-					</div>
-					<div className="pt-5">
-						<Input
-							{...register('sourceCode')}
-							type="text"
-							isError={Boolean(errors.sourceCode)}
-							label="Link do kodu"
-							errorMessage={errors.sourceCode?.message || ''}
-						/>
-					</div>
-					<div className="pt-5">
-						<Input
-							{...register('comments')}
-							type="text"
-							isError={Boolean(errors.comments)}
-							label="Uwagi"
-							errorMessage={errors.comments?.message || ''}
-						/>
-					</div>
-					<Button variant="primary" type="submit">
-						Wyślij
-					</Button>
-				</form>
-			</Modal>
+				onClose={onClickHandler}
+			/>
 			<div className="flex items-baseline justify-between border-b border-gray-200 pt-10 pb-6">
 				<Heading
 					tag="h2"
