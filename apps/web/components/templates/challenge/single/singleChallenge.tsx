@@ -28,11 +28,7 @@ export const SingleChallengePage = ({
 
 	const {
 		register,
-		handleSubmit,
-		control,
 		formState: { errors },
-		setValue,
-		watch,
 	} = useForm<SolutionFormValues>({
 		defaultValues: {
 			deployment: '',
