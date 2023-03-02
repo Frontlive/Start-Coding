@@ -9,6 +9,9 @@
 		"lint": {
 			"outputs": []
 		},
+		"lint:fix": {
+			"outputs": []
+		},
 		"test": {
 			"outputs": []
 		},

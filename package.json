@@ -9,7 +9,8 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
-		"lint": "turbo run lint && :",
+		"lint": "turbo run lint",
+		"lint:fix": "turbo run lint:fix",
 		"format": "prettier --write --cache \"**/*.{ts,tsx,md}\"",
 		"check-format": "prettier --check \"**/*.{ts,tsx,md}\"",
 		"prepare": "husky install",
@@ -34,7 +35,7 @@
 	"packageManager": "yarn@1.22.19",
 	"lint-staged": {
 		"*.{ts, tsx}": [
-			"yarn lint",
+			"yarn lint:fix",
 			"yarn format"
 		]
 	}

@@ -1,8 +1,8 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
-import { NextPage } from 'next';
-import { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
+import type { ReactElement, ReactNode } from 'react';
 
 export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
 	P,
