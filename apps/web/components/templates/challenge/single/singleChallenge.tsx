@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { LoginModal } from 'organisms/loginModal/loginModal';
 import { useUser } from '@auth0/nextjs-auth0';
 import { SendSolutionModal } from 'organisms/sendSolutionModal/sendSolutionModal';
+import { Tabs } from 'molecules/tabs/tabs';
 
 type SingleChallengePageProps = {
 	challenge: Challenge;
@@ -65,6 +66,9 @@ export const SingleChallengePage = ({
 						</Text>
 					</div>
 				</div>
+			</section>
+			<section>
+				<Tabs />
 			</section>
 		</main>
 	);

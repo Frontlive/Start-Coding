@@ -27,3 +27,10 @@ export type SortOption = {
 	href: string;
 	current: boolean;
 };
+
+export type Opinion = {
+	author: string;
+	avatar: string;
+	rating: number;
+	comment: string;
+};
