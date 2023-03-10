@@ -1,5 +1,5 @@
-import { Card, Heading } from 'ui';
-import type { ReactNode } from 'react';
+import { Card, Heading, VisuallyHidden } from 'ui';
+import { type ReactNode, useId } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 type ModalProps = {
@@ -15,6 +15,7 @@ export const Modal = ({
 	isOpen,
 	closeHandler,
 }: ModalProps) => {
+	const id = useId();
 	const onClickHandler = () => {
 		closeHandler();
 	};
@@ -24,7 +25,13 @@ export const Modal = ({
 	}
 
 	return (
-		<div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-white/80 z-20">
+		<div
+			id={id}
+			className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-white/80 z-20"
+			role="modal"
+			aria-modal
+			aria-labelledby={`${id}-title`}
+		>
 			<div
 				onClick={onClickHandler}
 				className="w-full h-full absolute top-0 left-0 z-10"
@@ -36,6 +43,7 @@ export const Modal = ({
 							tag="h2"
 							size="large"
 							className="text-4xl font-bold text-center tracking-tight text-gray-900 md:pr-20 order-2 md:order-1 md:text-left"
+							id={`${id}-title`}
 						>
 							{title}
 						</Heading>
@@ -44,6 +52,7 @@ export const Modal = ({
 							onClick={onClickHandler}
 						>
 							<XMarkIcon />
+							<VisuallyHidden>zamknij modal</VisuallyHidden>
 						</button>
 					</div>
 					{children}
