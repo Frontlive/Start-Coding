@@ -2,7 +2,7 @@ import { OpinionItem } from 'molecules/opinionItem/opinionItem';
 import type { Opinion } from '../../../types/types';
 import { NewOpinionForm } from 'organisms/newOpinionForm/newOpinionForm';
 import { OpinionStats } from 'molecules/opinonStats/opinionStats';
-import { ProtectedComponent } from 'organisms/protectedPage/protectedComponent/protectedComponent';
+import { ProtectedComponent } from 'organisms/protectedComponent/protectedComponent';
 
 const opinions: Opinion[] = [
 	{

@@ -2,6 +2,7 @@ import { Tab } from '@headlessui/react';
 import { Opinions } from 'molecules/opinions/opinions';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
+import { Comments } from 'molecules/comments/comments';
 
 type TabObject = {
 	label: string;
@@ -20,7 +21,7 @@ export const Tabs = () => {
 		},
 		{
 			label: 'Komentarze',
-			content: 'Komentarze',
+			content: <Comments />,
 		},
 	];
 
@@ -30,6 +31,7 @@ export const Tabs = () => {
 				<Tab.List className="flex flex-col md:flex-row border-b-2 mb-3">
 					{tabs.map((tab) => (
 						<Tab
+							key={tab.label}
 							className={({ selected }) =>
 								clsx(
 									'w-full rounded-tl-lg rounded-tr-lg py-2.5 text-sm font-medium text-blue-700',
@@ -44,7 +46,7 @@ export const Tabs = () => {
 				</Tab.List>
 				<Tab.Panels className="w-full">
 					{tabs.map((tab) => (
-						<Tab.Panel>{tab.content}</Tab.Panel>
+						<Tab.Panel key={tab.label}>{tab.content}</Tab.Panel>
 					))}
 				</Tab.Panels>
 			</Tab.Group>
