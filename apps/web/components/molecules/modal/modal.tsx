@@ -48,7 +48,7 @@ export const Modal = ({
 							{title}
 						</Heading>
 						<button
-							className="w-[35px] h-[35px] order-1 md:order-2 self-end md:self-start"
+							className="w-8 h-8 absolute top-4 right-4"
 							onClick={onClickHandler}
 						>
 							<XMarkIcon />
