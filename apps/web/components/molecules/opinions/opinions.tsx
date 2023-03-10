@@ -45,10 +45,7 @@ export const Opinions = () => {
 			{opinions.map((opinion, id) => (
 				<OpinionItem
 					key={id}
-					author={opinion.author}
-					avatar={opinion.avatar}
-					comment={opinion.comment}
-					rating={opinion.rating}
+					{...opinion}
 				/>
 			))}
 		</>
