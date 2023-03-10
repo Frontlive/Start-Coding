@@ -13,7 +13,9 @@ export const ProtectedComponent = ({
 }: ProtectedComponentProps) => {
 	const { isLoading, user } = useUser();
 
-	if (!isLoading && !user) {
+	const isLoggedIn = !isLoading && !user;
+
+	if (isLoggedIn) {
 		return (
 			<Card tag="div">
 				<div className="flex flex-col justify-center items-center h-full">

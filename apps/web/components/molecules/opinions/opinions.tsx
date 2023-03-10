@@ -43,10 +43,7 @@ export const Opinions = () => {
 				<OpinionStats opinions={opinions} />
 			</div>
 			{opinions.map((opinion, id) => (
-				<OpinionItem
-					key={id}
-					{...opinion}
-				/>
+				<OpinionItem key={id} {...opinion} />
 			))}
 		</>
 	);

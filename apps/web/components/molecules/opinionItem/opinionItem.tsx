@@ -21,6 +21,7 @@ export const OpinionItem = ({
 						width={1000}
 						height={1000}
 						className="w-full h-full rounded-full w-24 h-24 object-cover"
+						aria-hidden="true"
 					/>
 					<div className="md:pl-5">
 						<Heading tag="h3" size="large" className="font-bold">

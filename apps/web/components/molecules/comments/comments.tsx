@@ -50,7 +50,7 @@ export const Comments = () => {
 						Komentarze ({comments.length})
 					</Heading>
 				</div>
-				<ProtectedComponent>
+				<ProtectedComponent info="Aby dodać komentarz musisz być zalogowany">
 					<AddComment />
 				</ProtectedComponent>
 			</div>
