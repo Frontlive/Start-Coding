@@ -1,6 +1,6 @@
 import { Card, Heading } from 'ui';
 import type { Opinion } from '../../../types/types';
-import { PolishPlurals } from 'utils/plurals/PolishPlurals';
+import { OpinionPolishPlurals } from 'utils/plurals/PolishPlurals';
 
 type OpinionStatsProps = {
 	opinions: Opinion[];
@@ -69,7 +69,7 @@ export const OpinionStats = ({ opinions }: OpinionStatsProps) => {
 						<p className="ml-2 text-sm font-medium">4.95 / 5</p>
 					</div>
 					<p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-						{PolishPlurals(opinions.length)}
+						{OpinionPolishPlurals(opinions.length)}
 					</p>
 				</div>
 			</Card>

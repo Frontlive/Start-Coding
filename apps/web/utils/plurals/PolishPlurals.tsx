@@ -1,4 +1,4 @@
-export const PolishPlurals = (value: number) => {
+export const OpinionPolishPlurals = (value: number) => {
 	const formatter = new Intl.PluralRules('pl', {
 		type: 'cardinal',
 	});
@@ -16,4 +16,13 @@ export const PolishPlurals = (value: number) => {
 	const pluralForm = polishPluralsPosts[plural];
 
 	return `${value} ${pluralForm}`;
+};
+
+export const TimePolishPlurals = (
+	value: number,
+	type: Intl.RelativeTimeFormatUnit,
+) => {
+	const rtf = new Intl.RelativeTimeFormat('pl', { style: 'long' });
+
+	return rtf.format(value, type);
 };
