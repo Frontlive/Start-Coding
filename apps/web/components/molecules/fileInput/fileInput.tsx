@@ -1,6 +1,7 @@
-import { forwardRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { forwardRef } from 'react';
 import { useFileInput } from 'molecules/fileInput/useFileInput';
-import { Text } from 'ui/components/atoms/text/text';
+import { Text } from 'ui';
 
 type FileInputProps = {
 	handleChange: (filesSrc: string[]) => void;

@@ -1,4 +1,5 @@
-import { ChangeEvent, useCallback, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { isSourceString } from 'molecules/fileInput/fileInput.utils';
 import { useFileInputValidation } from 'molecules/fileInput/useFileInputValidation';

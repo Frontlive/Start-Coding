@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Header } from 'organisms/header/header';
 import { ApolloProvider } from '@apollo/client';
 import { graphClient } from '../../graphql/apolloClient';

@@ -1,11 +1,9 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import ExitIcon from '../../icons/exit-icon.svg';
 import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
-import { Link } from 'ui/components/atoms/link/link';
-
-import { GenericLink } from 'ui/components/atoms/genericLink/genericLink';
-import { VisuallyHidden } from 'ui/components/atoms/visuallyHidden/visuallyHidden';
+import { Link, GenericLink, VisuallyHidden } from 'ui';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 
 type DropDownBurgerMenuProps = {

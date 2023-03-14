@@ -7,7 +7,8 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"lint": "eslint \"**/*.{ts,tsx}\" --ignore-pattern=\"auth0-example/**/*\"",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix --quiet",
 		"dev:server": "wait-on tcp:5432 -i 1000 -t 20000 && node --watch -r ts-node/register ./index.ts",
 		"dev:db": "docker compose up",
 		"dev": "concurrently \"yarn dev:db\" \"yarn dev:server\""

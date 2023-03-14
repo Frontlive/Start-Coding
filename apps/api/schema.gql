@@ -1,6 +1,8 @@
-"""Auth0 user info"""
+"""
+Auth0 user info
+"""
 type AuthInfo {
-  sub: String
+	sub: String
 }
 
 """
@@ -14,37 +16,39 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 scalar DateTime
 
 input PaginationInput {
-  page: Int = 1
-  perPage: Int = 10
+	page: Int = 1
+	perPage: Int = 10
 }
 
 type Query {
-  """Auth0 context info"""
-  authInfo: AuthInfo
-  tasks(filter: TaskFilterInput, pagination: PaginationInput): [Task!]!
+	"""
+	Auth0 context info
+	"""
+	authInfo: AuthInfo
+	tasks(filter: TaskFilterInput, pagination: PaginationInput): [Task!]!
 }
 
 type Task {
-  author: User!
-  description: String!
-  difficulty: String!
-  id: ID!
-  rating: Int!
-  status: String!
-  thumbnailUrl: String!
-  title: String!
+	author: User!
+	description: String!
+	difficulty: String!
+	id: ID!
+	rating: Int!
+	status: String!
+	thumbnailUrl: String!
+	title: String!
 }
 
 input TaskFilterInput {
-  status: TaskStatus = ACTIVE
+	status: TaskStatus = ACTIVE
 }
 
 enum TaskStatus {
-  ACTIVE
-  IN_REVIEW
-  REJECTED
+	ACTIVE
+	IN_REVIEW
+	REJECTED
 }
 
 type User {
-  id: ID!
+	id: ID!
 }

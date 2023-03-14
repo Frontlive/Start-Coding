@@ -1,8 +1,8 @@
 import { MainLayout } from 'layouts/mainLayout';
 import { NewChallengePage } from 'templates/challenge/new/newChallenge';
 import { ProtectedPage } from 'organisms/protectedPage/protectedPage';
-import { NextPageWithLayout } from '../_app';
-import { GetServerSideProps } from 'next';
+import type { NextPageWithLayout } from '../_app';
+import type { GetServerSideProps } from 'next';
 import { getSession } from '@auth0/nextjs-auth0';
 
 const NewChallenge: NextPageWithLayout = () => {
