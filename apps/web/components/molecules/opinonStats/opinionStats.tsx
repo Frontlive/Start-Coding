@@ -1,6 +1,6 @@
 import { Card, Heading } from 'ui';
 import type { Opinion } from '../../../types/types';
-import { OpinionPolishPlurals } from 'utils/plurals/PolishPlurals';
+import { OpinionPolishPlurals } from 'molecules/opinonStats/opinionStats.utils';
 
 type OpinionStatsProps = {
 	opinions: Opinion[];

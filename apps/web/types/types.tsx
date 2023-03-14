@@ -34,3 +34,10 @@ export type Opinion = {
 	rating: number;
 	comment: string;
 };
+
+export type Comment = {
+	author: string;
+	avatar: string;
+	comment: string;
+	date: number;
+};

@@ -1,30 +1,8 @@
 import { Tab } from '@headlessui/react';
-import { Opinions } from 'molecules/opinions/opinions';
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
-import { Comments } from 'molecules/comments/comments';
-
-type TabObject = {
-	label: string;
-	content: ReactNode;
-};
+import { tabs } from 'molecules/tabs/tabsContent';
 
 export const Tabs = () => {
-	const tabs: TabObject[] = [
-		{
-			label: 'Opinie',
-			content: <Opinions />,
-		},
-		{
-			label: 'Rozwiązania',
-			content: 'Tab 2',
-		},
-		{
-			label: 'Komentarze',
-			content: <Comments />,
-		},
-	];
-
 	return (
 		<div className="w-full px-2 py-16 sm:px-0">
 			<Tab.Group>
@@ -45,9 +23,14 @@ export const Tabs = () => {
 					))}
 				</Tab.List>
 				<Tab.Panels className="w-full">
-					{tabs.map((tab) => (
-						<Tab.Panel key={tab.label}>{tab.content}</Tab.Panel>
-					))}
+					{tabs.map((tab) => {
+						const Content = tab.content;
+						return (
+							<Tab.Panel key={tab.label}>
+								<Content />
+							</Tab.Panel>
+						);
+					})}
 				</Tab.Panels>
 			</Tab.Group>
 		</div>

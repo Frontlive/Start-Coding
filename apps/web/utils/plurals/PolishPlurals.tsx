@@ -1,24 +1,25 @@
-export const OpinionPolishPlurals = (value: number) => {
+export const polishPlurals = (
+	plural: {
+		zero: string;
+		one: string;
+		two: string;
+		few: string;
+		many: string;
+		other: string;
+	},
+	value: number,
+) => {
 	const formatter = new Intl.PluralRules('pl', {
 		type: 'cardinal',
 	});
 
-	const polishPluralsPosts = {
-		zero: 'opinii',
-		one: 'opinia',
-		two: 'opinie',
-		few: 'opinie',
-		many: 'opinii',
-		other: 'opinie',
-	};
-
-	const plural = formatter.select(value);
-	const pluralForm = polishPluralsPosts[plural];
+	const pluralValue = formatter.select(value);
+	const pluralForm = plural[pluralValue];
 
 	return `${value} ${pluralForm}`;
 };
 
-export const TimePolishPlurals = (
+export const timePolishPlurals = (
 	value: number,
 	type: Intl.RelativeTimeFormatUnit,
 ) => {
