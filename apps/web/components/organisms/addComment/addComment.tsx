@@ -1,22 +1,24 @@
 import { useAddCommentForm } from 'organisms/addComment/useAddCommentForm';
-import { TextArea } from 'ui/components/organisms/textArea/textArea';
-import { Button } from 'ui';
+import { Button, TextArea } from 'ui';
 
 export const AddComment = () => {
-	const { register, errors } = useAddCommentForm();
+	const { submitHandler, register, errors } = useAddCommentForm();
 
 	return (
-		<form>
+		<form onSubmit={submitHandler}>
 			<TextArea
-				{...register('comment')}
+				{...register('comment', { required: 'To pole jest wymagane' })}
 				isError={Boolean(errors.comment)}
 				label="Twój komentarz"
 				errorMessage={errors.comment?.message || ''}
 			/>
-			<div className="pt-2">
-				<Button variant="primary" type="submit">
-					Dodaj komentarz
-				</Button>
+			<div className="pt-2 flex">
+				<div className="w-2/3 hidden md:block"></div>
+				<div className="w-full md:w-1/3 self-end">
+					<Button variant="primary" type="submit" fullWidth={true}>
+						Dodaj komentarz
+					</Button>
+				</div>
 			</div>
 		</form>
 	);
