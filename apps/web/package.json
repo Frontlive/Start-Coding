@@ -33,6 +33,7 @@
 		"react-dropzone": "^14.2.3",
 		"react-hook-form": "^7.37.0",
 		"scheduler": "^0.23.0",
+		"sonner": "^0.2.0",
 		"ui": "*",
 		"use-context-selector": "^1.4.1"
 	},
