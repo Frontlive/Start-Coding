@@ -3,14 +3,14 @@ import { ProtectedComponent } from 'organisms/protectedComponent/protectedCompon
 import { AddComment } from 'organisms/addComment/addComment';
 import { CommentItem } from 'molecules/commentItem/commentItem';
 
-const comments = [
+const arr = [
 	{
 		author: 'Adam Nowak',
 		comment:
 			'To zadanie frontendowe wydaje się bardzo wymagające, ale na pewno pozwoli na rozwinięcie umiejętności i poszerzenie wiedzy. Trzeba będzie zwrócić uwagę na każdy szczegół, aby stworzyć estetyczny i responsywny interfejs.',
 		avatar:
 			'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2960&q=80',
-		date: '2021-10-10',
+		date: 1264938840000,
 	},
 
 	{
@@ -19,7 +19,7 @@ const comments = [
 			'Mam nadzieję, że w tym zadaniu będzie można wykorzystać najnowsze technologie i narzędzia, co pozwoli na jeszcze lepsze efekty. Czekam na wyzwania, które pozwolą mi się rozwijać i poszerzać horyzonty.',
 		avatar:
 			'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2960&q=80',
-		date: '2021-10-10',
+		date: 1678794840000,
 	},
 
 	{
@@ -28,7 +28,7 @@ const comments = [
 			'Zadanie frontendowe to wspaniała okazja, aby pokazać swoje umiejętności projektowania interfejsów użytkownika. Nie mogę się doczekać, aby zacząć pracę i zobaczyć, co uda mi się stworzyć.',
 		avatar:
 			'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2960&q=80',
-		date: '2021-10-10',
+		date: 1672444800000,
 	},
 
 	{
@@ -37,9 +37,16 @@ const comments = [
 			'Zadanie frontendowe może być trudne, ale warto podjąć wyzwanie. Będzie to okazja do nauki nowych technologii i rozwoju umiejętności, co na pewno będzie przydatne w dalszej karierze.',
 		avatar:
 			'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2960&q=80',
-		date: '2021-10-10',
+		date: 1678808591856,
 	},
 ];
+
+const comments = arr.sort(
+	(
+		a: { author: string; comment: string; avatar: string; date: number },
+		b: { author: string; comment: string; avatar: string; date: number },
+	) => b.date - a.date,
+);
 
 export const Comments = () => {
 	return (
