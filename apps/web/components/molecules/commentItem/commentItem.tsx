@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Card } from 'ui';
-import { timeDifference } from 'utils/timeDifference/timeDifference';
+import { getTimeDiffFromTimestamp } from 'utils/timeDifference/getTimeDiffFromTimestamp';
 
 type CommentItemProps = {
 	author: string;
@@ -124,7 +124,7 @@ export const CommentItem = ({
 						<div className="flex items-center flex-1 px-4 font-bold leading-tight">
 							{author}
 							<span className="ml-2 text-xs font-normal text-gray-500">
-								{timeDifference(date)}
+								{getTimeDiffFromTimestamp(date)}
 							</span>
 						</div>
 						<div className="flex-1 px-2 ml-2 text-sm font-medium leading-loose text-gray-600">
