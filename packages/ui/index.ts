@@ -8,6 +8,7 @@ export * from './components/atoms/visuallyHidden/visuallyHidden';
 export * from './components/atoms/dropdownMenu/dropdownMenuItem/dropdownMenuItem';
 export * from './components/molecules/spinner/spinner';
 export * from './components/organisms/input/input';
+export * from './components/organisms/textArea/textArea';
 export * from './components/organisms/select/select';
 export * from './components/organisms/dropdownMenu/dropdownMenu';
 export * from './components/molecules/checkbox/checkbox';
