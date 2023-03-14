@@ -22,7 +22,8 @@ model User {
   name      String
   nickname  String
   picture   String
-  user_id   String   @unique
+
+  provider_user_id   String   @unique
 
   posted_tasks Task[]
   comments     Comment[]
@@ -33,9 +34,10 @@ model User {
   @@map("users")
 }
 
-enum Status {
+enum TaskStatus {
   IN_REVIEW
   ACTIVE
+  REJECTED
 }
 
 model Task {
@@ -43,14 +45,14 @@ model Task {
   title     String
   description String
 
-  user_id   Int
-  user      User     @relation(fields: [user_id], references: [id])
+  author_id   Int
+  author      User     @relation(fields: [author_id], references: [id])
 
   comments  Comment[]
   rating   Int
   difficulty Difficulty
 
-  status Status
+  status TaskStatus
   thumbnail_url String
 
   created_at DateTime @default(now())

@@ -1,15 +1,14 @@
 import { useAuth0 } from '@envelop/auth0';
 import { EnvelopArmorPlugin } from '@escape.tech/graphql-armor';
 import { pipe } from '@mobily/ts-belt';
-import type { PrismaClient } from '@prisma/client';
 import { lexicographicSortSchema, printSchema } from 'graphql';
 import { rateLimitDirective } from 'graphql-rate-limit-directive';
 import { createYoga, useExtendContext } from 'graphql-yoga';
 
 import { env } from './config';
-import { client } from './prisma';
+import { DB_SYMBOL } from './dependencies/db';
 import { schema as rawSchema } from './schema';
-import type { Context } from './types';
+import type { BaseContext, Context } from './types';
 
 const { rateLimitDirectiveTransformer } = rateLimitDirective();
 
@@ -26,14 +25,8 @@ export const instance = createYoga<Context>({
 	maskedErrors: env.isProd,
 	landingPage: env.isDev,
 	graphiql: {
-		headers: JSON.stringify({
-			Authorization: 'Bearer <token>',
-		}),
+		title: 'API',
 	},
-	context: (ctx) => ({
-		...ctx,
-		db: client,
-	}),
 	plugins: [
 		useAuth0({
 			domain: env.AUTH0_DOMAIN,
@@ -41,10 +34,12 @@ export const instance = createYoga<Context>({
 			extendContextField: 'auth0',
 			preventUnauthenticatedAccess: env.isProd,
 		}),
-		useExtendContext(async (ctx: Context & { db: PrismaClient }) => {
+		useExtendContext(async (ctx: BaseContext) => {
 			const user_id = ctx.auth0?.sub;
+			const db = ctx.container.resolve(DB_SYMBOL);
+
 			const user = user_id
-				? await ctx.db.user.findUnique({ where: { user_id } })
+				? await db.user.findUnique({ where: { provider_user_id: user_id } })
 				: null;
 
 			return { ...ctx, user };

@@ -4,9 +4,11 @@ import type { Context } from './types';
 import { DateResolver, DateTimeResolver } from 'graphql-scalars';
 import PluginPrisma from '@pothos/plugin-prisma';
 import { client } from './prisma';
+import PluginValidation from '@pothos/plugin-validation';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
 
-export const builder = new SchemaBuilder<{
+export type BuilderContext = {
+	PrismaTypes: PrismaTypes;
 	Context: Context;
 	Scalars: {
 		Date: { Input: Date; Output: Date };
@@ -18,9 +20,10 @@ export const builder = new SchemaBuilder<{
 			args: { limit: number; duration: number };
 		};
 	};
-	PrismaTypes: PrismaTypes;
-}>({
-	plugins: [DirectivePlugin, PluginPrisma],
+};
+
+export const builder = new SchemaBuilder<BuilderContext>({
+	plugins: [DirectivePlugin, PluginPrisma, PluginValidation],
 	prisma: {
 		client,
 	},
@@ -28,36 +31,6 @@ export const builder = new SchemaBuilder<{
 
 builder.addScalarType('Date', DateResolver, {});
 builder.addScalarType('DateTime', DateTimeResolver, {});
-
-builder.prismaObject('Task', {
-	findUnique: (task) => ({ id: task.id }),
-	fields: (t) => ({
-		id: t.exposeID('id'),
-		title: t.exposeString('title'),
-		description: t.exposeString('description'),
-	}),
-});
-
-builder.prismaObject('User', {
-	findUnique: (user) => ({ id: user.id }),
-	fields: (t) => ({
-		id: t.exposeID('id'),
-		email: t.exposeString('email'),
-		name: t.exposeString('name'),
-		postedTasks: t.relation('posted_tasks'),
-	}),
-});
-
-builder.queryField('allUsers', (t) =>
-	t.prismaField({
-		type: ['User'],
-		async resolve(query, _parent, _args, _ctx, _info) {
-			return await client.user.findMany({
-				...query,
-			});
-		},
-	}),
-);
 
 builder.queryType({});
 // builder.mutationType({});
