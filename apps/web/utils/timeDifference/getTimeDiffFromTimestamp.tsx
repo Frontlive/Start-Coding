@@ -29,7 +29,7 @@ export const getTimeDiffFromTimestamp = (timestamp: number) => {
 
 	if (elapsed < MS_PER_YEAR) {
 		return timePolishPlurals(-Math.round(elapsed / MS_PER_MONTH), 'month');
-	} else {
-		return timePolishPlurals(-Math.round(elapsed / MS_PER_YEAR), 'year');
 	}
+
+	return timePolishPlurals(-Math.round(elapsed / MS_PER_YEAR), 'year');
 };

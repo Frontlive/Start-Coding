@@ -4,12 +4,7 @@ import { AddComment } from 'organisms/addComment/addComment';
 import { CommentItem } from 'molecules/commentItem/commentItem';
 import { commentsMock } from 'molecules/comments/comments.mock';
 
-const comments = commentsMock.sort(
-	(
-		a: { author: string; comment: string; avatar: string; date: number },
-		b: { author: string; comment: string; avatar: string; date: number },
-	) => b.date - a.date,
-);
+const comments = commentsMock.sort((a, b) => b.timestamp - a.timestamp);
 
 export const Comments = () => {
 	return (

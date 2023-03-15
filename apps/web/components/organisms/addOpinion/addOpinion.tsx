@@ -1,9 +1,9 @@
 import { Button, Card, Heading } from 'ui';
-import { useAddOpinionForm } from 'organisms/newOpinionForm/useAddOpinionForm';
+import { useAddOpinionForm } from 'organisms/addOpinion/useAddOpinionForm';
 import { TextArea } from 'ui/components/organisms/textArea/textArea';
 import { ReactComponent as StarIcon } from 'components/icons/gray-star.svg';
 
-export const NewOpinionForm = () => {
+export const AddOpinion = () => {
 	const { register, errors } = useAddOpinionForm();
 
 	return (

@@ -1,6 +1,6 @@
 import { polishPlurals } from 'utils/plurals/PolishPlurals';
 
-export const OpinionPolishPlurals = (value: number) => {
+export const opinionPolishPlurals = (value: number) => {
 	const OpinionsPluralsPosts = {
 		zero: 'opinii',
 		one: 'opinia',
