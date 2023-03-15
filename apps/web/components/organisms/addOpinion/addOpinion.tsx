@@ -5,7 +5,7 @@ import { ReactComponent as StarIcon } from 'components/icons/gray-star.svg';
 
 export const NewOpinionForm = () => {
 	const { register, errors } = useAddOpinionForm();
-	console.log(StarIcon);
+
 	return (
 		<Card tag="div">
 			<div className="flex flex-col">

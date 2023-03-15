@@ -39,5 +39,5 @@ export type Comment = {
 	author: string;
 	avatar: string;
 	comment: string;
-	date: number;
+	timestamp: number;
 };
