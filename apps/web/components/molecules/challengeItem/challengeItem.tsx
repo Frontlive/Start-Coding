@@ -19,13 +19,13 @@ export const ChallengeItem = ({
 		<li className="mb-5">
 			<a href={`/challenge/${id}`}>
 				<Card tag="div">
-					<div className="flex flex-col lg:flex-row pb-2">
+					<div className="flex flex-col pb-2 lg:flex-row">
 						<Image
 							src={image}
 							alt=""
 							width="120"
 							height="120"
-							className="w-full h-full rounded-lg"
+							className="h-full w-full rounded-lg"
 						/>
 						<div className="lg:px-5">
 							<Heading tag="h2" size="large" className="font-bold	">
@@ -37,7 +37,7 @@ export const ChallengeItem = ({
 						</div>
 					</div>
 					<div className="flex items-center">
-						<ChartBarIcon className="h-5 w-5 mr-1" />
+						<ChartBarIcon className="mr-1 h-5 w-5" />
 						<Text size="medium" variant="default" tag="p" position="left">
 							{difficulty}
 						</Text>
@@ -48,7 +48,7 @@ export const ChallengeItem = ({
 								return (
 									<svg
 										aria-hidden="true"
-										className={clsx('w-5 h-5', starClass)}
+										className={clsx('h-5 w-5', starClass)}
 										fill="currentColor"
 										viewBox="0 0 20 20"
 										xmlns="http://www.w3.org/2000/svg"

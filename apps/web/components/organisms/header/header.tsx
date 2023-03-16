@@ -7,7 +7,7 @@ import { DropDownBurgerMenu } from 'organisms/dropDownBurgerMenu/dropDownBurgerM
 import { useHamburgerMenu } from 'organisms/dropDownBurgerMenu/useHamburgerMenu';
 import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/headerUserLoginContent';
 import { HeaderUserLoggedInContent } from 'organisms/header/headerUserLoggedInContent/headerUserLoggedInContent';
-import { VisuallyHidden, Heading } from 'ui';
+import { Heading, VisuallyHidden } from 'ui';
 import Link from 'next/link';
 
 export const Header = () => {
@@ -15,12 +15,12 @@ export const Header = () => {
 	const { closeBurgerMenu, isBurgerMenuActive, openBurgerMenu } =
 		useHamburgerMenu();
 	return (
-		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
+		<header className="sticky z-10 flex w-full items-center justify-between px-12 py-4 shadow-xl">
 			<Link href="/">
 				<Heading
 					tag="h1"
 					size="large"
-					className="font-bold text-2xl whitespace-nowrap mr-20"
+					className="mr-20 whitespace-nowrap text-2xl font-bold"
 				>
 					Start-Coding
 				</Heading>
@@ -37,8 +37,8 @@ export const Header = () => {
 					</Navbar>
 				</DropDownBurgerMenu>
 			)}
-			<div className="hidden lg:flex items-center justify-between w-full">
-				<div className="flex items-center justify-between max-w-sm w-full">
+			<div className="hidden w-full items-center justify-between lg:flex">
+				<div className="flex w-full max-w-sm items-center justify-between">
 					<Navbar>
 						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>

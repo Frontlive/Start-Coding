@@ -3,7 +3,7 @@ import { ReactComponent as MenuListDropdown } from '../../../icons/menu-list-dro
 
 export const DropdownMenuTrigger = () => {
 	return (
-		<Trigger className="w-12 h-12">
+		<Trigger className="h-12 w-12">
 			<MenuListDropdown />
 		</Trigger>
 	);

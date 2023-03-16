@@ -18,16 +18,16 @@ export const SelectOption = ({ option }: SelectOptionProps) => {
 			{({ active, selected }) => (
 				<li
 					className={clsx(
-						'cursor-default select-none relative py-2 pl-3 pr-9 rounded-md',
+						'relative cursor-default select-none rounded-md py-2 pl-3 pr-9',
 						{
-							'text-white bg-primary': active,
+							'bg-primary text-white': active,
 							'text-gray-900': !active,
 						},
 					)}
 				>
 					<div className="flex items-center">
 						<span
-							className={clsx('flex items-center block truncate', {
+							className={clsx('block flex items-center truncate', {
 								'font-semibold': selected,
 								'font-normal': !selected,
 							})}
@@ -37,7 +37,7 @@ export const SelectOption = ({ option }: SelectOptionProps) => {
 						{selected && (
 							<span
 								className={clsx(
-									'absolute inset-y-0 right-0 flex items-center mr-3 pl-1.5',
+									'absolute inset-y-0 right-0 mr-3 flex items-center pl-1.5',
 									{
 										'text-white': active,
 										'text-indigo-600': !active,

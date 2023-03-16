@@ -12,7 +12,7 @@ export const Checkbox = ({ label }: CheckboxProps) => {
 				id={id}
 				name={id}
 				type="checkbox"
-				className="h-4 w-4 rounded-lg border-gray-200 text-indigo-600 dark:border-gray-300 focus:ring-indigo-500"
+				className="h-4 w-4 rounded-lg border-gray-200 text-indigo-600 focus:ring-indigo-500 dark:border-gray-300"
 			/>
 			<label htmlFor={id} className="ml-3 text-sm text-gray-600">
 				{label}

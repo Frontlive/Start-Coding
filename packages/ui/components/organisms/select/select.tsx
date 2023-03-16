@@ -58,7 +58,7 @@ export const Select = ({
 						>
 							<Listbox.Options
 								static
-								className="border border-gray-400 overflow-auto text-base rounded-md max-h-56 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+								className="max-h-56 overflow-auto rounded-md border border-gray-400 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
 							>
 								{options.map((option) => (
 									<SelectOption option={option} key={option.value} />

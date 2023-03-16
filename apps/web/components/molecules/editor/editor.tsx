@@ -58,7 +58,7 @@ export const Editor = ({ initialEditorState, onChange }: EditorProps) => {
 				<RichTextPlugin
 					placeholder=""
 					contentEditable={
-						<ContentEditable className="p-2 mt-2 border-2 rounded-md min-h-100" />
+						<ContentEditable className="min-h-100 mt-2 rounded-md border-2 p-2" />
 					}
 					ErrorBoundary={LexicalErrorBoundary}
 				/>

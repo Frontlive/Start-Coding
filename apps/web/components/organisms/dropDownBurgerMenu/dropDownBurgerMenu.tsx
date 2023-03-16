@@ -17,14 +17,14 @@ export const DropDownBurgerMenu = ({
 	const { user, isLoading } = useUser();
 
 	return (
-		<div className="flex flex-col justify-center  items-center top-0 left-0 absolute h-screen w-screen bg-white z-50">
+		<div className="absolute top-0 left-0  z-50 flex h-screen w-screen flex-col items-center justify-center bg-white">
 			<button onClick={hideBurgerMenu} className="absolute top-10 right-10">
 				<Image alt="" src={ExitIcon} width={50} height={50} />
 				<VisuallyHidden>exit</VisuallyHidden>
 			</button>
 			{!isLoading && !user && <HeaderUserLoginContent />}
 			{!isLoading && user && (
-				<div className="flex gap-4 flex-col justify-center items-center font-semibold text-blue-600">
+				<div className="flex flex-col items-center justify-center gap-4 font-semibold text-blue-600">
 					{children}
 
 					<Link href="/challenge/new" variant="primary">

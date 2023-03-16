@@ -16,7 +16,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 			isOpen={isOpen}
 			closeHandler={onClickHandler}
 		>
-			<div className="pt-5 flex justify-center items-center">
+			<div className="flex items-center justify-center pt-5">
 				<Link href="/api/auth/login" variant="primary">
 					Zaloguj się
 				</Link>

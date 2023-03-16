@@ -16,7 +16,7 @@ export const Label = ({ children, id, label, disabled }: LabelProps) => {
 		},
 	);
 	return (
-		<div className="flex flex-col relative">
+		<div className="relative flex flex-col">
 			{children}
 			<label className={className} htmlFor={id}>
 				{label}

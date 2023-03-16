@@ -17,8 +17,8 @@ export const HeaderUserLoggedInContent = ({
 	const router = useRouter();
 	const isOnChallengeNewPage = router.pathname.includes('/challenge/new');
 	return (
-		<div className="flex flex-col lg:flex-row items-center">
-			<div className="h-10 w-10 mr-2 ">
+		<div className="flex flex-col items-center lg:flex-row">
+			<div className="mr-2 h-10 w-10 ">
 				{user.avatarSrc ? (
 					<Image
 						className="rounded-full border"
@@ -37,7 +37,7 @@ export const HeaderUserLoggedInContent = ({
 					/>
 				)}
 			</div>
-			<p className="p-0 m-0">Witaj, {user.nickname}!</p>
+			<p className="m-0 p-0">Witaj, {user.nickname}!</p>
 			<DropdownMenu>
 				<GenericLink href="/profile">
 					<DropdownMenuItem>Profil</DropdownMenuItem>

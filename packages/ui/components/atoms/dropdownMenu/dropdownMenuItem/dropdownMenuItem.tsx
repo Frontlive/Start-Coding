@@ -7,7 +7,7 @@ type DropdownMenuItemProps = {
 
 export const DropdownMenuItem = ({ children }: DropdownMenuItemProps) => {
 	return (
-		<Item className="p-4 bg-white hover:bg-gray-100 cursor-pointer">
+		<Item className="cursor-pointer bg-white p-4 hover:bg-gray-100">
 			{children}
 		</Item>
 	);

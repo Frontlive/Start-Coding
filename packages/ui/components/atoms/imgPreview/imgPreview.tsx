@@ -20,13 +20,13 @@ export const ImgPreview = ({
 }: ImgPreviewProps) => {
 	return (
 		<div
-			className={cx('w-full h-full', {
+			className={cx('h-full w-full', {
 				'max-h-16 max-w-xs ': size === 'small',
-				'max-h-4 max-w-4': size === 'big',
+				'max-w-4 max-h-4': size === 'big',
 			})}
 		>
 			<Image
-				className="w-auto h-auto"
+				className="h-auto w-auto"
 				src={src}
 				alt={alt}
 				height={height}

@@ -26,7 +26,7 @@ export const Button = ({
 }: ButtonProps) => {
 	return (
 		<button
-			className={clsx(variants[variant], 'p-2 border-2 rounded-2xl', {
+			className={clsx(variants[variant], 'rounded-2xl border-2 p-2', {
 				'w-full': fullWidth,
 			})}
 			onClick={onClick}

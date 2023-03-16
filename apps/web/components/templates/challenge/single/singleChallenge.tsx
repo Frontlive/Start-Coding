@@ -52,9 +52,9 @@ export const SingleChallengePage = ({
 						alt=""
 						width="1200"
 						height="1200"
-						className="w-full h-full md:w-1/3 rounded-lg"
+						className="h-full w-full rounded-lg md:w-1/3"
 					/>
-					<div className="md:pl-10 pt-5 md:pt-0">
+					<div className="pt-5 md:pl-10 md:pt-0">
 						<ul className="pb-5">
 							{challenge?.tags.map((tag, id) => (
 								<CategoryTag label={tag} key={id} />

@@ -70,21 +70,21 @@ export const NewChallengeForm = () => {
 	return (
 		<form
 			onSubmit={handleSubmit(onFormSubmit)}
-			className="flex flex-col items-center md:justify-start w-full"
+			className="flex w-full flex-col items-center md:justify-start"
 		>
-			<div className="max-w-3xl w-full flex flex-col gap-4">
+			<div className="flex w-full max-w-3xl flex-col gap-4">
 				<Card tag="section">
-					<div className="flex gap-3 flex-col md:flex-row">
-						<div className="min-h-full border-2 rounded-xl border-purple-700 p-4 flex-col items-center">
+					<div className="flex flex-col gap-3 md:flex-row">
+						<div className="min-h-full flex-col items-center rounded-xl border-2 border-purple-700 p-4">
 							<FileInput handleChange={handleImgUpload} name="image">
 								{!watch('image')
 									? 'Dodaj miniaturkę dla zadania'
 									: 'Zmień miniaturkę'}
 							</FileInput>
 						</div>
-						<div className="flex flex-col w-full">
-							<div className="flex flex-col mb-2 md:mb-0 md:flex-row">
-								<div className="w-full mr-2">
+						<div className="flex w-full flex-col">
+							<div className="mb-2 flex flex-col md:mb-0 md:flex-row">
+								<div className="mr-2 w-full">
 									<fieldset className="mb-4">
 										<Input
 											{...register('title')}
