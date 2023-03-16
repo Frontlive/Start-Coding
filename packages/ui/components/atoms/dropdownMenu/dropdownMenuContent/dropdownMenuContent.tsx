@@ -8,7 +8,7 @@ type DropdownMenuContentProps = {
 export const DropdownMenuContent = ({ children }: DropdownMenuContentProps) => {
 	return (
 		<Portal>
-			<Content className="border-2 max-w-xs w-full">{children}</Content>
+			<Content className="w-full max-w-xs border-2">{children}</Content>
 		</Portal>
 	);
 };

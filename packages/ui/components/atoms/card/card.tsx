@@ -9,7 +9,7 @@ type CardProps = {
 
 export const Card = ({ children, tag: Tag }: CardProps) => {
 	return (
-		<Tag className="p-6 border border-gray-200 shadow-md rounded-lg dark:border-gray-300 w-full relative">
+		<Tag className="relative w-full rounded-lg border border-gray-200 p-6 shadow-md dark:border-gray-300">
 			{children}
 		</Tag>
 	);

@@ -19,7 +19,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 
 		return (
 			<div
-				className="h-full cursor-pointer flex flex-col justify-start items-center"
+				className="flex h-full cursor-pointer flex-col items-center justify-start"
 				{...getRootProps()}
 			>
 				<input ref={ref} {...getInputProps({ name, onChange })} />

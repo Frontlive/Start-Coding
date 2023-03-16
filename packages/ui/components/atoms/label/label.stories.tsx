@@ -10,7 +10,7 @@ export const Primary: ComponentStory<typeof Label> = (props) => {
 	return (
 		<div className="relative max-w-2xl">
 			<Label {...props}>
-				<input className="border  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
+				<input className="border-1  peer block w-full appearance-none rounded-lg border bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" />
 			</Label>
 		</div>
 	);
@@ -25,7 +25,7 @@ export const Disabled: ComponentStory<typeof Label> = (props) => {
 	return (
 		<div className="relative max-w-2xl">
 			<Label {...props}>
-				<input className="border  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
+				<input className="border-1  peer block w-full appearance-none rounded-lg border bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" />
 			</Label>
 		</div>
 	);

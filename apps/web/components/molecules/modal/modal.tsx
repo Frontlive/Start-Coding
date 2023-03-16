@@ -27,28 +27,28 @@ export const Modal = ({
 	return (
 		<div
 			id={id}
-			className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-white/80 z-20"
+			className="fixed top-0 left-0 z-20 flex h-screen w-screen items-center justify-center bg-white/80"
 			role="modal"
 			aria-modal
 			aria-labelledby={`${id}-title`}
 		>
 			<div
 				onClick={onClickHandler}
-				className="w-full h-full absolute top-0 left-0 z-10"
+				className="absolute top-0 left-0 z-10 h-full w-full"
 			></div>
-			<div className="bg-white z-40 w-11/12 mx-auto max-w-7xl">
+			<div className="z-40 mx-auto w-11/12 max-w-7xl bg-white">
 				<Card tag="div">
-					<div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-200 pt-3 pb-6">
+					<div className="flex flex-col items-center justify-between border-b border-gray-200 pt-3 pb-6 md:flex-row">
 						<Heading
 							tag="h2"
 							size="large"
-							className="text-4xl font-bold text-center tracking-tight text-gray-900 md:pr-20 order-2 md:order-1 md:text-left"
+							className="order-2 text-center text-4xl font-bold tracking-tight text-gray-900 md:order-1 md:pr-20 md:text-left"
 							id={`${id}-title`}
 						>
 							{title}
 						</Heading>
 						<button
-							className="w-8 h-8 absolute top-4 right-4"
+							className="absolute top-4 right-4 h-8 w-8"
 							onClick={onClickHandler}
 						>
 							<XMarkIcon />

@@ -5,7 +5,7 @@ export const HeaderUserLoginContent = () => {
 	return (
 		<GenericLink href="/api/auth/login">
 			<div className="flex items-center">
-				<div className="w-4 h-4 m-2">
+				<div className="m-2 h-4 w-4">
 					<UserIcon />
 				</div>
 				<span>Zaloguj się</span>

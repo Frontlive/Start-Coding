@@ -4,7 +4,7 @@ type TagProps = {
 
 export const CategoryTag = ({ label }: TagProps) => {
 	return (
-		<li className="inline border border-gray-300 rounded-lg mr-2 mt-3 py-1 px-2 bg-gray-100">
+		<li className="mr-2 mt-3 inline rounded-lg border border-gray-300 bg-gray-100 py-1 px-2">
 			{label}
 		</li>
 	);

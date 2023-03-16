@@ -7,7 +7,7 @@ type NavbarProps = {
 export const Navbar = ({ children }: NavbarProps) => {
 	return (
 		<nav>
-			<ul className="list-none flex flex-col lg:flex-row gap-5">{children}</ul>
+			<ul className="flex list-none flex-col gap-5 lg:flex-row">{children}</ul>
 		</nav>
 	);
 };

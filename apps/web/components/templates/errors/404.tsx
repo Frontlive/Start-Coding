@@ -2,8 +2,8 @@ import { Heading, Link, Text } from 'ui';
 
 export const Error404 = () => {
 	return (
-		<section className="flex h-[85vh] md:h-[90vh] flex-col justify-center items-center">
-			<Heading tag="h2" size="large" className="text-4xl pb-5">
+		<section className="flex h-[85vh] flex-col items-center justify-center md:h-[90vh]">
+			<Heading tag="h2" size="large" className="pb-5 text-4xl">
 				Error 404
 			</Heading>
 			<Text size="medium" variant="default" tag="p">

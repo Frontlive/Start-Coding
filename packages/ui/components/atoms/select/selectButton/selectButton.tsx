@@ -25,7 +25,7 @@ export const SelectButton = ({
 	return (
 		<Listbox.Button className={cl}>
 			<span className="block truncate text-black">{label}</span>
-			<span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
+			<span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
 				<Selector />
 			</span>
 		</Listbox.Button>
