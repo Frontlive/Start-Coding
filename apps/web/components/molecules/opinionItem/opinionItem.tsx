@@ -5,20 +5,15 @@ import { UserAvatar } from 'molecules/userAvatar/userAvatar';
 
 type OpinionItemProps = Opinion;
 
-export const OpinionItem = ({
-	author,
-	avatar,
-	rating,
-	comment,
-}: OpinionItemProps) => {
+export const OpinionItem = ({ author, rating, comment }: OpinionItemProps) => {
 	return (
 		<div className="p-2">
 			<Card tag="div">
 				<div className="flex flex-col md:flex-row justify-center items-center">
-					<UserAvatar avatar={avatar} size={24} />
+					<UserAvatar avatar={author.avatar_URL} size={24} />
 					<div className="md:pl-5">
 						<Heading tag="h3" size="large" className="font-bold">
-							{author}
+							{author.name}
 						</Heading>
 						<div className="flex items-center">
 							{Array.from({ length: 5 }, (_, i) => {

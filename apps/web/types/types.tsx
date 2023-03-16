@@ -28,16 +28,18 @@ export type SortOption = {
 	current: boolean;
 };
 
+export type Author = { id: string; name: string; avatar_URL: string };
+
 export type Opinion = {
-	author: string;
-	avatar: string;
+	id: string;
+	author: Author;
 	rating: number;
 	comment: string;
 };
 
 export type Comment = {
-	author: string;
-	avatar: string;
+	id: string;
+	author: Author;
 	comment: string;
 	timestamp: number;
 };

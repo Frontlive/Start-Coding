@@ -3,14 +3,14 @@ import { getTimeDiffFromTimestamp } from 'utils/timeDifference/getTimeDiffFromTi
 import type { Comment } from '../../../types/types';
 import { ReactComponent as Reply } from '/components/icons/reply.svg';
 import { ReactComponent as Like } from '/components/icons/like.svg';
-import { CommentReply } from 'molecules/commentItem/commentReply';
 import { UserAvatar } from 'molecules/userAvatar/userAvatar';
 
 type CommentItemProps = Comment;
 
 export const CommentItem = ({
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	id,
 	author,
-	avatar,
 	comment,
 	timestamp,
 }: CommentItemProps) => {
@@ -18,10 +18,10 @@ export const CommentItem = ({
 		<div className="flex-col w-full py-2 mx-auto bg-white sm:px-4 md:px-4 md:w-2/3">
 			<Card tag="div">
 				<div className="flex flex-row md-10">
-					<UserAvatar avatar={avatar} size={12} />
+					<UserAvatar avatar={author.avatar_URL} size={12} />
 					<div className="flex-col mt-1">
 						<div className="flex items-center flex-1 px-4 font-bold leading-tight">
-							{author}
+							{author.name}
 							<span className="ml-2 text-xs font-normal text-gray-500">
 								{getTimeDiffFromTimestamp(timestamp)}
 							</span>
@@ -41,12 +41,6 @@ export const CommentItem = ({
 						</button>
 					</div>
 				</div>
-				<CommentReply
-					author={author}
-					avatar={avatar}
-					comment={comment}
-					timestamp={timestamp}
-				/>
 			</Card>
 		</div>
 	);

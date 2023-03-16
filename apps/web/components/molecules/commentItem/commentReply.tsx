@@ -7,7 +7,8 @@ import { UserAvatar } from 'molecules/userAvatar/userAvatar';
 type CommentItemWithReplyProps = Comment;
 
 export const CommentReply = ({
-	avatar,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	id,
 	author,
 	timestamp,
 	comment,
@@ -17,10 +18,10 @@ export const CommentReply = ({
 		<>
 			<hr className="my-2 ml-16 border-gray-200" />
 			<div className="flex flex-row pt-1 md-10 md:ml-16">
-				<UserAvatar avatar={avatar} size={12} />
+				<UserAvatar avatar={author.avatar_URL} size={12} />
 				<div className="flex-col mt-1">
 					<div className="flex items-center flex-1 px-4 font-bold leading-tight">
-						{author}
+						{author.name}
 						<span className="ml-2 text-xs font-normal text-gray-500">
 							{getTimeDiffFromTimestamp(timestamp)}
 						</span>

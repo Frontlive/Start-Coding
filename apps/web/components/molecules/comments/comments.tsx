@@ -19,8 +19,8 @@ export const Comments = () => {
 					<AddComment />
 				</ProtectedComponent>
 			</div>
-			{comments.map((comment, id) => (
-				<CommentItem {...comment} key={id} />
+			{comments.map((comment) => (
+				<CommentItem {...comment} key={comment.id} />
 			))}
 		</div>
 	);

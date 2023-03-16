@@ -23,7 +23,7 @@ export const AddOpinion = () => {
 					</div>
 					<div className="flex flex-col md:flex-row justify-between items-center pt-5">
 						<div className="flex justify-center items-center">
-							<div className="w-10 h-10 m-2">
+							<div className="w-10 h-10">
 								<StarIcon />
 							</div>
 							<div className="w-10 h-10">
