@@ -45,7 +45,7 @@ Nigdy nie wnosiliście wkładu do projektu open source? Zastanawiasz się, jak t
 8. Użyj `git commit -m "Wstaw krótki opis wprowadzonych zmian tutaj"`, aby przechowywać zawartość indeksu z opisową wiadomością.
    [Zalecamy używać conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
 9. Wypchnij zmiany do zdalnego repozytorium za pomocą `git push origin nazwa-gałęzi-tutaj`.
-10. Prześlij pull request do repozytorium nadrzędnego.
+10. Prześlij pull request do repozytorium nadrzędnego (Kliknij `Contribute` na swoim sforkowanym repozytorium).
 11. Nadaj pull requestowi tytuł z krótkim opisem wprowadzonych zmian i numerem problemu lub błędu związanego z Twoją zmianą. Na przykład, można zatytułować pull requseta w następujący sposób: **Added more log outputting to resolve #4352**
 12. W opisie zgłoszenia (pull request), wyjaśnij zmiany, które wprowadziłeś, ewentualne problemy związane ze zgłoszeniem, które zauważyłeś oraz pytania, jakie masz dla utrzymującego projekt. Jeśli twoje zgłoszenie nie jest idealne (żadne zgłoszenie nie jest!), recenzent będzie mógł pomóc Ci rozwiązać problemy i poprawić je.
 13. Poczekaj na review pull requesta przez utrzymującego projekt.
