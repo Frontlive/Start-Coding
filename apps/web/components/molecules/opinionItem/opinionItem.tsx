@@ -10,7 +10,7 @@ export const OpinionItem = ({ author, rating, comment }: OpinionItemProps) => {
 		<div className="p-2">
 			<Card tag="div">
 				<div className="flex flex-col md:flex-row justify-center items-center">
-					<UserAvatar avatar={author.avatar_URL} size={24} />
+					<UserAvatar avatar={author.avatar_URL} />
 					<div className="md:pl-5">
 						<Heading tag="h3" size="large" className="font-bold">
 							{author.name}
