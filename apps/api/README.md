@@ -15,7 +15,7 @@ Sczegółowa konfiguracja BackEndu Frontlive-Start-Coding
 
     Applications -> APIs -> Create API (Nazwa dowolna)
 
-    -> Identifier (np.: https://localhost:4000/graphql)
+    -> Identifier (np.: http://localhost:4000/graphql)
 
 2.  Konfiguracja GH (utworzenie aplikacji w GH)
 
