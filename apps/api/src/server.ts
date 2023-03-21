@@ -1,8 +1,9 @@
 import fastify from 'fastify';
 import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
-import { instance } from './grapqhl';
+import { instance } from './graphql';
 import { webhooksPlugin } from './webhooks/webhooks.plugin';
 import { dbPlugin } from './db.plugin';
+import { container } from './di';
 
 export const server = fastify().withTypeProvider<TypeBoxTypeProvider>();
 
@@ -15,6 +16,7 @@ server.route({
 		const response = await instance.handleNodeRequest(req, {
 			req,
 			reply,
+			container,
 		});
 
 		response.headers.forEach((value, key) => {

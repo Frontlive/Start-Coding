@@ -10,29 +10,68 @@ A date string, such as 2007-12-03, compliant with the `full-date` format outline
 """
 scalar Date
 
+input DateRangeInput {
+	gte: Date
+	lte: Date
+}
+
 """
 A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
 scalar DateTime
 
-type Query {
-	allUsers: [User!]!
+input NumberRangeInput {
+	gte: Int
+	lte: Int
+}
 
+input PaginationInput {
+	page: Int = 1
+	perPage: Int = 10
+}
+
+type Query {
 	"""
 	Auth0 context info
 	"""
 	authInfo: AuthInfo
+	tasks(filter: TaskFilterInput, pagination: PaginationInput): [Task!]!
 }
 
+scalar SearchString
+
 type Task {
+	author: User!
 	description: String!
+	difficulty: String!
 	id: ID!
+	rating: Int!
+	status: String!
+	thumbnailUrl: String!
 	title: String!
 }
 
+enum TaskDifficulty {
+	ADVANCED
+	BEGINNER
+	INTERMEDIATE
+}
+
+input TaskFilterInput {
+	created_at: DateRangeInput
+	description: SearchString
+	difficulty: TaskDifficulty
+	status: TaskStatus = ACTIVE
+	title: SearchString
+	updated_at: DateRangeInput
+}
+
+enum TaskStatus {
+	ACTIVE
+	IN_REVIEW
+	REJECTED
+}
+
 type User {
-	email: String!
 	id: ID!
-	name: String!
-	postedTasks: [Task!]!
 }

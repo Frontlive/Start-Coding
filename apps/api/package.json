@@ -13,6 +13,9 @@
 		"dev:db": "docker compose up",
 		"dev": "concurrently \"yarn dev:db\" \"yarn dev:server\""
 	},
+	"prisma": {
+		"seed": "node -r ts-node/register prisma/seed.ts"
+	},
 	"dependencies": {
 		"@envelop/auth0": "^3.6.0",
 		"@escape.tech/graphql-armor": "^1.4.0",
@@ -23,8 +26,12 @@
 		"@pothos/core": "^3.22.5",
 		"@pothos/plugin-directives": "^3.8.1",
 		"@pothos/plugin-prisma": "^3.35.4",
+		"@pothos/plugin-validation": "^3.9.0",
 		"@prisma/client": "^4.4.0",
 		"@sinclair/typebox": "^0.24.47",
+		"@total-typescript/ts-reset": "^0.3.3",
+		"@tsconfig/node18-strictest-esm": "^1.0.1",
+		"awilix": "^8.0.0",
 		"consola": "^2.15.3",
 		"dotenv": "^16.0.3",
 		"envalid": "^7.3.1",

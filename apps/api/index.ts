@@ -1,8 +1,9 @@
+import '@total-typescript/ts-reset';
 import { env } from './src/config';
 import { logger } from './src/logger';
 import { writeFile } from 'node:fs/promises';
 import { server } from './src/server';
-import { schemaAsString } from './src/grapqhl';
+import { schemaAsString } from './src/graphql';
 
 const main = async () => {
 	try {
