@@ -24,7 +24,7 @@ możesz również skonfigurować projekt przy pomocy konfiguracji przygotowanej 
 
 4. [Auth0 Dashboard](https://manage.auth0.com/dashboard) -> Applications -> APIs -> Create API (Nazwa dowolna)
 
-5. Identifier: `https://localhost:4000/graphql`
+5. Identifier: `http://localhost:4000/graphql`
 
 ##### Konfiguracja GH (utworzenie aplikacji w GH)
 
