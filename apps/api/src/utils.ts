@@ -22,6 +22,24 @@ export const PaginationInputType = builder.inputType('PaginationInput', {
 	},
 });
 
+export const NumberRangeInputType = builder.inputType('NumberRangeInput', {
+	fields(t) {
+		return {
+			gte: t.field({ type: 'Int', required: false }),
+			lte: t.field({ type: 'Int', required: false }),
+		};
+	},
+});
+
+export const DateRangeInputType = builder.inputType('DateRangeInput', {
+	fields(t) {
+		return {
+			gte: t.field({ type: 'Date', required: false }),
+			lte: t.field({ type: 'Date', required: false }),
+		};
+	},
+});
+
 export const mapPaginationFields = (
 	{ page, perPage }: PaginationArgs | undefined = {
 		page: 1,

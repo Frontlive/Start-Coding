@@ -2,6 +2,7 @@ import type { Container } from './di';
 import type { UserPayload } from '@envelop/auth0';
 import type { User } from '@prisma/client';
 import type { FastifyReply, FastifyRequest } from 'fastify';
+import type { InputObjectRef } from '@pothos/core';
 
 export type BaseContext = {
 	req: FastifyRequest;
@@ -25,3 +26,7 @@ export type PaginationArgs = {
 	page?: number | null | undefined;
 	perPage?: number | null | undefined;
 };
+
+export type UnwrapInputObjectRef<T> = T extends InputObjectRef<infer C>
+	? C
+	: never;

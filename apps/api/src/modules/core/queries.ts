@@ -1,1 +1,1 @@
-import './submodules/doingTask/queries';
+import './submodules/performingTask/queries';

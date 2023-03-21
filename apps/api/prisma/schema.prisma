@@ -50,7 +50,7 @@ model Task {
 
   comments  Comment[]
   rating   Int
-  difficulty Difficulty
+  difficulty TaskDifficulty
 
   status TaskStatus
   thumbnail_url String
@@ -61,7 +61,7 @@ model Task {
   @@map("tasks")
 }
 
-enum Difficulty {
+enum TaskDifficulty {
   BEGINNER
   INTERMEDIATE
   ADVANCED

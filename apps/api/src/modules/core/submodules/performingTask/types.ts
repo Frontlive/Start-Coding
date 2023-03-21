@@ -1,3 +1,4 @@
+import { TaskDifficulty, TaskStatus } from '@prisma/client';
 import { builder } from '../../../../builder';
 
 export const TaskUser = builder.prismaObject('User', {
@@ -18,4 +19,11 @@ export const Task = builder.prismaObject('Task', {
 		thumbnailUrl: t.exposeString('thumbnail_url'),
 		author: t.relation('author', { type: TaskUser }),
 	}),
+});
+
+export const StatusEnumType = builder.enumType(TaskStatus, {
+	name: 'TaskStatus',
+});
+export const DifficultyEnumType = builder.enumType(TaskDifficulty, {
+	name: 'TaskDifficulty',
 });
