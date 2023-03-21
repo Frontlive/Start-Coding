@@ -20,9 +20,9 @@ export const HeaderUserLoggedInContent = ({
 		<div className="flex flex-col lg:flex-row items-center">
 			<div className="mr-2">
 				{user.avatarSrc ? (
-					<UserAvatar avatar={user.avatarSrc} size={10} />
+					<UserAvatar avatar={user.avatarSrc} size="10" />
 				) : (
-					<UserAvatar avatar={profileDefaultSvg} size={10} />
+					<UserAvatar avatar={profileDefaultSvg} size="10" />
 				)}
 			</div>
 			<p className="p-0 m-0">Witaj, {user.nickname}!</p>

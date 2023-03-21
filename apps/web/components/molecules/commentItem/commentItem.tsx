@@ -18,7 +18,7 @@ export const CommentItem = ({
 		<div className="flex-col w-full py-2 mx-auto bg-white sm:px-4 md:px-4 md:w-2/3">
 			<Card tag="div">
 				<div className="flex flex-row md-10">
-					<UserAvatar avatar={author.avatar_URL} size={12} />
+					<UserAvatar avatar={author.avatar_URL} size="12" />
 					<div className="flex-col mt-1">
 						<div className="flex items-center flex-1 px-4 font-bold leading-tight">
 							{author.name}

@@ -3,11 +3,16 @@ import clsx from 'clsx';
 
 type CommentUserAvatarProps = {
 	avatar: string;
-	size?: number;
+	size?: '12' | '10' | '24';
 };
 
-export const UserAvatar = ({ avatar, size = 24 }: CommentUserAvatarProps) => {
-	const sizeClass = `w-${size} h-${size}`;
+export const UserAvatar = ({ avatar, size = '24' }: CommentUserAvatarProps) => {
+	const sizes = {
+		24: 'w-24 h-24',
+		12: 'w-12 h-12',
+		10: 'w-10 h-10',
+	};
+
 	return (
 		<Image
 			alt=""
@@ -16,7 +21,7 @@ export const UserAvatar = ({ avatar, size = 24 }: CommentUserAvatarProps) => {
 			height={1000}
 			className={clsx(
 				'object-cover border-2 border-gray-300 rounded-full',
-				sizeClass,
+				sizes[size],
 			)}
 		/>
 	);
