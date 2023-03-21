@@ -33,7 +33,6 @@
 		"@tsconfig/node18-strictest-esm": "^1.0.1",
 		"awilix": "^8.0.0",
 		"consola": "^2.15.3",
-		"defu": "^6.1.2",
 		"dotenv": "^16.0.3",
 		"envalid": "^7.3.1",
 		"fastify": "^4.8.1",
@@ -43,7 +42,6 @@
 		"graphql-rate-limit-directive": "^2.0.2",
 		"graphql-scalars": "^1.19.0",
 		"graphql-yoga": "^3.0.0-next.3",
-		"modern-errors": "^5.5.1",
 		"rate-limiter-flexible": "^2.3.12",
 		"winston": "^3.8.2",
 		"zod": "^3.19.1"
