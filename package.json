@@ -16,7 +16,8 @@
 		"prepare": "husky install",
 		"test": "turbo run test --parallel",
 		"storybook-ui": "turbo run storybook --filter=ui",
-		"typecheck": "turbo run typecheck"
+		"typecheck": "turbo run typecheck",
+		"clear": "rimraf ./*/node_modules"
 	},
 	"devDependencies": {
 		"eslint-config-custom": "*",
@@ -30,7 +31,8 @@
 	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.50.0",
-		"eslint-plugin-turbo": "^0.0.7"
+		"eslint-plugin-turbo": "^0.0.7",
+		"rimraf": "^4.4.1"
 	},
 	"packageManager": "yarn@1.22.19"
 }

@@ -1,5 +1,4 @@
 {
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"prettier.configPath": ".prettierrc.json",
-	"cSpell.words": ["mobily"]
+	"prettier.configPath": ".prettierrc.json"
 }

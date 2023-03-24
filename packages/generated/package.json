@@ -4,10 +4,11 @@
 	"description": "Shared types generated from GraphQL schema",
 	"private": true,
 	"scripts": {
-		"generate": "graphql-codegen && tsc -p tsconfig.json"
+		"generate": "graphql-code-generator --config ./codegen.ts",
+		"postgenerate": "eslint --fix --ext .ts"
 	},
 	"types": "./index.ts",
-	"main": "./index.js",
+	"main": "./index.ts",
 	"keywords": [],
 	"dependencies": {
 		"@graphql-codegen/cli": "^2.6.2",
@@ -16,10 +17,12 @@
 		"@graphql-codegen/typescript-operations": "^2.4.0",
 		"@graphql-codegen/typescript-react-apollo": "^3.2.14",
 		"@graphql-codegen/typescript-resolvers": "^2.6.4",
+		"@typescript-eslint/eslint-plugin": "^5.56.0",
 		"graphql": "^16.5.0"
 	},
 	"devDependencies": {
-		"tsconfig": "*",
+		"@tsconfig/node18-strictest": "^1.0.0",
+		"@typescript-eslint/parser": "^5.56.0",
 		"typescript": "*"
 	}
 }

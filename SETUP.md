@@ -64,6 +64,8 @@ BASE_URL=http://localhost:4000 # URL do backendu
 NODE_ENV="development"
 
 WEBHOOK_SECRET=randowmowy-string
+
+FRONTEND_BASE_URL=http://localhost:3000
 ```
 
 `apps/web/.env`

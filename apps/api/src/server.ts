@@ -1,4 +1,6 @@
+import { env } from './config';
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 import type { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { instance } from './graphql';
 import { webhooksPlugin } from './webhooks/webhooks.plugin';
@@ -6,6 +8,10 @@ import { dbPlugin } from './db.plugin';
 import { container } from './di';
 
 export const server = fastify().withTypeProvider<TypeBoxTypeProvider>();
+
+server.register(cors, {
+	origin: env.isDev ? true : env.FRONTEND_BASE_URL,
+});
 
 server.register(dbPlugin);
 
