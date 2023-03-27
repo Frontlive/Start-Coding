@@ -7,7 +7,7 @@ import { schemaAsString } from './src/graphql';
 
 const main = async () => {
 	try {
-		await writeFile('./schema.gql', schemaAsString);
+		await writeFile('./schema.graphql', schemaAsString);
 		server.listen({ port: env.PORT });
 
 		logger.success(`🚀 Server ready at http://localhost:${env.PORT}`);
