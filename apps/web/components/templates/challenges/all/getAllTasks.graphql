@@ -1,0 +1,21 @@
+query GetAllActiveTasks {
+	tasks(filter: { status: ACTIVE }) {
+		id
+		title
+		description
+		difficulty
+		thumbnailUrl
+		rating
+	}
+}
+
+query GetTaskWithPagination($page: Int) {
+	tasks(filter: { status: ACTIVE }, pagination: { page: $page, perPage: 3 }) {
+		id
+		title
+		description
+		difficulty
+		thumbnailUrl
+		rating
+	}
+}
