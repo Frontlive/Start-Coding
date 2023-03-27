@@ -1,13 +1,13 @@
-import { Heading, VisuallyHidden } from 'ui';
+import { Heading, Spinner, VisuallyHidden } from 'ui';
 import { ChallengesList } from 'organisms/challengesList/challengesList';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import type { Challenge, Filter, SortOption } from '../../../../types/types';
-import { useState } from 'react';
+import type { Filter, SortOption } from '../../../../types/types';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { FunnelIcon } from '@heroicons/react/20/solid';
 import { Filters } from 'molecules/filters/filters';
 import { SortMenu } from 'organisms/sortMenu/sortMenu';
+import { useGetTaskWithPaginationQuery } from 'generated';
 
 const sortOptions: SortOption[] = [
 	{ name: 'Difficulty', value: 'difficulty', href: '#', current: true },
@@ -17,45 +17,26 @@ const sortOptions: SortOption[] = [
 const filters: Filter[] = [
 	{
 		id: 'difficulty',
-		name: 'Difficulty',
+		name: 'Poziom trudności',
 		options: [
-			{ value: 'easy', label: 'Easy', checked: false },
-			{ value: 'medium', label: 'Medium', checked: true },
-			{ value: 'hard', label: 'Hard', checked: false },
+			{ value: 'INTERMEDIATE', label: 'Mid', checked: false },
+			{ value: 'BEGINNER', label: 'Początkujący', checked: false },
+			{ value: 'ADVANCED', label: 'Zaawansowany', checked: false },
 		],
 	},
 	{ id: 'category', name: 'Category', options: [] },
 ];
 
-export const challenges: Challenge[] = [
-	{
-		id: '1',
-		title: 'First Challenge',
-		description:
-			'This is example of challenge. In hac habitasse platea dictumst. Praesent eu auctor velit. Cras mattis gravida odio euismod placerat. Morbi vestibulum dapibus diam, a lacinia felis porttitor vel. Ut sodales tincidunt orci, vel condimentum nibh. Fusce in elit euismod, laoreet felis vel, rutrum lacus.',
-		designs: '',
-		difficulty: 'medium',
-		image:
-			'https://images.unsplash.com/photo-1498008122250-bcb854c8462d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-		rating: 5,
-		tags: ['TypeScript'],
-	},
-	{
-		id: '2',
-		title: 'Second Challenge',
-		description:
-			'This is example of challenge. In hac habitasse platea dictumst. Praesent eu auctor velit. Cras mattis gravida odio euismod placerat. Morbi vestibulum dapibus diam, a lacinia felis porttitor vel. Ut sodales tincidunt orci, vel condimentum nibh. Fusce in elit euismod, laoreet felis vel, rutrum lacus.',
-
-		designs: '',
-		difficulty: 'advanced',
-		image:
-			'https://cdn.pixabay.com/photo/2020/11/28/06/15/cold-5783718_1280.jpg',
-		rating: 3.26,
-		tags: ['JavaScript', 'React'],
-	},
-];
 export const AllChallengesPage = () => {
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [page, setPage] = useState(1);
+
+	const { data, loading } = useGetTaskWithPaginationQuery({
+		variables: { page },
+	});
+
+	const challenges = data?.tasks || [];
 
 	return (
 		<>
@@ -100,7 +81,6 @@ export const AllChallengesPage = () => {
 									</button>
 								</div>
 
-								{/* Filters */}
 								<form className="mt-4 border-t border-gray-200">
 									<VisuallyHidden>Filtry</VisuallyHidden>
 									<Filters filters={filters} />
@@ -136,12 +116,11 @@ export const AllChallengesPage = () => {
 					<VisuallyHidden>Zadania</VisuallyHidden>
 
 					<div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-						{/* Filters */}
 						<form className="hidden lg:block">
 							<VisuallyHidden>Filters</VisuallyHidden>
 							<Filters filters={filters} />
 						</form>
-						<ChallengesList challenges={challenges} />
+						{loading ? <Spinner /> : <ChallengesList challenges={challenges} />}
 					</div>
 				</section>
 			</main>

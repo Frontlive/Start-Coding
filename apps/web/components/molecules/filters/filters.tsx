@@ -1,5 +1,5 @@
 import { Disclosure } from '@headlessui/react';
-import { Text, Checkbox, Heading } from 'ui';
+import { Checkbox, Heading, Text } from 'ui';
 import { MinusIcon, PlusIcon } from '@heroicons/react/20/solid';
 import type { Filter } from '../../../types/types';
 
@@ -35,7 +35,7 @@ export const Filters = ({ filters }: FiltersProps) => {
 								<div className="space-y-6">
 									{section.options.map((option) => (
 										<div key={option.value} className="flex items-center">
-											<Checkbox label={option.label} />
+											<Checkbox label={option.label} checked={option.checked} />
 										</div>
 									))}
 								</div>

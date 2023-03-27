@@ -1,2 +1,2 @@
-schema: './apps/api/schema.gql'
-documents: './apps/web/**/*.gql'
+schema: './apps/api/schema.graphql'
+documents: './apps/web/**/*.graphql'

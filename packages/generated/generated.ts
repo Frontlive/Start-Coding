@@ -93,46 +93,98 @@ export type User = {
   id: Scalars['ID'];
 };
 
-export type GetTasksQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllActiveTasksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetTasksQuery = { __typename?: 'Query', tasks: Array<{ __typename?: 'Task', id: string }> };
+export type GetAllActiveTasksQuery = { __typename?: 'Query', tasks: Array<{ __typename?: 'Task', id: string, title: string, description: string, difficulty: string, thumbnailUrl: string, rating: number }> };
+
+export type GetTaskWithPaginationQueryVariables = Exact<{
+  page?: InputMaybe<Scalars['Int']>;
+}>;
 
 
-export const GetTasksDocument = gql`
-    query GetTasks {
-  tasks {
+export type GetTaskWithPaginationQuery = { __typename?: 'Query', tasks: Array<{ __typename?: 'Task', id: string, title: string, description: string, difficulty: string, thumbnailUrl: string, rating: number }> };
+
+
+export const GetAllActiveTasksDocument = gql`
+    query GetAllActiveTasks {
+  tasks(filter: {status: ACTIVE}) {
     id
+    title
+    description
+    difficulty
+    thumbnailUrl
+    rating
   }
 }
     `;
 
 /**
- * __useGetTasksQuery__
+ * __useGetAllActiveTasksQuery__
  *
- * To run a query within a React component, call `useGetTasksQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetTasksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetAllActiveTasksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllActiveTasksQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetTasksQuery({
+ * const { data, loading, error } = useGetAllActiveTasksQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetTasksQuery(baseOptions?: Apollo.QueryHookOptions<GetTasksQuery, GetTasksQueryVariables>) {
+export function useGetAllActiveTasksQuery(baseOptions?: Apollo.QueryHookOptions<GetAllActiveTasksQuery, GetAllActiveTasksQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetTasksQuery, GetTasksQueryVariables>(GetTasksDocument, options);
+        return Apollo.useQuery<GetAllActiveTasksQuery, GetAllActiveTasksQueryVariables>(GetAllActiveTasksDocument, options);
       }
-export function useGetTasksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetTasksQuery, GetTasksQueryVariables>) {
+export function useGetAllActiveTasksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllActiveTasksQuery, GetAllActiveTasksQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetTasksQuery, GetTasksQueryVariables>(GetTasksDocument, options);
+          return Apollo.useLazyQuery<GetAllActiveTasksQuery, GetAllActiveTasksQueryVariables>(GetAllActiveTasksDocument, options);
         }
-export type GetTasksQueryHookResult = ReturnType<typeof useGetTasksQuery>;
-export type GetTasksLazyQueryHookResult = ReturnType<typeof useGetTasksLazyQuery>;
-export type GetTasksQueryResult = Apollo.QueryResult<GetTasksQuery, GetTasksQueryVariables>;
+export type GetAllActiveTasksQueryHookResult = ReturnType<typeof useGetAllActiveTasksQuery>;
+export type GetAllActiveTasksLazyQueryHookResult = ReturnType<typeof useGetAllActiveTasksLazyQuery>;
+export type GetAllActiveTasksQueryResult = Apollo.QueryResult<GetAllActiveTasksQuery, GetAllActiveTasksQueryVariables>;
+export const GetTaskWithPaginationDocument = gql`
+    query GetTaskWithPagination($page: Int) {
+  tasks(filter: {status: ACTIVE}, pagination: {page: $page, perPage: 3}) {
+    id
+    title
+    description
+    difficulty
+    thumbnailUrl
+    rating
+  }
+}
+    `;
+
+/**
+ * __useGetTaskWithPaginationQuery__
+ *
+ * To run a query within a React component, call `useGetTaskWithPaginationQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetTaskWithPaginationQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetTaskWithPaginationQuery({
+ *   variables: {
+ *      page: // value for 'page'
+ *   },
+ * });
+ */
+export function useGetTaskWithPaginationQuery(baseOptions?: Apollo.QueryHookOptions<GetTaskWithPaginationQuery, GetTaskWithPaginationQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetTaskWithPaginationQuery, GetTaskWithPaginationQueryVariables>(GetTaskWithPaginationDocument, options);
+      }
+export function useGetTaskWithPaginationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetTaskWithPaginationQuery, GetTaskWithPaginationQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetTaskWithPaginationQuery, GetTaskWithPaginationQueryVariables>(GetTaskWithPaginationDocument, options);
+        }
+export type GetTaskWithPaginationQueryHookResult = ReturnType<typeof useGetTaskWithPaginationQuery>;
+export type GetTaskWithPaginationLazyQueryHookResult = ReturnType<typeof useGetTaskWithPaginationLazyQuery>;
+export type GetTaskWithPaginationQueryResult = Apollo.QueryResult<GetTaskWithPaginationQuery, GetTaskWithPaginationQueryVariables>;
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
