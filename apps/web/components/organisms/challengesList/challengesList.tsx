@@ -1,6 +1,6 @@
 import { ChallengeItem } from 'molecules/challengeItem/challengeItem';
 import type { Challenge } from '../../../types/types';
-import { Pagination } from 'molecules/pagination/pagination';
+import { Pagination } from 'organisms/pagination/pagination';
 
 type TasksListProps = {
 	challenges: Challenge[];
@@ -14,7 +14,8 @@ export const ChallengesList = ({ challenges }: TasksListProps) => {
 				})}
 			</ul>
 
-			<Pagination quantity={challenges.length} />
+			{/*<Pagination numberOfPages={challenges.length} />*/}
+			<Pagination numberOfItems={5} />
 		</div>
 	);
 };
