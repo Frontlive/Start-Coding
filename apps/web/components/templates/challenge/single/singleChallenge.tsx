@@ -32,11 +32,7 @@ export const SingleChallengePage = ({
 				onClose={onClickHandler}
 			/>
 			<div className="flex items-baseline justify-between border-b border-gray-200 pt-10 pb-6">
-				<Heading
-					tag="h2"
-					size="large"
-					className="text-4xl font-bold tracking-tight text-gray-900"
-				>
+				<Heading tag="h2" size="2xl" fontWeight="bold">
 					{challenge?.title}
 				</Heading>
 				<div className="flex items-center">
