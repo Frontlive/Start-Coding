@@ -1,4 +1,4 @@
-import { Heading, VisuallyHidden } from 'ui';
+import { Heading, VisuallyHidden, Container } from 'ui';
 import { ChallengesList } from 'organisms/challengesList/challengesList';
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
@@ -110,7 +110,7 @@ export const AllChallengesPage = () => {
 					</div>
 				</Dialog>
 			</Transition.Root>
-			<main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<Container as="main" id="main">
 				<div className="flex items-baseline justify-between border-b border-gray-200 pt-10 pb-6">
 					<Heading
 						tag="h1"
@@ -144,7 +144,7 @@ export const AllChallengesPage = () => {
 						<ChallengesList challenges={challenges} />
 					</div>
 				</section>
-			</main>
+			</Container>
 		</>
 	);
 };

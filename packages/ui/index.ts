@@ -13,3 +13,4 @@ export * from './components/organisms/dropdownMenu/dropdownMenu';
 export * from './components/molecules/checkbox/checkbox';
 export * from './components/atoms/categoryTag/categoryTag';
 export * from './components/atoms/heading/heading';
+export * from './components/atoms/container/container';
