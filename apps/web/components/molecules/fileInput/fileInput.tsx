@@ -1,19 +1,20 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import { useFileInput } from 'molecules/fileInput/useFileInput';
 import { Text } from 'ui';
+import { Image } from 'organisms/newChallengeForm/useNewChallengeForm';
 
 type FileInputProps = {
-	handleChange: (filesSrc: string[]) => void;
-	children: ReactNode;
+	handleChange: (files: Image[]) => void;
 	name: string;
 	isSinglePhoto?: boolean;
 };
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
-	({ children, name, isSinglePhoto }, ref) => {
+	({ name, isSinglePhoto, handleChange }, ref) => {
 		const { errorMessage, getInputProps, getRootProps, open, onChange } =
 			useFileInput({
 				isSinglePhoto,
+				handleChange,
 			});
 
 		return (
@@ -23,7 +24,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 			>
 				<input ref={ref} {...getInputProps({ name, onChange })} />
 				<button className="min-h-full" onClick={open}>
-					{children}
+					Dodaj zdjęcia
 				</button>
 				{errorMessage && (
 					<Text size="medium" variant="error" tag="p">

@@ -2,12 +2,17 @@ import { ChangeEvent, useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { isSourceString } from 'molecules/fileInput/fileInput.utils';
 import { useFileInputValidation } from 'molecules/fileInput/useFileInputValidation';
+import { Image } from 'organisms/newChallengeForm/useNewChallengeForm';
 
 type UseFileInputArgs = {
 	isSinglePhoto?: boolean;
+	handleChange: (image: Image[]) => void;
 };
 
-export const useFileInput = ({ isSinglePhoto }: UseFileInputArgs) => {
+export const useFileInput = ({
+	isSinglePhoto,
+	handleChange,
+}: UseFileInputArgs) => {
 	const [filesSrc, setFilesSrc] = useState<string[]>([]);
 	const { isFileValid, errorMessage } = useFileInputValidation();
 	const onDrop = useCallback(
@@ -40,7 +45,19 @@ export const useFileInput = ({ isSinglePhoto }: UseFileInputArgs) => {
 	});
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-		console.log(e);
+		if (!e.target.files) {
+			return;
+		}
+		const images = Array.from(e.target.files, (file) => {
+			return {
+				previewUrl: URL.createObjectURL(file),
+				file,
+			};
+		});
+
+		handleChange(images);
+
+		console.log(e.target.files);
 	};
 
 	return {

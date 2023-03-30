@@ -1,71 +1,35 @@
-import { LexicalComposer } from '@lexical/react/LexicalComposer';
-import { ContentEditable } from '@lexical/react/LexicalContentEditable';
-import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
-import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { EditorState, EditorThemeClasses, LexicalEditor } from 'lexical';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { useEffect } from 'react';
-import {
-	registerCodeHighlighting,
-	CodeNode,
-	CodeHighlightNode,
-} from '@lexical/code';
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { $generateHtmlFromNodes } from '@lexical/html';
-import { EditorToolbarPlugin } from 'molecules/editor/plugins/editorToolbar';
 import { Text } from 'ui';
+import ReactQuill from 'react-quill';
 
 type EditorProps = {
 	initialEditorState?: string;
 	onChange: (state: string) => void;
+	value: string;
+	readOnly?: boolean;
+	placeholder?: string;
 };
 
-const CodeHighlightPlugin = () => {
-	const [editor] = useLexicalComposerContext();
-	useEffect(() => {
-		return registerCodeHighlighting(editor);
-	}, [editor]);
-	return null;
-};
-
-export const Editor = ({ initialEditorState, onChange }: EditorProps) => {
-	const handleChange = (editorState: EditorState, editor: LexicalEditor) => {
-		editor.update(() => {
-			const html = $generateHtmlFromNodes(editor, null);
-			onChange(html);
-		});
-	};
-	const theme: EditorThemeClasses = {};
-	const onError = (error: Error) => console.log(error);
-	const initialConfig = {
-		namespace: 'MyEditor',
-		theme,
-		onError,
-		nodes: [CodeNode, CodeHighlightNode],
-		editorState: initialEditorState,
-	};
+export const Editor = ({
+	initialEditorState,
+	onChange,
+	value,
+	readOnly = false,
+	placeholder,
+}: EditorProps) => {
 	return (
-		<>
-			<LexicalComposer initialConfig={initialConfig}>
-				<div className="mt-1 mb-2">
-					<Text size="medium" variant="default" tag="p" position="left">
-						Opis
-					</Text>
-				</div>
-
-				<EditorToolbarPlugin />
-				<RichTextPlugin
-					placeholder=""
-					contentEditable={
-						<ContentEditable className="p-2 mt-2 border-2 rounded-md min-h-100" />
-					}
-					ErrorBoundary={LexicalErrorBoundary}
-				/>
-				<OnChangePlugin onChange={handleChange} />
-				<HistoryPlugin />
-				<CodeHighlightPlugin />
-			</LexicalComposer>
-		</>
+		<div className="mt-1 mb-2">
+			<Text size="medium" variant="default" tag="p" position="left">
+				Opis
+			</Text>
+			<ReactQuill
+				theme="snow"
+				value={value}
+				onChange={onChange}
+				readOnly={readOnly}
+				defaultValue={initialEditorState}
+				placeholder={placeholder}
+				formats={['header', 'bold', 'italic', 'underline']}
+			/>
+		</div>
 	);
 };
