@@ -6,8 +6,10 @@
 			"env": ["NEXT_PUBLIC_GRAPH_API_URI"],
 			"outputs": ["dist/**", ".next/**"]
 		},
-		"lint": {
-			"outputs": []
+		"lint": {},
+		"lint:fix": {
+			"outputs": [],
+			"cache": false
 		},
 		"test": {
 			"outputs": []

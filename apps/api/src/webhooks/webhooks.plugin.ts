@@ -1,5 +1,6 @@
 import { timingSafeEqual, createHmac } from 'node:crypto';
-import { Static, Type } from '@sinclair/typebox';
+import type { Static } from '@sinclair/typebox';
+import { Type } from '@sinclair/typebox';
 import { D } from '@mobily/ts-belt';
 import { env } from '../config';
 import type { FastifyPluginAsync } from 'fastify';
@@ -9,7 +10,7 @@ export const WebhookPayload = Type.Object({
 	name: Type.String(),
 	nickname: Type.String(),
 	picture: Type.String(),
-	user_id: Type.String(),
+	provider_user_id: Type.String(),
 });
 
 export const webhooksPlugin: FastifyPluginAsync = async (fastify, _opts) => {
@@ -47,13 +48,7 @@ export const webhooksPlugin: FastifyPluginAsync = async (fastify, _opts) => {
 				const body = request.body;
 
 				await fastify.db.user.create({
-					data: D.selectKeys(body, [
-						'email',
-						'name',
-						'nickname',
-						'picture',
-						'user_id',
-					]),
+					data: body,
 				});
 
 				return reply.status(200).send('OK');
@@ -80,7 +75,12 @@ export const webhooksPlugin: FastifyPluginAsync = async (fastify, _opts) => {
 					where: {
 						email: body.email,
 					},
-					data: D.selectKeys(body, ['name', 'nickname', 'picture', 'user_id']),
+					data: D.selectKeys(body, [
+						'name',
+						'nickname',
+						'picture',
+						'provider_user_id',
+					]),
 				});
 
 				return reply.status(200).send('OK');

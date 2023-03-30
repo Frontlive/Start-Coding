@@ -16,7 +16,7 @@ const main = async () => {
 				name,
 				nickname: faker.internet.userName(name),
 				picture: faker.image.avatar(),
-				user_id: faker.datatype.uuid(),
+				provider_user_id: faker.datatype.uuid(),
 			};
 		}),
 	});
@@ -35,7 +35,7 @@ const main = async () => {
 			rating: faker.datatype.number({ min: 0, max: 5 }),
 			status: faker.helpers.arrayElement(['IN_REVIEW', 'ACTIVE']),
 			thumbnail_url: faker.image.imageUrl(),
-			user_id: faker.helpers.arrayElement(users).id,
+			author_id: faker.helpers.arrayElement(users).id,
 		})),
 	});
 };

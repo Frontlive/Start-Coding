@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import ExitIcon from '../../icons/exit-icon.svg';
 import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';

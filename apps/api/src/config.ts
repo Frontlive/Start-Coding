@@ -9,4 +9,5 @@ export const env = cleanEnv(process.env, {
 	AUTH0_DOMAIN: str(),
 	BASE_URL: str(),
 	WEBHOOK_SECRET: str(),
+	FRONTEND_BASE_URL: str(),
 });

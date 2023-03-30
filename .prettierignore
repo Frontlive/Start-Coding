@@ -1,3 +1,7 @@
 node_modules
-**/.next/**
+**/.next
+**/.turbo
 next.config.js
+apps/api/auth0-example
+yarn.lock
+packages/generated
