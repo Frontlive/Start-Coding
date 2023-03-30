@@ -1,5 +1,6 @@
 import { timingSafeEqual, createHmac } from 'node:crypto';
-import { Static, Type } from '@sinclair/typebox';
+import type { Static } from '@sinclair/typebox';
+import { Type } from '@sinclair/typebox';
 import { D } from '@mobily/ts-belt';
 import { env } from '../config';
 import type { FastifyPluginAsync } from 'fastify';

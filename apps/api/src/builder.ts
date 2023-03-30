@@ -6,14 +6,7 @@ import PluginPrisma from '@pothos/plugin-prisma';
 import { client } from './prisma';
 import PluginValidation from '@pothos/plugin-validation';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
-
-export class SearchString {
-	string: string;
-
-	constructor(string: string) {
-		this.string = string;
-	}
-}
+import type { SearchString } from './scalarTypes';
 
 export type BuilderContext = {
 	PrismaTypes: PrismaTypes;
@@ -42,9 +35,13 @@ builder.addScalarType('Date', DateResolver, {});
 builder.addScalarType('DateTime', DateTimeResolver, {});
 
 builder.scalarType('SearchString', {
-	serialize: (s) => s.string,
+	serialize: (s) => s.value,
 	parseValue: (s: unknown) => {
-		return new SearchString(s as string);
+		if (typeof s !== 'string') {
+			throw new Error('SearchString must be a string');
+		}
+
+		return { value: s, type: 'SearchString' };
 	},
 });
 

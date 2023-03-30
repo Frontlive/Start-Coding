@@ -1,5 +1,4 @@
 import type { Prisma } from '@prisma/client';
-import { TaskStatus } from '@prisma/client';
 import { builder } from '../../../../builder';
 import type { PaginationArgs, UnwrapInputObjectRef } from '../../../../types';
 import { DateRangeInputType, PaginationInputType } from '../../../../utils';
@@ -12,7 +11,6 @@ const TaskFilterInputType = builder.inputType('TaskFilterInput', {
 			status: t.field({
 				type: StatusEnumType,
 				required: false,
-				defaultValue: TaskStatus.ACTIVE,
 			}),
 			difficulty: t.field({ type: DifficultyEnumType, required: false }),
 			title: t.field({ type: 'SearchString', required: false }),
