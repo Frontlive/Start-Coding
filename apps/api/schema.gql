@@ -57,7 +57,7 @@ input TaskFilterInput {
   created_at: DateRangeInput
   description: SearchString
   difficulty: TaskDifficulty
-  status: TaskStatus = ACTIVE
+  status: TaskStatus
   title: SearchString
   updated_at: DateRangeInput
 }

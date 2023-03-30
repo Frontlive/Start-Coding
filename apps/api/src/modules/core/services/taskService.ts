@@ -8,7 +8,7 @@ import type {
 } from '../submodules/performingTask/queries';
 import type { Prisma } from '@prisma/client';
 import { D } from '@mobily/ts-belt';
-import { SearchString } from '../../../builder';
+import { isSearchString } from '../../../scalarTypes';
 
 export const makeTasksService = (ctx: Deps) => {
 	const db = ctx[DB_SYMBOL];
@@ -23,8 +23,8 @@ export const makeTasksService = (ctx: Deps) => {
 			}
 
 			const where = Object.entries(args.filter).reduce((acc, [key, value]) => {
-				if (value instanceof SearchString) {
-					return D.set(acc, key, { contains: value.string });
+				if (isSearchString(value)) {
+					return D.set(acc, key, { contains: value.value });
 				}
 				if (value) {
 					return D.set(acc, key, value);
