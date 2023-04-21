@@ -14,6 +14,8 @@ export const Header = () => {
 	const { user, isLoading } = useUser();
 	const { closeBurgerMenu, isBurgerMenuActive, openBurgerMenu } =
 		useHamburgerMenu();
+
+	console.log(closeBurgerMenu, 'c');
 	return (
 		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
 			<Link href="/">
@@ -31,7 +33,10 @@ export const Header = () => {
 				<VisuallyHidden>burger</VisuallyHidden>
 			</button>
 			{isBurgerMenuActive && (
-				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
+				<DropDownBurgerMenu
+					closeBurgerMenu={closeBurgerMenu}
+					hideBurgerMenu={closeBurgerMenu}
+				>
 					<Navbar>
 						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>
