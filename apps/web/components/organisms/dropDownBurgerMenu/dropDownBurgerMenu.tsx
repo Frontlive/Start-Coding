@@ -8,13 +8,11 @@ import { HeaderUserLoginContent } from 'organisms/header/headerUserLoginContent/
 
 type DropDownBurgerMenuProps = {
 	hideBurgerMenu: () => void;
-	closeBurgerMenu: () => void;
 	children: ReactNode;
 };
 export const DropDownBurgerMenu = ({
 	children,
 	hideBurgerMenu,
-	closeBurgerMenu,
 }: DropDownBurgerMenuProps) => {
 	const { user, isLoading } = useUser();
 
@@ -27,7 +25,7 @@ export const DropDownBurgerMenu = ({
 			{!isLoading && !user && <HeaderUserLoginContent />}
 			{!isLoading && user && (
 				<div
-					onClick={closeBurgerMenu}
+					onClick={hideBurgerMenu}
 					className="flex gap-4 flex-col justify-center items-center font-semibold text-blue-600"
 				>
 					{children}

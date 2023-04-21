@@ -32,10 +32,7 @@ export const Header = () => {
 				<VisuallyHidden>burger</VisuallyHidden>
 			</button>
 			{isBurgerMenuActive && (
-				<DropDownBurgerMenu
-					closeBurgerMenu={closeBurgerMenu}
-					hideBurgerMenu={closeBurgerMenu}
-				>
+				<DropDownBurgerMenu hideBurgerMenu={closeBurgerMenu}>
 					<Navbar>
 						<NavLink link={{ name: 'Zadania', href: '/challenges/all' }} />
 					</Navbar>
