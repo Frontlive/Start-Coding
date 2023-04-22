@@ -13,7 +13,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 		<ApolloProvider client={graphClient}>
 			<UserProvider>
 				<Header />
-				{children}
+				<div className="isolate">{children}</div>
 			</UserProvider>
 		</ApolloProvider>
 	);
