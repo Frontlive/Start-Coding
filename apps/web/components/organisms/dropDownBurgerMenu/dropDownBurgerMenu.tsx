@@ -24,7 +24,10 @@ export const DropDownBurgerMenu = ({
 			</button>
 			{!isLoading && !user && <HeaderUserLoginContent />}
 			{!isLoading && user && (
-				<div className="flex gap-4 flex-col justify-center items-center font-semibold text-blue-600">
+				<div
+					onClick={hideBurgerMenu}
+					className="flex gap-4 flex-col justify-center items-center font-semibold text-blue-600"
+				>
 					{children}
 
 					<Link href="/challenge/new" variant="primary">
