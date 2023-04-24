@@ -1,3 +1,5 @@
+import { Container } from 'ui';
+
 export const Homepage = () => {
-	return <div>Witaj na stronie głównej</div>;
+	return <Container as="main">Witaj na stronie głównej</Container>;
 };

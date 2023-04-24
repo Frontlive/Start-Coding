@@ -1,4 +1,4 @@
-import { Button, CategoryTag, Heading, Text } from 'ui';
+import { Button, CategoryTag, Container, Heading, Text } from 'ui';
 import Image from 'next/image';
 import type { Challenge } from '../../../../types/types';
 import { useState } from 'react';
@@ -22,7 +22,7 @@ export const SingleChallengePage = ({
 	const { isLoading, user } = useUser();
 
 	return (
-		<main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<Container as="main" id="main">
 			<LoginModal
 				isOpen={!user && !isLoading && showModal}
 				onClose={onClickHandler}
@@ -66,6 +66,6 @@ export const SingleChallengePage = ({
 					</div>
 				</div>
 			</section>
-		</main>
+		</Container>
 	);
 };
