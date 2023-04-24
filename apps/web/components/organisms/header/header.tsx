@@ -18,11 +18,7 @@ export const Header = () => {
 	return (
 		<header className="flex  px-12 py-4  justify-between items-center w-full sticky shadow-xl z-10">
 			<Link href="/">
-				<Heading
-					tag="h1"
-					size="large"
-					className="font-bold text-2xl whitespace-nowrap mr-20"
-				>
+				<Heading tag="h1" size="large" fontWeight="bold">
 					Start-Coding
 				</Heading>
 			</Link>
