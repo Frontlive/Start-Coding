@@ -1,8 +1,8 @@
-import { DropdownMenu, Divider, DropdownMenuItem, GenericLink } from 'ui';
+import { Divider, DropdownMenu, DropdownMenuItem, GenericLink } from 'ui';
 import profileDefaultSvg from 'icons/profile-default.svg';
-import Image from 'next/image';
 import { AddNewTaskLink } from 'molecules/challengePage/addNewTaskLink/addNewTaskLink';
 import { useRouter } from 'next/router';
+import { UserAvatar } from 'molecules/userAvatar/userAvatar';
 
 type HeaderUserLoggedInItemProps = {
 	user: {
@@ -18,23 +18,11 @@ export const HeaderUserLoggedInContent = ({
 	const isOnChallengeNewPage = router.pathname.includes('/challenge/new');
 	return (
 		<div className="flex flex-col lg:flex-row items-center">
-			<div className="h-10 w-10 mr-2 ">
+			<div className="mr-2">
 				{user.avatarSrc ? (
-					<Image
-						className="rounded-full border"
-						src={user.avatarSrc}
-						alt="User Avatar"
-						width={100}
-						height={100}
-					/>
+					<UserAvatar avatar={user.avatarSrc} size="10" />
 				) : (
-					<Image
-						className="rounded-full border"
-						src={profileDefaultSvg}
-						alt="default user avatar"
-						height={100}
-						width={100}
-					/>
+					<UserAvatar avatar={profileDefaultSvg} size="10" />
 				)}
 			</div>
 			<p className="p-0 m-0">Witaj, {user.nickname}!</p>
