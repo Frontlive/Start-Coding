@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
+		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
@@ -13,18 +14,15 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"baseUrl": ".",
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
 		"paths": {
-			"atoms/*": ["components/atoms/*"],
-			"molecules/*": ["components/molecules/*"],
-			"organisms/*": ["components/organisms/*"],
-			"templates/*": ["components/templates/*"],
-			"layouts/*": ["components/layouts/*"],
-			"utils/*": ["utils/*"],
-			"icons/*": ["components/icons/*"]
-		},
-		"allowJs": true
+			"@/*": ["./src/*"]
+		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"]
 }

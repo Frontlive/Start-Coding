@@ -3,13 +3,12 @@
 	"version": "0.0.1",
 	"description": "Shared types generated from GraphQL schema",
 	"private": true,
+	"main": "./index.ts",
+	"types": "./index.ts",
 	"scripts": {
 		"generate": "graphql-code-generator --config ./codegen.ts",
 		"postgenerate": "eslint --fix --ext .ts"
 	},
-	"types": "./index.ts",
-	"main": "./index.ts",
-	"keywords": [],
 	"dependencies": {
 		"@graphql-codegen/cli": "^2.6.2",
 		"@graphql-codegen/typed-document-node": "^2.2.11",
