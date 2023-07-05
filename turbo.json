@@ -8,10 +8,8 @@
 		},
 		"lint": {},
 		"lint:fix": {
+			"outputs": [],
 			"cache": false
-		},
-		"lint:fix": {
-			"outputs": []
 		},
 		"test": {
 			"outputs": []
