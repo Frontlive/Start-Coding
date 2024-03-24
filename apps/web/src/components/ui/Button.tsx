@@ -6,9 +6,9 @@ type ButtonVariant = 'outline-white' | 'contained-white' | 'contained-magenta';
 type ButtonProps = {
 	variant: ButtonVariant;
 	children: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
-export function Button({ variant, children, ...props }: ButtonProps) {
+export const Button = ({ variant, children, ...props }: ButtonProps) => {
 	return (
 		<button
 			className={clsx(
@@ -27,4 +27,4 @@ export function Button({ variant, children, ...props }: ButtonProps) {
 			{children}
 		</button>
 	);
-}
+};
