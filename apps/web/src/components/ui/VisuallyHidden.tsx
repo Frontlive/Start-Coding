@@ -1,12 +1,10 @@
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
+import * as RadixVisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactNode } from 'react';
 
-type CustomVisuallyHiddenProps = {
+type VisuallyHiddenProps = {
 	children: ReactNode;
 };
 
-const CustomVisuallyHidden = ({ children }: CustomVisuallyHiddenProps) => (
-	<VisuallyHidden.Root>{children}</VisuallyHidden.Root>
+export const VisuallyHidden = ({ children }: VisuallyHiddenProps) => (
+	<RadixVisuallyHidden.Root>{children}</RadixVisuallyHidden.Root>
 );
-
-export { CustomVisuallyHidden as VisuallyHidden };

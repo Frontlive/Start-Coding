@@ -5,7 +5,7 @@ import { Button } from '../../ui/Button';
 import { MobileNavigation } from './MobileNavigation';
 import { links } from './links';
 
-export function Navigation() {
+export const Navigation = () => {
 	return (
 		<nav className="w-full flex justify-between items-center p-4 pt-8 md:p-8 lg:p-10 xl:p-12 text-white">
 			<header className="flex-1">
@@ -15,16 +15,11 @@ export function Navigation() {
 				>
 					<Image src={Logo} alt="" />
 
-					<h1 className="text-xl lg:text-2xl font-semibold">
-						Start Coding
-					</h1>
+					<h1 className="text-xl lg:text-2xl font-semibold">Start Coding</h1>
 				</Link>
 			</header>
 
-			<ul
-				role="list"
-				className="hidden lg:flex flex-1 justify-center xl:gap-5"
-			>
+			<ul role="list" className="hidden lg:flex flex-1 justify-center xl:gap-5">
 				{links.map(({ name, href }, index) => (
 					<li key={index}>
 						<Link
@@ -38,14 +33,13 @@ export function Navigation() {
 			</ul>
 
 			<div className="hidden lg:flex flex-1 justify-end gap-5">
-				<Button type="button" variant="outline-white" color="white">
+				<Button type="button" variant="outline-white">
 					Login
 				</Button>
 
 				<Button
 					type="button"
 					variant="contained-magenta"
-					color="magenta"
 				>
 					Sign up
 				</Button>
@@ -56,4 +50,4 @@ export function Navigation() {
 			</div>
 		</nav>
 	);
-}
+};

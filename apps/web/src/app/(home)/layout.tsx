@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { Hero } from '../../components/inc/Hero';
-import { Navigation } from '../../components/inc/navigation/Navigation';
+import { Hero } from '@/components/inc/Hero';
+import { Navigation } from '@/components/inc/navigation/Navigation';
 
 export default function HomePageLayout({
 	children,
@@ -8,11 +8,11 @@ export default function HomePageLayout({
 	readonly children: ReactNode;
 }) {
 	return (
-		<div>
+		<>
 			<Navigation />
 			<Hero />
 
 			{children}
-		</div>
+		</>
 	);
 }
