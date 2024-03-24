@@ -1,15 +1,22 @@
-'use client';
-
 import * as RadixDialog from '@radix-ui/react-dialog';
 import type { ReactNode } from 'react';
 
 type DialogRootProps = {
 	isOpen: boolean;
+	onOpenChange: (state: boolean) => void;
 	children: ReactNode;
 };
 
-export const DialogRoot = ({ isOpen, children }: DialogRootProps) => {
-	return <RadixDialog.Root open={isOpen}>{children}</RadixDialog.Root>;
+export const DialogRoot = ({
+	isOpen,
+	onOpenChange,
+	children,
+}: DialogRootProps) => {
+	return (
+		<RadixDialog.Root open={isOpen} onOpenChange={onOpenChange}>
+			{children}
+		</RadixDialog.Root>
+	);
 };
 
 type DialogTriggerProps = {

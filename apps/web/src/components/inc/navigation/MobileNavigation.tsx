@@ -1,7 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { DialogContent, DialogDescription, DialogRoot, DialogTitle, DialogTrigger } from '../../ui/Dialog';
+import {
+	DialogContent,
+	DialogDescription,
+	DialogRoot,
+	DialogTitle,
+	DialogTrigger,
+} from '../../ui/Dialog';
 import Hamburger from '../../../assets/images/hamburger.svg';
 import { useMobileNavigation } from './useMobileNavigation';
 import { VisuallyHidden } from '../../ui/VisuallyHidden';
@@ -9,10 +15,10 @@ import Link from 'next/link';
 import { links } from './links';
 
 export const MobileNavigation = () => {
-	const { isOpen, open, close } = useMobileNavigation();
+	const { isOpen, open, close, toggle } = useMobileNavigation();
 
 	return (
-		<DialogRoot isOpen={isOpen}>
+		<DialogRoot isOpen={isOpen} onOpenChange={toggle}>
 			<DialogTrigger>
 				<button type="button" className="a11y-button rounded-sm" onClick={open}>
 					<Image src={Hamburger} alt="open navigation" />
