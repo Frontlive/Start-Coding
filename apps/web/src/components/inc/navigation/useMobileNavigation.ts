@@ -1,22 +1,19 @@
-import { useState } from 'react';
-import { usePressKey } from '../../../hooks/usePressKey';
+import { useBoolean } from '@/hooks/useBoolean';
 
-export function useMobileNavigation() {
-	const [isOpen, setIsOpen] = useState(false);
+export const useMobileNavigation = () => {
+	const { state, setTrue, setFalse } = useBoolean();
 
 	const open = () => {
-		setIsOpen(() => true);
+		setTrue();
 	};
 
 	const close = () => {
-		setIsOpen(() => false);
+		setFalse();
 	};
 
-	usePressKey('Escape', () => close());
-
 	return {
-		isOpen,
+		isOpen: state,
 		open,
 		close,
 	};
-}
+};
