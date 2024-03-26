@@ -6,5 +6,5 @@ module.exports = {
 		'react/jsx-key': 'off',
 		'react-hooks/exhaustive-deps': 'error',
 	},
-	ignorePatterns: ['tailwind.config.js'],
+	ignorePatterns: ['tailwind.config.ts'],
 };

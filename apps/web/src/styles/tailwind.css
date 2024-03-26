@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-purple-dark: 20 7 26;
+        --color-purple-mid: 58 12 164;
+        --color-purple-light: 127 0 251;
+
+        --color-blue-dark: 23 37 91;
+
+        --color-magenta-mid: 168 36 182;
+    }
+
+    .a11y-link {
+        @apply focus-visible:outline-2 focus-visible:outline-magenta-mid rounded-xl focus-visible:outline-dashed
+    }
+
+    .a11y-button {
+        @apply focus-visible:outline-2 focus-visible:outline-magenta-mid focus-visible:outline-dashed focus-visible:outline-offset-8
+    }
+}

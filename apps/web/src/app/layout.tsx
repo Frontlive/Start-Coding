@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 
 import type { ReactNode } from 'react';
 
-import '@/styles/globals.css';
+import '../styles/globals.css';
 
 export const metadata = {
 	title: 'Create Next App',
@@ -14,14 +14,18 @@ const inter = Inter({
 	subsets: ['latin', 'latin-ext'],
 });
 
-export default function RootLayout({
-	children,
-}: {
-	readonly children: ReactNode;
-}) {
+type RootLayoutProps = {
+	children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en" className={inter.variable}>
-			<body>{children}</body>
+			<body>
+				<div className="min-w-screen min-h-screen bg-purple-dark tracking-wide">
+					{children}
+				</div>
+			</body>
 		</html>
 	);
 }
